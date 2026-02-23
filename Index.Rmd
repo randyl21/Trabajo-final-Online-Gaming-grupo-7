@@ -27,3 +27,22 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+##Instalo librerias necesarias
+install.packages("usethis")
+install.packages("gitcreds")
+
+##Cargo librerias y configuramos
+library(usethis)
+use_git_config(
+  user.name = "Estefani-C",
+  user.email = "estefanicarreno2007@gmail.com"
+)
+
+##Crear token para credenciales de github
+create_github_token()
+
+##Configuro token
+library(gitcreds)
+gitcreds_set()
