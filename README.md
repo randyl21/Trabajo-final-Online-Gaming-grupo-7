@@ -11,7 +11,7 @@ Analizar la relación entre la ubicación geográfica y la preferencia de géner
 
  *Objetivos específicos*
 
-1. Identificar cuáles son los géneros de juego más populares en cada ubicación (USA, Europe, Otros) para establecer el contexto del mercado.
+1. Identificar cuáles son los géneros de juego más populares en cada ubicación (USA, Europa, Otros) para establecer el contexto del mercado.
 
 2. Comparar las horas de dedicación y frecuencia de sesiones semanales entre distintos géneros de videojuegos
 
