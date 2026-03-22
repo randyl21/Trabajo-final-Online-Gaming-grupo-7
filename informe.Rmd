@@ -83,15 +83,16 @@ Finalmente, el estudio de estos indicadores permite establecer proyecciones info
 \section{Objetivos}
  
 \subsection{Objetivo General}
-\begin{itemize}
-  \item{Describir objetivo general del trabajo de investigación}
-\end{itemize}
+
+Analizar la relación entre la ubicación geográfica y la preferencia de género de videojuego, evaluando cómo estas variables influyen en los patrones de intensidad y frecuencia de uso de los jugadores.
+
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
-  \item{Describir objetivo 1 del trabajo de investigación}
-  \item{Describir objetivo 2 del trabajo de investigación}
-  \item{Describir objetivo 3 del trabajo de investigación}
+  \item{Identificar cuáles son los géneros de juego más populares en cada ubicación para establecer el contexto del mercado.}
+  \item{Comparar las horas de dedicación y frecuencia de sesiones semanales entre distintos géneros de videojuegos.}
+  \item{Evaluar la distribución de las horas totales de juego registradas por los usuarios para identificar niveles de dedicación.}
+  \item{verificar si existe una relación directa entre el tiempo total de juego y la frecuencia semanal.}
 \end{itemize}
 
 
@@ -105,13 +106,14 @@ Describir la cobertura Horizontal del trabajo de investigación\
 \centering
 \caption{Variables consideradas} 
 \resizebox{10cm}{!} {
-\begin{tabular}{ccc}
+\begin{tabular}{cll}
   \hline
-\ \ \ \ \ NOMBRE DE LA VARIABLE \\ 
+  \textbf{TIPO} & \textbf{VARIABLE} & \textbf{DESCRIPCIÓN} \\ 
   \hline
-   VARIABLE 1 \\ 
-VARIABLE 2\\ 
-VARIABLE n\\ 
+  Categórica & Game Genre & Género del videojuego \\ 
+  Categórica & Location & País dónde el jugador jugó el videojuego \\ 
+  Numérica & Sessions Per Week & Cantidad de sesiones de juego a la semana \\
+  Numérica & Playtime Hours & Tiempo total dedicado a jugar (horas) \\ 
    \hline
 \end{tabular}
 }
