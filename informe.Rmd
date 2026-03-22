@@ -74,7 +74,11 @@ Por tal motivo, la obtención de respuestas claras, detalladas y fundamentadas a
 
 \section{Justificación}
 
-Justificación del trabajo de investigación\
+La relevancia de la presente investigación reside en la necesidad de realizar un análisis de los entornos regionales durante la fase de planeación de cualquier proyecto de software interactivo. Se observa que el consumo de géneros específicos de videojuegos no es un fenómeno uniforme, sino que presenta una variabilidad significativa condicionada por factores ideológicos, culturales y geográficos propios de cada país o continente. Esta diversificación en los patrones de uso constituye una fuente de información de alto valor estratégico para las empresas del sector.
+
+Por otro lado, desde una perspectiva empresarial, la comprensión de estas dinámicas regionales es un factor determinante para la viabilidad económica y la sostenibilidad de las desarrolladoras. Dado que el objetivo primordial de estas organizaciones es el lanzamiento de productos de éxito que aseguren su permanencia en el mercado, resulta imperativo analizar variables como la afinidad por género de juego y su correlación directa con el tiempo de consumo por parte del usuario.
+
+Finalmente, el estudio de estos indicadores permite establecer proyecciones informadas sobre el desempeño comercial de un proyecto. Al identificar qué géneros tienen mayor tracción en plazos de tiempo determinados según la región, es posible obtener indicios tempranos sobre el grado de aceptación y el éxito potencial que un desarrollo podrá alcanzar en el futuro, minimizando así la incertidumbre en la toma de decisiones.
 
 \section{Objetivos}
  
