@@ -96,11 +96,7 @@ Analizar la relación entre la ubicación geográfica y la preferencia de géner
 \end{itemize}
 
 
-\section{Cobertura}
-
-\subsection{Horizontal}
-
-Describir la cobertura Horizontal del trabajo de investigación\
+\section {Variables}
 
 \begin{table}[ht]
 \centering
@@ -118,10 +114,6 @@ Describir la cobertura Horizontal del trabajo de investigación\
 \end{tabular}
 }
 \end{table}
-
-\subsection{Vertical}
-
-Describir la cobertura Vertical del trabajo de investigación
 
 
 \section{Periodo de Referencia}
