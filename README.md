@@ -1,5 +1,5 @@
 # Trabajo-final-Online-Gaming-grupo-7
-“Análisis del comportamiento de los jugadores en función de la ubicación geográfica y el género del videojuego: horas de uso y frecuencia de sesiones.”
+Análisis del comportamiento de los jugadores en función de la ubicación geográfica y el género del videojuego: horas de uso y frecuencia de sesiones
 
 *Planteamiento del problema*
 
