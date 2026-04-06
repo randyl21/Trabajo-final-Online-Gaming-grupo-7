@@ -3,7 +3,7 @@
 title: "Análisis del comportamiento de los jugadores en función de la ubicación geográfica y el género del videojuego: horas de uso y frecuencia de sesiones"
 author:
    - Estefani Carreño
-   - Aziel Gonzalez
+   - Aziel González
 date: "Abril 2026"
 
 # --- Metadatos Específicos de Plantilla ---
@@ -59,6 +59,17 @@ library(scales)
 La industria de los videojuegos ha dejado de ser un nicho para convertirse en un pilar económico global. Sin embargo, el éxito de un título no es accidental, sino el resultado de entender la compleja interacción entre la cultura regional y las preferencias de género de los usuarios. Para el análisis de datos, esto plantea un reto clave: ¿Cómo influyen la ubicación y el tipo de juego en la fidelidad y el tiempo que un usuario dedica a un videojuego? 
 
 El presente trabajo realiza un análisis estadístico exhaustivo sobre el dataset Online Gaming.csv. Mediante el uso de herramientas en R y técnicas de visualización, se busca descomponer el comportamiento del jugador en función de su ubicación geográfica y el género del videojuego. Al adoptar un enfoque de corte transversal sobre una muestra sintética, este informe transforma métricas de intensidad y frecuencia de uso en información estratégica para la toma de decisiones en el sector de los videojuegos.
+
+# Estructura del informe
+
+\begin{itemize}
+  \item{En el Capítulo I, se plantea la problemática de la variabilidad en los patrones de consumo, los objetivos, las variables de estudio, y el periodo de referencia.}
+  \item{En el Capítulo II, se establece el Marco Teórico, información necesaria para el informe, definiendo los conceptos estadísticos clave como esperanza matemática, correlación, necesarios para la interpretación de los datos.}
+  \item{En el Capítulo III, se describe las Bases Metódicas, detallando la naturaleza sintética del dataset y su proceso de limpieza. }
+  \item{El Capítulo IV presenta el Análisis de Resultados, donde se exhiben tablas y gráficos generados dinámicamente en R Markdown es interpretrandolos.}
+  \item{En el Capítulo V, se exponen las Conclusiones derivadas del análisis, orientadas a la toma de decisiones basada en los datos obtenidos.}
+\end{itemize}
+
 
 \chapter{Planteamiento del Problema}
 A pesar del enorme y constante crecimiento que ha experimentado la industria global de los videojuegos en los últimos tiempos, existe una necesidad de contar con estudios especializados. Estos análisis deben centrarse en la recopilación y examen de ciertos datos específicos que poseen la capacidad de influir de manera determinante en los patrones de uso de los jugadores.
