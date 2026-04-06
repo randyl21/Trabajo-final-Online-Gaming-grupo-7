@@ -32,7 +32,7 @@ output:
 
 # --- Resumen (Abstract) ---
 abstract: |
-  Resumen del trabajo de investigación...
+  En el presente trabajo se realiza un análisis estadístico sobre el comportamiento de los jugadores de videojuegos a nivel global. Se examina la influencia de la ubicación geográfica y el género del juego en los patrones de consumo, evaluando específicamente la intensidad de uso (horas totales) y la frecuencia de sesiones semanales. El estudio aplica técnicas estadísticas descriptivas y visualización de datos con R.
 ---
 
 ```{r setup, include=FALSE}
@@ -56,7 +56,9 @@ library(scales)
 
 \chapter*{Introducción}
 
-Introducción del trabajo de investigación
+La industria de los videojuegos ha dejado de ser un nicho para convertirse en un pilar económico global. Sin embargo, el éxito de un título no es accidental, sino el resultado de entender la compleja interacción entre la cultura regional y las preferencias de género de los usuarios. Para el análisis de datos, esto plantea un reto clave: ¿Cómo influyen la ubicación y el tipo de juego en la fidelidad y el tiempo que un usuario dedica a un videojuego? 
+
+El presente trabajo realiza un análisis estadístico exhaustivo sobre el dataset Online Gaming.csv. Mediante el uso de herramientas en R y técnicas de visualización, se busca descomponer el comportamiento del jugador en función de su ubicación geográfica y el género del videojuego. Al adoptar un enfoque de corte transversal sobre una muestra sintética, este informe transforma métricas de intensidad y frecuencia de uso en información estratégica para la toma de decisiones en el sector de los videojuegos.
 
 \chapter{Planteamiento del Problema}
 A pesar del enorme y constante crecimiento que ha experimentado la industria global de los videojuegos en los últimos tiempos, existe una necesidad de contar con estudios especializados. Estos análisis deben centrarse en la recopilación y examen de ciertos datos específicos que poseen la capacidad de influir de manera determinante en los patrones de uso de los jugadores.
