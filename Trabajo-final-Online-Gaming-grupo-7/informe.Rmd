@@ -1,0 +1,210 @@
+---
+# --- Metadatos Básicos ---
+title: "Análisis del comportamiento de los jugadores en función de la ubicación geográfica y el género del videojuego: horas de uso y frecuencia de sesiones"
+author:
+   - Estefani Carreño
+   - Randy Conde
+   - Aziel Gonzalez
+date: "Febrero 2026"
+
+# --- Metadatos Específicos de Plantilla ---
+degree: "Computación I"
+director: 
+  - Jesus Ochoa 
+  - Oliver Triveño
+lugar: "Caracas"
+facultad: 
+  - Facultad de Ciencias Económicas y Sociales
+  - Escuela de Estadistica y Ciencias Actuariales
+# Ruta al escudo (relativa al archivo .Rmd)
+escudo: "Latex/Classes/Escudos/faces"
+
+# --- Bibliografía ---
+bibliography: bibliografia.bib
+
+# --- Configuración de Salida ---
+output: 
+  pdf_document:
+    template: template.tex  # Llamamos al archivo de plantilla
+    keep_tex: true                 # Útil para ver errores si ocurren
+    toc: true                      # Generar índice
+    number_sections: true
+    citation_package: natbib       # Importante: forzar natbib porque tu plantilla lo usa
+
+# --- Resumen (Abstract) ---
+abstract: |
+  Resumen del trabajo de investigación...
+---
+
+```{r setup, include=FALSE}
+# Configuración global de chunks
+knitr::opts_chunk$set(
+  echo = FALSE,        # Mostrar código
+  warning = FALSE,    # Ocultar advertencias
+  message = FALSE,    # Ocultar mensajes de carga
+  fig.align = "center",
+  out.width = "90%",
+  fig.pos = "H",
+  out.extra = ""
+)
+
+# Cargar librerías necesarias
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(scales)
+```
+
+\chapter*{Introducción}
+
+Introducción del trabajo de investigación
+
+\chapter{Planteamiento del Problema}
+A pesar del enorme y constante crecimiento que ha experimentado la industria global de los videojuegos en los últimos tiempos, existe una necesidad de contar con estudios especializados. Estos análisis deben centrarse en la recopilación y examen de ciertos datos específicos que poseen la capacidad de influir de manera determinante en los patrones de uso de los jugadores.
+
+Ahora bien, dentro de estas variables críticas, destacan factores como la localización geográfica de los usuarios y el tiempo de consumo que estos dedican, siempre analizados en estrecha relación con el género de juego en cuestión. Para profundizar en este entendimiento, resulta fundamental abordar una serie de interrogantes que definen la dinámica del sector: 
+
+\textbf{1.} ¿Cuáles son los géneros más populares en cada región y cómo se relacionan con la intensidad y frecuencia de juego?\ 
+
+\textbf{2.}	¿Se puede establecer una relación directa entre el tiempo total invertido y la cantidad de sesiones semanales?\ 
+
+Como consecuencia, esta fragmentación en el conocimiento existente impide, por ejemplo, determinar si los patrones de consumo responden más a factores culturales debido a su región o a características intrínsecas de cada tipo de juego. Asimismo, dificulta la identificación de perfiles de usuario basados en la intensidad de uso y su relación con la frecuencia de acceso, información crucial para el diseño de experiencias personalizadas.
+
+Por tal motivo, la obtención de respuestas claras, detalladas y fundamentadas a estas preguntas no es un mero ejercicio estadístico; es una herramienta necesaria para alcanzar una comprensión integral del comportamiento del mercado. Solo a través de este conocimiento, es posible prever las reacciones de la audiencia y asegurar la efectividad de las estrategias aplicadas a la hora de realizar el lanzamiento de un nuevo producto.
+
+\section{Justificación}
+
+La relevancia de la presente investigación reside en la necesidad de realizar un análisis de los entornos regionales durante la fase de planeación de cualquier proyecto de software interactivo. Se observa que el consumo de géneros específicos de videojuegos no es un fenómeno uniforme, sino que presenta una variabilidad significativa condicionada por factores ideológicos, culturales y geográficos propios de cada país o continente. Esta diversificación en los patrones de uso constituye una fuente de información de alto valor estratégico para las empresas del sector.
+
+Por otro lado, desde una perspectiva empresarial, la comprensión de estas dinámicas regionales es un factor determinante para la viabilidad económica y la sostenibilidad de las desarrolladoras. Dado que el objetivo primordial de estas organizaciones es el lanzamiento de productos de éxito que aseguren su permanencia en el mercado, resulta imperativo analizar variables como la afinidad por género de juego y su correlación directa con el tiempo de consumo por parte del usuario.
+
+Finalmente, el estudio de estos indicadores permite establecer proyecciones informadas sobre el desempeño comercial de un proyecto. Al identificar qué géneros tienen mayor tracción en plazos de tiempo determinados según la región, es posible obtener indicios tempranos sobre el grado de aceptación y el éxito potencial que un desarrollo podrá alcanzar en el futuro, minimizando así la incertidumbre en la toma de decisiones.
+
+\section{Objetivos}
+ 
+\subsection{Objetivo General}
+
+Analizar la relación entre la ubicación geográfica y la preferencia de género de videojuego, evaluando cómo estas variables influyen en los patrones de intensidad y frecuencia de uso de los jugadores.
+
+
+\subsection{Objetivos Específicos}
+\begin{itemize}
+  \item{Identificar cuáles son los géneros de juego más populares en cada ubicación para establecer el contexto del mercado.}
+  \item{Comparar las horas de dedicación y frecuencia de sesiones semanales entre distintos géneros de videojuegos.}
+  \item{Evaluar la distribución de las horas totales de juego registradas por los usuarios para identificar niveles de dedicación.}
+  \item{verificar si existe una relación directa entre el tiempo total de juego y la frecuencia semanal.}
+\end{itemize}
+
+
+\section {Variables}
+
+\begin{table}[ht]
+\centering
+\caption{Variables consideradas} 
+\resizebox{10cm}{!} {
+\begin{tabular}{cll}
+  \hline
+  \textbf{TIPO} & \textbf{VARIABLE} & \textbf{DESCRIPCIÓN} \\ 
+  \hline
+  Categórica & Game Genre & Género del videojuego \\ 
+  Categórica & Location & País dónde el jugador jugó el videojuego \\ 
+  Numérica & Sessions Per Week & Cantidad de sesiones de juego a la semana \\
+  Numérica & Playtime Hours & Tiempo total dedicado a jugar (horas) \\ 
+   \hline
+\end{tabular}
+}
+\end{table}
+
+
+\section{Periodo de Referencia}
+
+Describir la fuente y el Periodo de Referencia utilizado en el trabajo de investigación
+
+\section{Variables}
+
+Describir la variable en estudio en el trabajo de investigación
+
+\chapter{Marco Teórico}
+
+
+\section{Bases Teóricas}
+
+Resumen de las bases teoricas explicadas en el capitulo y su importancia\
+
+\subsection{Definición 1}
+
+Descripción de la definición 1\
+
+\subsection{Definición 2}
+
+Descripción de la definición 2\
+
+\subsection{Definición n}
+
+Descripción de la definición n\
+
+
+\chapter{Marco Metódico}
+En esta sección se presentan las metodologías y/o test necesarios relacionados con la práctica divulgada en el marco teórico, así como las fuentes de datos.
+ 
+\section{Bases metódicas utilizadas en el trabajo de investigación}
+
+Desarrollo\
+
+\subsection{Item 1}
+
+Descripción\
+
+\subsection{Item 2}
+
+Descripción\
+
+\subsubsection{Item 2.2}
+
+Descripción\
+
+\subsection{Item n}
+
+Descripción\
+
+\chapter{Análisis de Resultados}
+
+{\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.}
+
+\section{Presentación de resultados 1}
+
+Descripción\
+
+\section{Presentación de resultados 2}
+
+Descripción\
+
+\section{Presentación de resultados n}
+
+Descripción\
+
+\chapter{Conclusiones y Recomendaciones}
+
+\textbf{1.-} Conclusion 1 del trabajo de investigación.\
+
+\textbf{Recomendación} 
+Recomendación 1 del trabajo de investigación.\
+
+\textbf{2.-} Conclusion 2 del trabajo de investigación.\
+
+\textbf{Recomendación} 
+Recomendación 2 del trabajo de investigación.\
+
+\textbf{n.-} Conclusion n del trabajo de investigación.\
+
+\textbf{Recomendación} Recomendación n del trabajo de investigación.\
+
+\appendix
+\renewcommand{\thechapter}{\Alph{chapter}}
+
+\chapter{Anexo A}
+
+\chapter{Anexo B}
+
+\chapter{Anexo C}
+
