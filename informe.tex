@@ -44,7 +44,7 @@
 \title{Análisis del comportamiento de los jugadores en función de la
 ubicación geográfica y el género del videojuego: horas de uso y
 frecuencia de sesiones}
-\author{Estefani Carreño \\ Randy Conde \\ Aziel Gonzalez}
+\author{Estefani Carreño \\ Aziel Gonzalez}
 
 % Lógica para Facultad: Si la defines en el YAML la usa, si no, usa la default
 
@@ -53,8 +53,8 @@ Estadistica y Ciencias Actuariales}
   \escudofacultad{Latex/Classes/Escudos/faces}
 
 \degree{Computación I}
-\director{Jesus Ochoa \\ Oliver Triveño}
-\degreedate{Febrero 2026} 
+\director{Jesús Ochoa \\ Oliver Triveño}
+\degreedate{Abril 2026} 
 \lugar{Caracas}
 
 \portadatrue 
@@ -197,7 +197,8 @@ patrones de intensidad y frecuencia de uso de los jugadores.
   \item{verificar si existe una relación directa entre el tiempo total de juego y la frecuencia semanal.}
 \end{itemize}
 
-\section {Variables}
+\section {Variables de estudio}
+
 \begin{table}[ht]
 \centering
 \caption{Variables consideradas} 
@@ -207,22 +208,30 @@ patrones de intensidad y frecuencia de uso de los jugadores.
   \textbf{TIPO} & \textbf{VARIABLE} & \textbf{DESCRIPCIÓN} \\ 
   \hline
   Categórica & Game Genre & Género del videojuego \\ 
-  Categórica & Location & País dónde el jugador jugó el videojuego \\ 
+  Categórica & Location & Locación donde jugó el videojuego (país) \\ 
   Numérica & Sessions Per Week & Cantidad de sesiones de juego a la semana \\
-  Numérica & Playtime Hours & Tiempo total dedicado a jugar (horas) \\ 
+  Numérica & Playtime Hours & Horas totales dedicadas a jugar \\ 
    \hline
 \end{tabular}
 }
 \end{table}
 
+\section{Variables y Análisis}
+
+El estudio se organiza en cuatro partes principales que permiten
+entender el comportamiento del usuario desde distintas perspectivas:
+
+\begin{itemize}
+  \item{Género del videojuego y Locación donde se jugó el videojuego: Cruzamos el género del videojuego con la ubicación del jugador. Esto nos permite establecer el contexto del mercado e identificar si ciertos tipos de juegos son éxitos globales o si su popularidad depende de factores culturales de cada país.}
+  \item{Cantidad de sesiones de juego a la semana y horas totales dedicadas a jugar: Comparamos las horas totales de juego con la frecuencia de sesiones semanales. Este análisis revela si el jugador prefiere sesiones largas y esporádicas o accesos cortos pero frecuentes, diferenciando el comportamiento según el género del videojuego.}
+  \item{Horas totales dedicadas a jugar: Analizamos la distribución de las horas de juego para clasificar a los usuarios según su compromiso.}
+  \item{Cantidad de sesiones de juego a la semana y horas totales dedicadas a jugar: Verificamos si hay una relación directa entre el tiempo total y la constancia semanal. El objetivo es determinar si un aumento en las sesiones se traduce necesariamente en una mayor cantidad de horas totales, validando la consistencia del jugador.}
+\end{itemize}
+
 \section{Periodo de Referencia}
 
 Describir la fuente y el Periodo de Referencia utilizado en el trabajo
 de investigación
-
-\section{Variables}
-
-Describir la variable en estudio en el trabajo de investigación
 
 \chapter{Marco Teórico}
 
