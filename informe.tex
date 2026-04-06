@@ -44,7 +44,7 @@
 \title{Análisis del comportamiento de los jugadores en función de la
 ubicación geográfica y el género del videojuego: horas de uso y
 frecuencia de sesiones}
-\author{Estefani Carreño \\ Randy Conde \\ Aziel Gonzalez}
+\author{Estefani Carreño \\ Aziel González}
 
 % Lógica para Facultad: Si la defines en el YAML la usa, si no, usa la default
 
@@ -53,8 +53,8 @@ Estadistica y Ciencias Actuariales}
   \escudofacultad{Latex/Classes/Escudos/faces}
 
 \degree{Computación I}
-\director{Jesus Ochoa \\ Oliver Triveño}
-\degreedate{Febrero 2026} 
+\director{Jesús Ochoa \\ Oliver Triveño}
+\degreedate{Abril 2026} 
 \lugar{Caracas}
 
 \portadatrue 
@@ -99,8 +99,13 @@ Estadistica y Ciencias Actuariales}
   \chapter*{Resumen}     % Crea el título "Resumen" sin numeración (Capítulo *)
   \addcontentsline{toc}{chapter}{Resumen} % (Opcional) Lo añade al índice
   
-  Resumen del trabajo de
-investigación\ldots{}             % Aquí se pega el texto que escribiste en el YAML
+  En el presente trabajo se realiza un análisis estadístico sobre el
+comportamiento de los jugadores de videojuegos a nivel global. Se
+examina la influencia de la ubicación geográfica y el género del juego
+en los patrones de consumo, evaluando específicamente la intensidad de
+uso (horas totales) y la frecuencia de sesiones semanales. El estudio
+aplica técnicas estadísticas descriptivas y visualización de datos con
+R.             % Aquí se pega el texto que escribiste en el YAML
   
   \cleardoublepage
 
@@ -113,7 +118,32 @@ investigación\ldots{}             % Aquí se pega el texto que escribiste en el
 % --- CAMBIO CRÍTICO 2: Aquí RMarkdown inyecta todo tu texto ---
 \chapter*{Introducción}
 
-Introducción del trabajo de investigación
+La industria de los videojuegos ha dejado de ser un nicho para
+convertirse en un pilar económico global. Sin embargo, el éxito de un
+título no es accidental, sino el resultado de entender la compleja
+interacción entre la cultura regional y las preferencias de género de
+los usuarios. Para el análisis de datos, esto plantea un reto clave:
+¿Cómo influyen la ubicación y el tipo de juego en la fidelidad y el
+tiempo que un usuario dedica a un videojuego?
+
+El presente trabajo realiza un análisis estadístico exhaustivo sobre el
+dataset Online Gaming.csv. Mediante el uso de herramientas en R y
+técnicas de visualización, se busca descomponer el comportamiento del
+jugador en función de su ubicación geográfica y el género del
+videojuego. Al adoptar un enfoque de corte transversal sobre una muestra
+sintética, este informe transforma métricas de intensidad y frecuencia
+de uso en información estratégica para la toma de decisiones en el
+sector de los videojuegos.
+
+\section{Estructura del informe}\label{estructura-del-informe}
+
+\begin{itemize}
+  \item{En el Capítulo I, se plantea la problemática de la variabilidad en los patrones de consumo, los objetivos, las variables de estudio, y el periodo de referencia.}
+  \item{En el Capítulo II, se establece el Marco Teórico, información necesaria para el informe, definiendo los conceptos estadísticos clave como esperanza matemática, correlación, necesarios para la interpretación de los datos.}
+  \item{En el Capítulo III, se describe las Bases Metódicas, detallando la naturaleza sintética del dataset y su proceso de limpieza. }
+  \item{El Capítulo IV presenta el Análisis de Resultados, donde se exhiben tablas y gráficos generados dinámicamente en R Markdown es interpretrandolos.}
+  \item{En el Capítulo V, se exponen las Conclusiones derivadas del análisis, orientadas a la toma de decisiones basada en los datos obtenidos.}
+\end{itemize}
 
 \chapter{Planteamiento del Problema}
 
@@ -197,7 +227,8 @@ patrones de intensidad y frecuencia de uso de los jugadores.
   \item{verificar si existe una relación directa entre el tiempo total de juego y la frecuencia semanal.}
 \end{itemize}
 
-\section {Variables}
+\section {Variables de estudio}
+
 \begin{table}[ht]
 \centering
 \caption{Variables consideradas} 
@@ -207,22 +238,37 @@ patrones de intensidad y frecuencia de uso de los jugadores.
   \textbf{TIPO} & \textbf{VARIABLE} & \textbf{DESCRIPCIÓN} \\ 
   \hline
   Categórica & Game Genre & Género del videojuego \\ 
-  Categórica & Location & País dónde el jugador jugó el videojuego \\ 
+  Categórica & Location & Locación donde se jugó el videojuego (país) \\ 
   Numérica & Sessions Per Week & Cantidad de sesiones de juego a la semana \\
-  Numérica & Playtime Hours & Tiempo total dedicado a jugar (horas) \\ 
+  Numérica & Playtime Hours & Horas totales dedicadas a jugar \\ 
    \hline
 \end{tabular}
 }
 \end{table}
 
+\section{Variables y Análisis}
+
+El estudio se organiza en cuatro partes principales que permiten
+entender el comportamiento del usuario desde distintas perspectivas:
+
+\begin{itemize}
+  \item{Género del videojuego y locación donde se jugó el videojuego: Cruzamos el género del videojuego con la ubicación del jugador. Esto nos permite establecer el contexto del mercado e identificar si ciertos tipos de juegos son éxitos globales o si su popularidad depende de factores culturales de cada país.}
+  \item{Cantidad de sesiones de juego a la semana y horas totales dedicadas a jugar: Comparamos las horas totales de juego con la frecuencia de sesiones semanales. Este análisis revela si el jugador prefiere sesiones largas y esporádicas o accesos cortos pero frecuentes, diferenciando el comportamiento según el género del videojuego.}
+  \item{Horas totales dedicadas a jugar: Analizamos la distribución de las horas de juego para clasificar a los usuarios según su compromiso.}
+  \item{Cantidad de sesiones de juego a la semana y horas totales dedicadas a jugar: Verificamos si hay una relación directa entre el tiempo total y la constancia semanal. El objetivo es determinar si un aumento en las sesiones se traduce necesariamente en una mayor cantidad de horas totales, validando la consistencia del jugador.}
+\end{itemize}
+
 \section{Periodo de Referencia}
 
-Describir la fuente y el Periodo de Referencia utilizado en el trabajo
-de investigación
-
-\section{Variables}
-
-Describir la variable en estudio en el trabajo de investigación
+El presente trabajo utiliza el dataset Online Gaming.csv, el cual es un
+conjunto de datos de naturaleza sintética diseñado para el modelado
+estadístico y predictivo, suministrado por la unidad curricular. Dado
+que los registros han sido generados algorítmicamente para simular
+patrones de comportamiento de usuarios, el estudio prescinde de un
+periodo de referencia cronológico. En su lugar, se adopta un enfoque de
+corte transversal, donde el análisis se centra exclusivamente en las
+correlaciones y distribuciones de las variables de consumo en un entorno
+controlado y atemporal.
 
 \chapter{Marco Teórico}
 
