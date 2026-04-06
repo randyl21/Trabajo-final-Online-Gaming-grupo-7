@@ -127,7 +127,7 @@ El estudio se organiza en cuatro partes principales que permiten entender el com
 
 \section{Periodo de Referencia}
 
-Describir la fuente y el Periodo de Referencia utilizado en el trabajo de investigación
+El presente trabajo utiliza el dataset Online Gaming.csv, el cual es un conjunto de datos de naturaleza sintética diseñado para el modelado estadístico y predictivo, suministrado por la unidad curricular. Dado que los registros han sido generados algorítmicamente para simular patrones de comportamiento de usuarios, el estudio prescinde de un periodo de referencia cronológico. En su lugar, se adopta un enfoque de corte transversal, donde el análisis se centra exclusivamente en las correlaciones y distribuciones de las variables de consumo en un entorno controlado y atemporal.
 
 
 \chapter{Marco Teórico}
