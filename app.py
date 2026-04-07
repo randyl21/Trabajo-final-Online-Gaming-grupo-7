@@ -28,7 +28,7 @@ st.sidebar.header("Locación Geográfica")
 ubicacion = st.sidebar.multiselect("Selecciona la ubicación geográfica:", options=df_Gente_Sin_Oficio["Location"].unique(), default=df_Gente_Sin_Oficio["Location"].unique()) 
 df_filtrado = df_Gente_Sin_Oficio[df_Gente_Sin_Oficio["Location"].isin(ubicacion)]
 
-tab1, tab2, tab3, tab4 = st.tabs(["Análisis Regional", "📊 Dedicación y Frecuencia", "x", "x2"])
+tab1, tab2, tab3, tab4 = st.tabs(["Análisis Regional", " Dedicación y Frecuencia", "Distribución de horas", "Tiempo de juego y Frecuencia Semanal"])
 
 # se agregan tabs para mostrar diferentes análisis
 with tab1:
