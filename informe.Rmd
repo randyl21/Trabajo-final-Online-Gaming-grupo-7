@@ -60,7 +60,7 @@ La industria de los videojuegos ha dejado de ser un nicho para convertirse en un
 
 El presente trabajo realiza un análisis estadístico exhaustivo sobre el dataset Online Gaming.csv. Mediante el uso de herramientas en R y técnicas de visualización, se busca descomponer el comportamiento del jugador en función de su ubicación geográfica y el género del videojuego. Al adoptar un enfoque de corte transversal sobre una muestra sintética, este informe transforma métricas de intensidad y frecuencia de uso en información estratégica para la toma de decisiones en el sector de los videojuegos.
 
-# Estructura del informe
+\section*{Estructura del informe}
 
 \begin{itemize}
   \item{En el Capítulo I, se plantea la problemática de la variabilidad en los patrones de consumo, los objetivos, las variables de estudio, y el periodo de referencia.}
