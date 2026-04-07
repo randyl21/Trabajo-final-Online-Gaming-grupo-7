@@ -14,6 +14,7 @@ def cargar_datos():
     df_Gente_Sin_Oficio["Location"] = df_Gente_Sin_Oficio["Location"].replace("Other", "Otro")
     df_Gente_Sin_Oficio["Location"] = df_Gente_Sin_Oficio["Location"].replace("USA", "EE.UU")
     df_Gente_Sin_Oficio["Location"] = df_Gente_Sin_Oficio["Location"].replace("Europe", "Europa")
+    
     return df_Gente_Sin_Oficio 
 
 df_Gente_Sin_Oficio = cargar_datos()
@@ -29,7 +30,7 @@ df_filtrado = df_Gente_Sin_Oficio[df_Gente_Sin_Oficio["Location"].isin(ubicacion
 
 tab1, tab2, tab3, tab4 = st.tabs(["Análisis Regional", "📊 Dedicación y Frecuencia", "x", "x2"])
 
-# se agregan tabs para mostrar diferentes análisis, el primero es el análisis de la ubicación, donde se muestra la popularidad de los géneros de videojuegos por ubicación geográfica.
+# se agregan tabs para mostrar diferentes análisis
 with tab1:
     st.subheader("🎮 Géneros más populares por ubicación")
 
@@ -56,3 +57,45 @@ with tab1:
         with col2:
             st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
             st.warning("Selecciona al menos una región en la barra lateral.")
+with tab2:
+    st.subheader("📈 Comparativa: Engagement vs. Sesiones Semanales")
+    
+    if not df_filtrado.empty:
+        # se crea el Box Plot
+        fig_comp = px.box(
+            df_filtrado,
+            x="GameGenre",          
+            y="SessionsPerWeek",    
+            color="EngagementLevel",
+            title="Distribución de Sesiones por Género y Nivel de Engagement",
+            # Ordeno las categorías de la leyenda para que tengan sentido
+            category_orders={"EngagementLevel": ["Low", "Medium", "High"]},
+            # Asigno colores
+            color_discrete_map={
+                "Low": "#EF553B", 
+                "Medium": "#FECB52", 
+                "High": "#00CC96"
+            },
+            template="plotly_dark"
+        )
+        
+        # configuración de la leyenda
+        fig_comp.update_layout(
+            showlegend=True, 
+            legend_title_text='Nivel de Engagement', 
+            legend=dict(
+                orientation="h",    
+                yanchor="bottom",
+                y=1.02,             
+                xanchor="right",
+                x=1
+            )
+        )
+        
+        st.plotly_chart(fig_comp, use_container_width=True)
+        
+        st.info("💡Cada 'caja' representa el rango donde se encuentra la mayoría de los jugadores. Los puntos aislados son casos atípicos.")
+        st.image("https://content.imageresizer.com/images/memes/Sonic-with-a-gun-meme-2.jpg", width = 250)
+    else:
+        st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
+        st.warning("Selecciona una ubicación en la barra lateral.")
