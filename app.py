@@ -28,9 +28,28 @@ st.sidebar.header("Locación Geográfica")
 ubicacion = st.sidebar.multiselect("Selecciona la ubicación geográfica:", options=df_Gente_Sin_Oficio["Location"].unique(), default=df_Gente_Sin_Oficio["Location"].unique()) 
 df_filtrado = df_Gente_Sin_Oficio[df_Gente_Sin_Oficio["Location"].isin(ubicacion)]
 
-tab1, tab2, tab3, tab4 = st.tabs(["Análisis Regional", " Dedicación y Frecuencia", "Distribución de horas", "Tiempo de juego y Frecuencia Semanal"])
+# límites de PlayTimeHours
+horas_min = float(df_Gente_Sin_Oficio["PlayTimeHours"].min())
+horas_max = float(df_Gente_Sin_Oficio["PlayTimeHours"].max())
+
+# config. del slider en el sidebar
+rango_horas = st.sidebar.slider(
+    "Rango de horas de juego",
+    min_value=horas_min,
+    max_value=horas_max,
+    value=(horas_min, horas_max), 
+    step=1.0
+)
+
+# 3. filtro al DataFrame
+df_filtrado = df_Gente_Sin_Oficio[
+    (df_Gente_Sin_Oficio["PlayTimeHours"] >= rango_horas[0]) & 
+    (df_Gente_Sin_Oficio["PlayTimeHours"] <= rango_horas[1])
+]
 
 # se agregan tabs para mostrar diferentes análisis
+tab1, tab2, tab3, tab4 = st.tabs(["Análisis Regional", " Dedicación y Frecuencia", "Distribución de horas", "Tiempo de juego y Frecuencia Semanal"])
+
 with tab1:
     st.subheader("🎮 Géneros más populares por ubicación")
 
