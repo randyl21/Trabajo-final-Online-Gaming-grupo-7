@@ -25,8 +25,13 @@ st.markdown("Comportamiento de los jugadores de videojuegos online en diferentes
 
 # Filtro por locación geográfica
 st.sidebar.header("Locación Geográfica")
-ubicacion = st.sidebar.multiselect("Selecciona la ubicación geográfica:", options=df_Gente_Sin_Oficio["Location"].unique(), default=df_Gente_Sin_Oficio["Location"].unique()) 
-df_filtrado = df_Gente_Sin_Oficio[df_Gente_Sin_Oficio["Location"].isin(ubicacion)]
+
+ubicaciones_disponibles = df_Gente_Sin_Oficio['Location'].unique()
+ubicaciones_seleccionadas = st.sidebar.multiselect(
+    "Selecciona el Continente", 
+    options= ubicaciones_disponibles,
+    default = ubicaciones_disponibles [:4]
+    )
 
 # límites de PlayTimeHours
 horas_min = float(df_Gente_Sin_Oficio["PlayTimeHours"].min())
@@ -38,13 +43,13 @@ rango_horas = st.sidebar.slider(
     min_value=horas_min,
     max_value=horas_max,
     value=(horas_min, horas_max), 
-    step=1.0
 )
 
-# 3. filtro al DataFrame
+# filtro al DataFrame
 df_filtrado = df_Gente_Sin_Oficio[
     (df_Gente_Sin_Oficio["PlayTimeHours"] >= rango_horas[0]) & 
-    (df_Gente_Sin_Oficio["PlayTimeHours"] <= rango_horas[1])
+    (df_Gente_Sin_Oficio["PlayTimeHours"] <= rango_horas[1]) & 
+    (df_Gente_Sin_Oficio["Location"].isin(ubicaciones_seleccionadas))
 ]
 
 # se agregan tabs para mostrar diferentes análisis
