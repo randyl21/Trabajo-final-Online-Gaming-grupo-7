@@ -148,11 +148,13 @@ El presente trabajo utiliza el dataset Online Gaming.csv, el cual es un conjunto
 
 \section{Bases Teóricas}
 
-Resumen de las bases teoricas explicadas en el capitulo y su importancia\
+El presente capítulo establece los fundamentos matemáticos y estadísticos necesarios para este informe. Además de integrar antecedentes para dar base al análisis.
 
-\subsection{Definición 1}
+\subsection{Antecedentes}
 
-Descripción de la definición 1\
+A continuación, se presentan estudios y reportes técnicos recientes que fundamentan el análisis del comportamiento de usuarios en entornos de videojuegos online.\
+
+En la actualidad, el análisis del comportamiento del jugador se fundamenta en la relación entre el género del videojuego, locación, etc. Investigaciones técnicas publicadas en ResearchGate (2025) sugieren que el género del videojuego no es solo una categoría estética, sino un predictor del compromiso del usuario; se ha observado que géneros como los RPG y la Estrategia tienden a generar sesiones con horas de juego significativamente más alto, mientras que los géneros de Acción o Deportes impulsan un mayor volumen de sesiones por semana, aunque de menor duración. Este fenómeno técnico subraya la necesidad de analizar ambas métricas de forma conjunta para evitar sesgos en la interpretación de la intensidad de uso.
 
 \subsection{Definición 2}
 
