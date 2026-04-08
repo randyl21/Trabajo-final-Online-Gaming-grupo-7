@@ -58,6 +58,8 @@ col1.metric("Total Jugadores", len(df_filtrado))
 col2.metric("Horas Promedio", f"{df_filtrado['PlayTimeHours'].mean():,.1f}")
 col3.metric("Promedio de Frecuencia Semanal", f"{df_filtrado['SessionsPerWeek'].mean():,.0f}")
 
+st.markdown("---")
+
 # se agregan tabs para mostrar diferentes análisis
 tab1, tab2, tab3, tab4 = st.tabs(["Análisis Regional", " Dedicación y Frecuencia", "Distribución de horas", "Tiempo de juego y Frecuencia Semanal"])
 
@@ -129,3 +131,56 @@ with tab2:
     else:
         st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
         st.warning("Selecciona una ubicación en la barra lateral.")
+with tab3:
+     with tab3:
+      st.subheader("📊 Distribución de las horas de juego registradas por los usuarios para identificar niveles de dedicación")
+
+     if not df_filtrado.empty:
+        # Cálculo de Cuartiles / Q1 (25% inferior), Q2 (Mediana/50%), Q3 (75% superior)
+        q1 = df_filtrado['PlayTimeHours'].quantile(0.25)
+        mediana = df_filtrado['PlayTimeHours'].median()
+        q3 = df_filtrado['PlayTimeHours'].quantile(0.75)
+
+        # Categorizo los valores con la función
+        def evaluar_dedicacion(h):
+            if h <= q1: return "Casual"
+            if h <= q3: return "Moderado"
+            return "Intenso / Hardcore"
+
+        df_eval = df_filtrado.copy()
+        df_eval["Nivel"] = df_eval["PlayTimeHours"].apply(evaluar_dedicacion)
+
+        # Gráfico de Distribución con Box Plot Marginal
+        fig_eval = px.histogram(
+            df_eval,
+            x="PlayTimeHours",
+            color="Nivel",
+            marginal="box",
+            title="Distribución de Horas y Segmentos de Dedicación",
+            labels={"PlayTimeHours": "Horas Totales", "count": "Número de Jugadores"},
+            color_discrete_map={
+                "Casual": "#EF553B", 
+                "Moderado": "#FECB52", 
+                "Intenso / Hardcore": "#00CC96"
+            },
+            category_orders={"Nivel": ["Casual", "Moderado", "Intenso / Hardcore"]},
+            template="plotly_dark",
+            barmode="overlay"
+        )
+
+        st.plotly_chart(fig_eval, use_container_width=True)
+
+        # 4. Resumen
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Punto de Corte Casual", f"{q1:.1f} hrs")
+        with col2:
+            st.metric("Punto de Corte Hardcore", f"{q3:.1f} hrs")
+        with col3:
+            st.metric("Máximo de Horas", f"{df_filtrado['PlayTimeHours'].max():.1f} hrs")
+            
+     else:
+        st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
+        st.warning("No hay datos suficientes. Revisa los filtros del sidebar.")
+
+    
