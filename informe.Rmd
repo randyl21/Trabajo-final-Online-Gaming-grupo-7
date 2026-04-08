@@ -154,9 +154,11 @@ El presente capítulo establece los fundamentos matemáticos y estadísticos nec
 
 A continuación, se presentan estudios y reportes técnicos recientes que fundamentan el análisis del comportamiento de usuarios en entornos de videojuegos online.\
 
-En la actualidad, el análisis del comportamiento del jugador se fundamenta en la relación entre el género del videojuego, locación, etc. Investigaciones técnicas publicadas en ResearchGate (2025) sugieren que el género del videojuego no es solo una categoría estética, sino un predictor del compromiso del usuario; se ha observado que géneros como los RPG y la Estrategia tienden a generar sesiones con horas de juego significativamente más alto, mientras que los géneros de Acción o Deportes impulsan un mayor volumen de sesiones por semana, aunque de menor duración. Este fenómeno técnico subraya la necesidad de analizar ambas métricas de forma conjunta para evitar sesgos en la interpretación de la intensidad de uso.
+En la actualidad, el análisis del comportamiento del jugador se fundamenta en la relación entre el género del videojuego, locación, etc. Investigaciones técnicas publicadas en ResearchGate (2025) sugieren que el género del videojuego no es solo una categoría estética, sino un predictor del compromiso del usuario; se ha observado que géneros como los RPG y la Estrategia tienden a generar sesiones con horas de juego significativamente más alto, mientras que los géneros de Acción o Deportes impulsan un mayor volumen de sesiones por semana, aunque de menor duración. Este fenómeno técnico subraya la necesidad de analizar ambas métricas de forma conjunta para evitar sesgos en la interpretación de la intensidad de uso.\
 
-\subsection{Definición 2}
+Asimismo, el Global Games Market Report (Newzoo, 2025) destaca que la locación sigue siendo un factor diferenciador crítico debido a la infraestructura tecnológica y las preferencias culturales de cada región. Estudios demográficos de Statista (2025) respaldan esta premisa, indicando que la ubicación geográfica influye directamente en la distribución de las sesiones por semana. Gracias a esta base investigativa, se da pie a la presente investigación.
+
+\subsection{Defiición 2}
 
 Descripción de la definición 2\
 
