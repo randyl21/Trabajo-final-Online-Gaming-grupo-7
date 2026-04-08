@@ -158,14 +158,22 @@ En la actualidad, el análisis del comportamiento del jugador se fundamenta en l
 
 Asimismo, el Global Games Market Report (Newzoo, 2025) destaca que la locación sigue siendo un factor diferenciador crítico debido a la infraestructura tecnológica y las preferencias culturales de cada región. Estudios demográficos de Statista (2025) respaldan esta premisa, indicando que la ubicación geográfica influye directamente en la distribución de las sesiones por semana. Gracias a esta base investigativa, se da pie a la presente investigación.
 
-\subsection{Defiición 2}
+\subsection{Análisis Exploratorio de Datos (EDA)}
 
-Descripción de la definición 2\
+El Análisis Exploratorio de Datos (EDA), desarrollado por John Tukey, es un proceso iterativo fundamental para descubrir estructuras, detectar anomalías y sintetizar las propiedades de una muestra.\
 
-\subsection{Definición n}
+En esta invesgación, se aplican herramientas visuales y estadística descriptiva, ya que no contamos con mayores recursos de análisis.\
 
-Descripción de la definición n\
+Para las variables cuantitativas del estudio, como Sessions Per Week y Playtime Hours, se analizan los momentos centrales, medidas de posición y dispersión:\
 
+**Media Muestral ($\bar{x}$):**
+$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
+**Varianza ($S^2$):**
+$$\sigma^2 = \frac{\sum_{i=1}^{N} (x_{i} - \bar{x})^2}{N}$$
+
+**Coeficiente de Correlación de Pearson ($r_{xy}$):**
+$$r_{xy} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2 \sum_{i=1}^{n} (y_i - \bar{y})^2}}$$
+Para las variables categóricas como Game Genre y Location, se aplica un análisis de frecuencias para identificar predominancia de videojuegos online en differences locaciones.
 
 \chapter{Marco Metódico}
 En esta sección se presentan las metodologías y/o test necesarios relacionados con la práctica divulgada en el marco teórico, así como las fuentes de datos.
