@@ -52,6 +52,12 @@ df_filtrado = df_Gente_Sin_Oficio[
     (df_Gente_Sin_Oficio["Location"].isin(ubicaciones_seleccionadas))
 ]
 
+#columnas para métricas
+col1, col2, col3 = st.columns(3)
+col1.metric("Total Jugadores", len(df_filtrado))
+col2.metric("Horas Promedio", f"{df_filtrado['PlayTimeHours'].mean():,.1f}")
+col3.metric("Promedio de Frecuencia Semanal", f"{df_filtrado['SessionsPerWeek'].mean():,.0f}")
+
 # se agregan tabs para mostrar diferentes análisis
 tab1, tab2, tab3, tab4 = st.tabs(["Análisis Regional", " Dedicación y Frecuencia", "Distribución de horas", "Tiempo de juego y Frecuencia Semanal"])
 
