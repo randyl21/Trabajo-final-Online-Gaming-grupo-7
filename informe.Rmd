@@ -268,6 +268,44 @@ ggplot(datos_cuali_grafica, aes(x = reorder(Categoria, -Frecuencia), y = Frecuen
   )
 ```
 
+\subsection{Limpieza de datos}
+Para asegurar que el análisis sea confiable, se realizó un proceso de depuración sobre el dataset original:
+\begin{itemize}
+  \item{Tratamiento de Valores Nulos (NAs): Se identificaron los valores ausentes para asegurar que los cálculos de correlación se realicen sobre pares completos de datos, evitando sesgos en los estimadores. Lo que dio por resultado que el dataset no presenta valores nulos.} 
+  \item{Detección de Duplicados e Inconsistencias: Se detectaron registros redundantes y de sintaxis o tipos de datos inconsistentes que dificultarían la lectura por parte de los algoritmos de R. El resultado fue que el dataset no presenta duplicados ni inconsistencias.} 
+  \item{Normalización de Variables: Se verificó que las variables numéricas mantuvieran una estructura coherente para facilitar el cálculo de los momentos centrales y los estadísticos de dispersión. Se obtuvo que el dataset no necesita normalización de variables ya que estas cumplen con la sintaxis necesaria.}
+  \item{Detección de Valores Atípicos: Se verifico que no hubiera valores atípicos que afecten la media. Lo que dio por resultado que la variable In Game Purchases contiene 8041 valores atípicos, ya que es una variable que no se toma en cuenta en la investigación no afecta el análisis.}
+\end{itemize}
+
+```{r limpieza-datos, include=FALSE}
+glimpse(datos)
+summary(datos)
+
+# Tratamiento de Valores Nulos (NAs)
+colSums(is.na(datos)) 
+sum(is.na(datos))
+
+# Detección de Duplicados e Inconsistencias
+sum(duplicated(datos))
+# Revisamos estructura para asegurar que tipos (int, chr, num) coincidan
+str(datos)
+
+# Identificación de Outliers (IQR) en las variables numéricas
+numeric_cols <- datos[, sapply(datos, is.numeric)]
+outliers_count <- sapply(numeric_cols, function(x) {
+  stats <- boxplot.stats(x)$out
+  length(stats)
+})
+
+# 3. Verificación de categorías únicas
+errores_categorias <- lapply(datos[, sapply(datos, is.character)], unique)
+
+print("--- Reporte de Calidad de Datos ---")
+print("Cantidad de Outliers detectados:")
+print(outliers_count)
+print(errores_categorias)
+```
+
 
 \chapter{Análisis de Resultados}
 
