@@ -14,16 +14,24 @@ def cargar_datos():
     df_Gente_Sin_Oficio["Location"] = df_Gente_Sin_Oficio["Location"].replace("Other", "Otro")
     df_Gente_Sin_Oficio["Location"] = df_Gente_Sin_Oficio["Location"].replace("USA", "EE.UU")
     df_Gente_Sin_Oficio["Location"] = df_Gente_Sin_Oficio["Location"].replace("Europe", "Europa")
-    
+    # reemplazo los nombres de los géneros de juego para que estén en español
+    df_Gente_Sin_Oficio["GameGenre"] = df_Gente_Sin_Oficio["GameGenre"].replace("Action", "Acción")
+    df_Gente_Sin_Oficio["GameGenre"] = df_Gente_Sin_Oficio["GameGenre"].replace("Simulation", "Simulación")
+    df_Gente_Sin_Oficio["GameGenre"] = df_Gente_Sin_Oficio["GameGenre"].replace("Strategy", "Estrategia")
+    df_Gente_Sin_Oficio["GameGenre"] = df_Gente_Sin_Oficio["GameGenre"].replace("Sports", "Deportes")
+    # reemplazo los nombres de compromiso para que estén en español
+    df_Gente_Sin_Oficio["EngagementLevel"] = df_Gente_Sin_Oficio["EngagementLevel"].replace("Low", "Bajo")
+    df_Gente_Sin_Oficio["EngagementLevel"] = df_Gente_Sin_Oficio["EngagementLevel"].replace("Medium", "Medio")
+    df_Gente_Sin_Oficio["EngagementLevel"] = df_Gente_Sin_Oficio["EngagementLevel"].replace("High", "Alto")
     return df_Gente_Sin_Oficio 
 
 df_Gente_Sin_Oficio = cargar_datos()
 
 # Título del dashboard
-st.title("Análisis de Jugadores de Videojuegos Online")
+st.markdown("### Análisis de Jugadores de Videojuegos Online")
 st.markdown("Comportamiento de los jugadores de videojuegos online en diferentes regiones del mundo.")
 
-# Filtro por locación geográfica
+# Filtro por locación geográfica para el sidebar
 st.sidebar.header("Locación Geográfica")
 
 ubicaciones_disponibles = df_Gente_Sin_Oficio['Location'].unique()
@@ -60,11 +68,11 @@ col3.metric("Promedio de Frecuencia Semanal", f"{df_filtrado['SessionsPerWeek'].
 
 st.markdown("---")
 
-# se agregan tabs para mostrar diferentes análisis
+# se agregan tabs para mostrar diferentes análisis de los objetivos
 tab1, tab2, tab3, tab4 = st.tabs(["Análisis Regional", " Dedicación y Frecuencia", "Distribución de horas", "Tiempo de juego y Frecuencia Semanal"])
 
 with tab1:
-    st.subheader("🎮 Géneros más populares por ubicación")
+    st.subheader("Géneros más populares por ubicación")
 
     # Agrupo por Ubicación y contamos la frecuencia de cada Género
     df_que_tan_virgenes_son = df_filtrado.groupby("Location")["GameGenre"].value_counts().reset_index(name="Usuarios")
@@ -78,19 +86,29 @@ with tab1:
             color="GameGenre", 
             barmode="relative", 
             title="Comparativa de Géneros por Ubicación",
-            labels={"Location": "Ubicación", "Usuarios": "Cantidad de Jugadores", "GameGenre": "Género"},
+            labels={"Location": "Región", "Usuarios": "Cantidad de Jugadores", "GameGenre": "Género"},
             color_discrete_sequence=px.colors.sequential.Blues_r,
             template="plotly_dark"
         )
         
         st.plotly_chart(fig_que_tan_virgenes_son, use_container_width=True)
+
+       #Se filtra para el resúmen
+        regiones_populares = df_filtrado['Location'].unique()[:4]
+        cols = st.columns(len(regiones_populares))
+        # Resumen
+        for i, r in enumerate(regiones_populares):
+          top = df_filtrado[df_filtrado['Location']==r]['GameGenre'].mode()[0]
+          cols[i].caption(f"**{r}**")
+          cols[i].write(top)
+        
     else:
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
             st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
-            st.warning("Selecciona al menos una región en la barra lateral.")
+            st.error("Selecciona al menos una región en la barra lateral.")
 with tab2:
-    st.subheader("📈 Comparativa: Compromiso vs. Sesiones Semanales")
+    st.subheader("Comparativa de Compromiso y Sesiones Semanales")
     
     if not df_filtrado.empty:
         # se crea el Box Plot
@@ -103,12 +121,12 @@ with tab2:
                     "SessionsPerWeek": "Sesiones Semanales"},
             title="Distribución de Sesiones por Género y Nivel de Compromiso",
             # Ordeno las categorías de la leyenda para que tengan sentido
-            category_orders={"EngagementLevel": ["Low", "Medium", "High"]},
+            category_orders={"EngagementLevel": ["Bajo", "Medio", "Alto"]},
             # Asigno colores
             color_discrete_map={
-                "Low": "#EF553B", 
-                "Medium": "#FECB52", 
-                "High": "#00CC96"
+                "Bajo": "#EF553B", 
+                "Medio": "#FECB52", 
+                "Alto": "#00CC96"
             },
             template="plotly_dark"
         )
@@ -116,7 +134,7 @@ with tab2:
         # configuración de la leyenda
         fig_comp.update_layout(
             showlegend=True, 
-            legend_title_text='Nivel de Engagement', 
+            legend_title_text='Nivel de Compromiso', 
             legend=dict(
                 orientation="h",    
                 yanchor="bottom",
@@ -127,14 +145,14 @@ with tab2:
         )
         
         st.plotly_chart(fig_comp, use_container_width=True)
-        
-        st.info("💡Cada 'caja' representa el rango donde se encuentra la mayoría de los jugadores. Los puntos aislados son casos atípicos.")
+
+        st.markdown("Se observa que los jugadores con un nivel alto de compromiso tienen más sesiones semanales.")
     else:
         st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
-        st.warning("Selecciona una ubicación en la barra lateral.")
+        st.error("Selecciona una ubicación en la barra lateral.")
 with tab3:
      with tab3:
-      st.subheader("📊 Distribución de las horas de juego registradas por los usuarios para identificar niveles de dedicación")
+      st.subheader("Distribución de las horas de juego, identificando niveles de dedicación")
 
      if not df_filtrado.empty:
         # Cálculo de Cuartiles / Q1 (25% inferior), Q2 (Mediana/50%), Q3 (75% superior)
@@ -179,12 +197,14 @@ with tab3:
             st.metric("Punto de Corte Hardcore", f"{q3:.1f} hrs")
         with col3:
             st.metric("Máximo de Horas", f"{df_filtrado['PlayTimeHours'].max():.1f} hrs")
+
+        st.markdown("Se observa que los jugadores 'hardcore' o intensos tienen más horas, mientras que los jugadores casuales tienen muchas menos.")
             
      else:
         st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
-        st.warning("No hay datos suficientes. Revisa los filtros del sidebar.")
+        st.error("No hay datos suficientes. Revisa los filtros del panel lateral.")
 with tab4:
-    st.subheader("Análisis de Relación: Frecuencia y Tiempo de juego (por región)")
+    st.subheader("Frecuencia y Tiempo de juego (por región)")
 
     if not df_filtrado.empty:
         # Muestra para el gráfico, total para el cálculo
@@ -207,6 +227,9 @@ with tab4:
         )
         fig_regional.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
         st.plotly_chart(fig_regional, use_container_width=True)
+
+           
+        st.markdown("---")
 
         # se prepara la tabla
         st.markdown("### Resumen de Correlación")
@@ -235,3 +258,9 @@ with tab4:
     else:
      st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
      st.warning("Selecciona ubicaciones en la barra lateral.")
+
+st.markdown("---")
+
+#  Expansor de los datos
+with st.expander("Ver los datos de los jugadores completos"):
+    st.dataframe(df_filtrado)
