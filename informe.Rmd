@@ -192,17 +192,82 @@ El presente estudio se desarrolla bajo un enfoque cuantitativo de nivel descript
 
 Se ha delimitado el análisis al nivel descriptivo y correlacional atendiendo a la etapa de formación académica de los investigadores. Se prioriza el dominio y la aplicación rigurosa de los fundamentos de la Estadística Descriptiva y el cálculo de Coeficiente de Correlación. Esta decisión metodológica garantiza la validez interna del estudio.
 
-\subsection{Item 2}
+\subsection{Fuente de datos}
 
-Descripción\
+El dataset objeto de estudio, denominado "Online Gaming.csv", está compuesto originalmente por un total de 40.034 filas y 13 columnas. Cada registro representa el perfil de actividad de un jugador único.
+Para las variables cuantitativas calculamos estadisticas descriptivas (dataset original):
 
-\subsubsection{Item 2.2}
+```{r tabla_cuanti_final, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+datos <- read.csv("17. Online Gaming.csv")
 
-Descripción\
+# Procesamiento EXCLUYENDO PlayerID
+resumen_cuanti <- datos %>%
+  select(where(is.numeric)) %>%
+  select(-PlayerID) %>% # Aquí eliminamos la columna ID
+  summarise(across(everything(), list(
+    Media = ~mean(.x, na.rm = TRUE),
+    Mediana = ~median(.x, na.rm = TRUE),
+    Desv_Est = ~sd(.x, na.rm = TRUE),
+    Min = ~min(.x, na.rm = TRUE),
+    Max = ~max(.x, na.rm = TRUE)
+  ))) %>%
+  pivot_longer(cols = everything(), 
+               names_to = c("Variable", ".value"), 
+               names_sep = "_")
 
-\subsection{Item n}
+# Ajuste de espacio para que pegue al texto anterior
+cat("\\vspace{-15pt}") 
 
-Descripción\
+# Renderizado compacto y fijo
+resumen_cuanti %>%
+  kbl(format = "latex", 
+      booktabs = TRUE, 
+      digits = 2,
+      caption = "Resumen Estadístico de Variables Numéricas",
+      col.names = c("Variable", "Media", "Mediana", "Desv. Est.", "Mín.", "Máx.")) %>%
+  kable_styling(latex_options = c("striped", "H"), 
+                position = "center",
+                font_size = 9) %>%
+  column_spec(1, bold = TRUE)
+```
+Para las variables cualitativas se muestra un grafico de barras:
+
+```{r grafica_frecuencias_libres, echo=FALSE, fig.height=9, fig.width=12, fig.pos="H"}
+
+# Preparación de datos
+datos_cuali_grafica <- datos %>%
+  select(where(is.character) | where(is.factor)) %>%
+  pivot_longer(cols = everything(), 
+               names_to = "Variable", 
+               values_to = "Categoria") %>%
+  group_by(Variable, Categoria) %>%
+  summarise(Frecuencia = n(), .groups = "drop")
+
+# Gráfico con escalas independientes
+ggplot(datos_cuali_grafica, aes(x = reorder(Categoria, -Frecuencia), y = Frecuencia, fill = Frecuencia)) +
+  geom_col(show.legend = FALSE, color = "white", size = 0.1) +
+  
+#scales = "free" permite que cada cuadro tenga sus propios números y no se vea raro
+  facet_wrap(~Variable, scales = "free", ncol = 3) + 
+  
+  scale_fill_gradient(low = "#AED6F1", high = "#2E86C1") +
+  labs(
+    title = "Distribución de Frecuencias: Análisis por Variable",
+    x = "Categoría",
+    y = "Frecuencia Absoluta"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5, color = "gray40"),
+    strip.background = element_rect(fill = "gray92", color = "white"),
+    strip.text = element_text(face = "bold", size = 11),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 9),
+    # Añadimos un poco de espacio entre paneles
+    panel.spacing = unit(1.5, "lines") 
+  )
+```
+
 
 \chapter{Análisis de Resultados}
 
