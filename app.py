@@ -90,7 +90,7 @@ with tab1:
             st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
             st.warning("Selecciona al menos una región en la barra lateral.")
 with tab2:
-    st.subheader("📈 Comparativa: Engagement vs. Sesiones Semanales")
+    st.subheader("📈 Comparativa: Compromiso vs. Sesiones Semanales")
     
     if not df_filtrado.empty:
         # se crea el Box Plot
@@ -99,7 +99,9 @@ with tab2:
             x="GameGenre",          
             y="SessionsPerWeek",    
             color="EngagementLevel",
-            title="Distribución de Sesiones por Género y Nivel de Engagement",
+            labels={"GameGenre": "Género de Juego",
+                    "SessionsPerWeek": "Sesiones Semanales"},
+            title="Distribución de Sesiones por Género y Nivel de Compromiso",
             # Ordeno las categorías de la leyenda para que tengan sentido
             category_orders={"EngagementLevel": ["Low", "Medium", "High"]},
             # Asigno colores
@@ -127,7 +129,6 @@ with tab2:
         st.plotly_chart(fig_comp, use_container_width=True)
         
         st.info("💡Cada 'caja' representa el rango donde se encuentra la mayoría de los jugadores. Los puntos aislados son casos atípicos.")
-        st.image("https://content.imageresizer.com/images/memes/Sonic-with-a-gun-meme-2.jpg", width = 250)
     else:
         st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
         st.warning("Selecciona una ubicación en la barra lateral.")
@@ -170,7 +171,7 @@ with tab3:
 
         st.plotly_chart(fig_eval, use_container_width=True)
 
-        # 4. Resumen
+        # Resumen
         col1, col2, col3 = st.columns(3)
         with col1:
             st.metric("Punto de Corte Casual", f"{q1:.1f} hrs")
@@ -182,5 +183,55 @@ with tab3:
      else:
         st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
         st.warning("No hay datos suficientes. Revisa los filtros del sidebar.")
+with tab4:
+    st.subheader("Análisis de Relación: Frecuencia y Tiempo de juego (por región)")
 
-    
+    if not df_filtrado.empty:
+        # Muestra para el gráfico, total para el cálculo
+        df_muestra = df_filtrado.sample(n=min(1000, len(df_filtrado)), random_state=42)
+        
+        # Gráfico de Violín (optimizado para evitar lag)
+        fig_regional = px.violin(
+            df_muestra,
+            x="SessionsPerWeek",
+            y="PlayTimeHours",
+            color="Location",
+            labels= {"SessionsPerWeek": "Sesiones Semanales",
+                     "PlayTimeHours": "Horas de Juego"},
+            facet_col="Location",
+            box=True,
+            points="outliers", 
+            template="plotly_dark",
+            title="Distribución de Tiempo de Juego por Sesiones Semanales",
+            category_orders={"Location": ubicaciones_seleccionadas}
+        )
+        fig_regional.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+        st.plotly_chart(fig_regional, use_container_width=True)
+
+        # se prepara la tabla
+        st.markdown("### Resumen de Correlación")
+        # se filtra por grupos
+        df_correlaciones = df_filtrado.groupby('Location').apply(
+            lambda x: x['SessionsPerWeek'].corr(x['PlayTimeHours']),
+            include_groups=False
+        ).reset_index()
+
+        df_correlaciones.columns = ['Región', 'Valor_Corr'] 
+        # Se asigna etiqueta por fuerza de relación
+        df_correlaciones['Fuerza de Relación'] = df_correlaciones['Valor_Corr'].apply(
+            lambda r: "Nula / Inexistente" if abs(r) < 0.1 else ("Débil" if abs(r) < 0.3 else "Moderada")
+        )
+
+        df_correlaciones = df_correlaciones.rename(columns={'Valor_Corr': 'Coeficiente Pearson (r)'})
+        # se muestra la tabla
+        st.table(df_correlaciones)
+        
+        st.markdown("""
+         Si los coeficientes son cercanos a 0, significa que el tiempo de juego 
+        es independiente de cuántas veces se conectan a la semana. Esto sugiere que hay jugadores 
+        que se conectan poco pero juegan sesiones larguísimas, y viceversa.
+        """)
+
+    else:
+     st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
+     st.warning("Selecciona ubicaciones en la barra lateral.")
