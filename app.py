@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 
 # Configuración de la página
-st.set_page_config(page_title="Dashboard del Online Gaming", page_icon="🎮", layout="wide")
+st.set_page_config(page_title="Análisis de Juego en Línea", page_icon="https://img.freepik.com/free-vector/globe-grid-glyph-with-mouse-cursor_78370-4904.jpg?semt=ais_hybrid&w=740&q=80", layout="wide")
 
 # Carga de datos
 @   st.cache_data
@@ -27,92 +27,113 @@ def cargar_datos():
 
 df_Gente_Sin_Oficio = cargar_datos()
 
-# Título del dashboard
-st.markdown("### Análisis de Jugadores de Videojuegos Online")
-st.markdown("Comportamiento de los jugadores de videojuegos online en diferentes regiones del mundo.")
+# Título y Descripción
+st.title("🎮 Análisis de Juego en línea")
+st.markdown("Con este Dashboard, lograrás indagar, analizar y comprender el comportamiento de los miles de usuarios que juegan diversos tipos de juegos en línea en varios continentes del mundo, explorando el tiempo invertido en ellos, la dedicación, y el género más popular por cada región.")
 
-# Filtro por locación geográfica para el sidebar
-st.sidebar.header("Locación Geográfica")
+# sidebar
+st.sidebar.title("🎮 Análisis de Juego en línea")
+st.sidebar.markdown("🔴 Panel de Filtros")
 
-ubicaciones_disponibles = df_Gente_Sin_Oficio['Location'].unique()
-ubicaciones_seleccionadas = st.sidebar.multiselect(
-    "Selecciona el Continente", 
-    options= ubicaciones_disponibles,
-    default = ubicaciones_disponibles [:4]
+# Locación
+with st.sidebar.expander("📍 Locación Geográfica", expanded=True):
+    ubicaciones_disponibles = df_Gente_Sin_Oficio['Location'].unique()
+    ubicaciones_seleccionadas = st.multiselect(
+        "Selecciona el Continente", 
+        options=ubicaciones_disponibles,
+        default=ubicaciones_disponibles[:4]
     )
 
-# límites de PlayTimeHours
-horas_min = float(df_Gente_Sin_Oficio["PlayTimeHours"].min())
-horas_max = float(df_Gente_Sin_Oficio["PlayTimeHours"].max())
+# Género de juego
+with st.sidebar.expander("🎮 Género de Juego", expanded=True):
+    generos_disponibles = df_Gente_Sin_Oficio['GameGenre'].unique()
+    generos_seleccionados = st.multiselect(
+        "Selecciona los géneros de Juego",
+        options=generos_disponibles,
+        default=generos_disponibles.tolist()
+    )
 
-# config. del slider en el sidebar
-rango_horas = st.sidebar.slider(
-    "Rango de horas de juego",
-    min_value=horas_min,
-    max_value=horas_max,
-    value=(horas_min, horas_max), 
-)
+# Horas
+with st.sidebar.expander("🕒 Horas de Juego", expanded=True):
+    horas_min = float(df_Gente_Sin_Oficio["PlayTimeHours"].min())
+    horas_max = float(df_Gente_Sin_Oficio["PlayTimeHours"].max())
+    rango_horas = st.slider(
+        "Selecciona las horas de Juego",
+        min_value=horas_min,
+        max_value=horas_max,
+        value=(horas_min, horas_max)
+    )
 
-# filtro al DataFrame
+# filtrado
 df_filtrado = df_Gente_Sin_Oficio[
     (df_Gente_Sin_Oficio["PlayTimeHours"] >= rango_horas[0]) & 
     (df_Gente_Sin_Oficio["PlayTimeHours"] <= rango_horas[1]) & 
-    (df_Gente_Sin_Oficio["Location"].isin(ubicaciones_seleccionadas))
+    (df_Gente_Sin_Oficio["Location"].isin(ubicaciones_seleccionadas)) &
+    (df_Gente_Sin_Oficio["GameGenre"].isin(generos_seleccionados))
 ]
 
-#columnas para métricas
-col1, col2, col3 = st.columns(3)
-col1.metric("Total Jugadores", len(df_filtrado))
-col2.metric("Horas Promedio", f"{df_filtrado['PlayTimeHours'].mean():,.1f}")
-col3.metric("Promedio de Frecuencia Semanal", f"{df_filtrado['SessionsPerWeek'].mean():,.0f}")
+# Métricas estáticas
+st.subheader("Referencia Global")
+with st.container(border=True):
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Total Base de Datos", f"{len(df_Gente_Sin_Oficio):,}")
+    c2.metric("Promedio Global", f"{df_Gente_Sin_Oficio['PlayTimeHours'].mean():.1f} h")
+    c3.metric("Frecuencia Base", f"{df_Gente_Sin_Oficio['SessionsPerWeek'].mean():.0f}")
+
 
 st.markdown("---")
 
 # se agregan tabs para mostrar diferentes análisis de los objetivos
-tab1, tab2, tab3, tab4 = st.tabs(["Análisis Regional", " Dedicación y Frecuencia", "Distribución de horas", "Tiempo de juego y Frecuencia Semanal"])
+tab1, tab2, tab3, tab4 = st.tabs(["🌎Análisis Regional", "📈Dedicación y Frecuencia", "📊Distribución de horas", "⏱️Tiempo de juego y Frecuencia Semanal"])
 
 with tab1:
-    st.subheader("Géneros más populares por ubicación")
+    st.subheader("🌎Géneros más populares por Región")
 
     # Agrupo por Ubicación y contamos la frecuencia de cada Género
     df_que_tan_virgenes_son = df_filtrado.groupby("Location")["GameGenre"].value_counts().reset_index(name="Usuarios")
 
-    # Creo el gráfico de barras utilizando Plotly Express
-    if not df_que_tan_virgenes_son.empty:
-        fig_que_tan_virgenes_son = px.bar(
-            df_que_tan_virgenes_son, 
-            x="Location", 
-            y="Usuarios", 
-            color="GameGenre", 
-            barmode="relative", 
-            title="Comparativa de Géneros por Ubicación",
-            labels={"Location": "Región", "Usuarios": "Cantidad de Jugadores", "GameGenre": "Género"},
-            color_discrete_sequence=px.colors.sequential.Blues_r,
-            template="plotly_dark"
+
+    col_grafico, col_texto = st.columns([2, 1])
+
+    # Creo el gráfico de barras
+    with col_grafico:
+        with st.container(border=True):
+         if not df_que_tan_virgenes_son.empty:
+          fig_que_tan_virgenes_son = px.bar(
+          df_que_tan_virgenes_son, 
+          x="Location", 
+          y="Usuarios", 
+          color="GameGenre", 
+          barmode="relative", 
+          title="Comparativa de Géneros por Ubicación",
+          labels={"Location": "Región", "Usuarios": "Cantidad de Jugadores", "GameGenre": "Género"},
+          color_discrete_sequence=px.colors.sequential.Blues_r,
+          template="plotly_dark"
         )
         
-        st.plotly_chart(fig_que_tan_virgenes_son, use_container_width=True)
+         st.plotly_chart(fig_que_tan_virgenes_son, use_container_width=True)
 
-       #Se filtra para el resúmen
-        regiones_populares = df_filtrado['Location'].unique()[:4]
-        cols = st.columns(len(regiones_populares))
-        # Resumen
-        for i, r in enumerate(regiones_populares):
-          top = df_filtrado[df_filtrado['Location']==r]['GameGenre'].mode()[0]
-          cols[i].caption(f"**{r}**")
-          cols[i].write(top)
+    with col_texto:
+            with st.container(border=True):
+                st.markdown("### 📈 Análisis")
+                st.write("Esta gráfica muestra cómo se distribuyen los géneros. En las regiones seleccionadas, observamos que:")
+                for r in df_filtrado['Location'].unique()[:5]:
+                    top = df_filtrado[df_filtrado['Location']==r]['GameGenre'].mode()[0]
+                    st.caption(f"**{r}**: Domina el género {top}")
+                   #Se filtra para el resúmen
+                regiones_populares = df_filtrado['Location'].unique()[:5]
+                cols = st.columns(len(regiones_populares))
+                
         
-    else:
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
-            st.error("Selecciona al menos una región en la barra lateral.")
 with tab2:
-    st.subheader("Comparativa de Compromiso y Sesiones Semanales")
-    
-    if not df_filtrado.empty:
+    st.subheader("📈Comparativa de Compromiso y Sesiones Semanales")
+
+    col_grafico, col_texto = st.columns([2, 1])
+    with col_grafico:
+        with st.container(border=True):
+         if not df_filtrado.empty:
         # se crea el Box Plot
-        fig_comp = px.box(
+          fig_comp = px.box(
             df_filtrado,
             x="GameGenre",          
             y="SessionsPerWeek",    
@@ -132,7 +153,7 @@ with tab2:
         )
         
         # configuración de la leyenda
-        fig_comp.update_layout(
+         fig_comp.update_layout(
             showlegend=True, 
             legend_title_text='Nivel de Compromiso', 
             legend=dict(
@@ -144,18 +165,23 @@ with tab2:
             )
         )
         
-        st.plotly_chart(fig_comp, use_container_width=True)
-
-        st.markdown("Se observa que los jugadores con un nivel alto de compromiso tienen más sesiones semanales.")
-    else:
-        st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
-        st.error("Selecciona una ubicación en la barra lateral.")
+         st.plotly_chart(fig_comp, use_container_width=True)
+    with col_texto:
+        with st.container(border=True):
+            st.markdown("### 📈 Análisis de Sesiones")
+            st.write("Se Observan tres secciones, cada una representa un rango de sesiones semanales, agrupados por el género del juego. Puede observarse que:")
+            st.write("Los jugadores con nivel **Alto** de compromiso mantienen una frecuencia constante, independientemente del género.")
+            st.write("Esto sugiere que la lealtad al juego no depende del tipo de contenido, sino de la mecánica de retención.")
+    
 with tab3:
-     with tab3:
-      st.subheader("Distribución de las horas de juego, identificando niveles de dedicación")
+    st.subheader("📊Distribución de las horas de juego, identificando niveles de dedicación")
 
+    col_grafico, col_texto = st.columns([2, 1])
+
+with col_grafico:
+    with st.container(border=True):
      if not df_filtrado.empty:
-        # Cálculo de Cuartiles / Q1 (25% inferior), Q2 (Mediana/50%), Q3 (75% superior)
+       # Cálculo de Cuartiles / Q1 (25% inferior), Q2 (Mediana/50%), Q3 (75% superior)
         q1 = df_filtrado['PlayTimeHours'].quantile(0.25)
         mediana = df_filtrado['PlayTimeHours'].median()
         q3 = df_filtrado['PlayTimeHours'].quantile(0.75)
@@ -188,23 +214,25 @@ with tab3:
         )
 
         st.plotly_chart(fig_eval, use_container_width=True)
-
-        # Resumen
+    
+   
+          # Resumen
         col1, col2, col3 = st.columns(3)
         with col1:
             st.metric("Punto de Corte Casual", f"{q1:.1f} hrs")
-        with col2:
-            st.metric("Punto de Corte Hardcore", f"{q3:.1f} hrs")
-        with col3:
-            st.metric("Máximo de Horas", f"{df_filtrado['PlayTimeHours'].max():.1f} hrs")
-
-        st.markdown("Se observa que los jugadores 'hardcore' o intensos tienen más horas, mientras que los jugadores casuales tienen muchas menos.")
+            with col2:
+              st.metric("Punto de Corte Hardcore", f"{q3:.1f} hrs")
+            with col3:
+              st.metric("Máximo de Horas", f"{df_filtrado['PlayTimeHours'].max():.1f} hrs")
+     
+     with col_texto:
+        with st.container(border=True):
+          st.markdown("### 📈 Análisis")
+          st.write("Se observa que los jugadores que tienen más horas son 'hardcore' o intensos, mientras que los jugadores que tienen menos horas son moderados o casuales.")
+          st.write("Esto nos dice que los jugadores intensos tienen un nivel muy alto de compromiso, nivel que se va degradando a medida que retrocedemos en el gráfico.")
             
-     else:
-        st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
-        st.error("No hay datos suficientes. Revisa los filtros del panel lateral.")
 with tab4:
-    st.subheader("Frecuencia y Tiempo de juego (por región)")
+    st.subheader("⏱️Frecuencia y Tiempo de juego (por región)")
 
     if not df_filtrado.empty:
         # Muestra para el gráfico, total para el cálculo
@@ -259,7 +287,30 @@ with tab4:
      st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
      st.warning("Selecciona ubicaciones en la barra lateral.")
 
-st.markdown("---")
+# Métricas que cambian con selección
+st.subheader("Estadísticas de selección")
+
+df_filtrado = df_Gente_Sin_Oficio[
+    (df_Gente_Sin_Oficio["PlayTimeHours"] >= rango_horas[0]) & 
+    (df_Gente_Sin_Oficio["PlayTimeHours"] <= rango_horas[1]) & 
+    (df_Gente_Sin_Oficio["Location"].isin(ubicaciones_seleccionadas)) &
+    (df_Gente_Sin_Oficio["GameGenre"].isin(generos_seleccionados))
+]
+
+with st.container(border=True):
+    if not df_filtrado.empty:
+        col1, col2, col3 = st.columns(3)
+        
+        col1.metric("Jugadores", f"{len(df_filtrado):,}", 
+                  help="Número de personas que cumplen con tus filtros")
+        
+        avg_playtime = df_filtrado['PlayTimeHours'].mean()
+        col2.metric("Horas", f"{avg_playtime:.1f} h")
+        
+        avg_freq = df_filtrado['SessionsPerWeek'].mean()
+        col3.metric("Frecuencia", f"{avg_freq:.1f}")
+    else:
+        st.warning("No hay coincidencias para los filtros actuales.")
 
 #  Expansor de los datos
 with st.expander("Ver los datos de los jugadores completos"):
