@@ -452,10 +452,10 @@ Para verificar si un aumento en las sesiones semanales se traduce necesariamente
 
 \chapter{Conclusiones y Recomendaciones}
 
-\textbf{1.-} Conclusion 1 del trabajo de investigación.\
+\textbf{1.-} Conclusión 1: A través del análisis de las frecuencias de géneros de videojuego por locación, se concluye que el mercado de videojuegos es altamente homogéneo. Aunque se detectaron preferencias ligeras (como el gusto por la Estrategy en USA o la Action en Europe y Asia), la diferencia con los demás géneros es tan pequeña que no se puede hablar de un dominio absoluto. Esto sugiere que los gustos de los jugadores se han globalizado, permitiendo que un mismo título tenga potencial de éxito casi idéntico en cualquier continente.\
 
-\textbf{Recomendación} 
-Recomendación 1 del trabajo de investigación.\
+\textbf{Recomendación:}
+Debido a que no existe un género que domine el mercado de forma absoluta en ninguna región en los resultados de esta investigación, existe una oportunidad para que las desarrolladoras se arriesguen con nuevas propuestas. La paridad en los gustos globales indica que el mercado está abierto a recibir cualquier género, siempre y cuando la calidad del producto sea competitiva.\
 
 \textbf{2.-} Conclusion 2 del trabajo de investigación.\
 
