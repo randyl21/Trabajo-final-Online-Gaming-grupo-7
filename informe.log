@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.19)  11 APR 2026 02:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.19)  11 APR 2026 03:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -841,7 +841,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 ...numberline {C}Anexo C}{16}{appendix.Alph3}
+l.28 ...numberline {C}Anexo C}{17}{appendix.Alph3}
                                                   % [1
 
 
@@ -939,63 +939,69 @@ used on input line 429.
 [11
 
  <./informe_files/figure-latex/grafico-popularidad-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 458--459
+<informe_files/figure-latex/boxplot-compromiso-final-1.pdf, id=243, 459.7175pt 
+x 315.1775pt>
+File: informe_files/figure-latex/boxplot-compromiso-final-1.pdf Graphic file (t
+ype pdf)
+<use informe_files/figure-latex/boxplot-compromiso-final-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/boxplot-compromiso-final-1.
+pdf  used on input line 464.
+(pdftex.def)             Requested size: 350.68272pt x 240.4367pt.
+LaTeX Info: Redefining \. on input line 481.
+LaTeX Info: Redefining \% on input line 481.
+[12 <./informe_files/figure-latex/boxplot-compromiso-final-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 484--485
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
-
- []
-
-LaTeX Info: Redefining \. on input line 464.
-LaTeX Info: Redefining \% on input line 464.
-[12]
+LaTeX Info: Redefining \. on input line 486.
+LaTeX Info: Redefining \% on input line 486.
+[13]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--467
+Underfull \hbox (badness 10000) in paragraph at lines 488--489
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--471
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
+Underfull \hbox (badness 10000) in paragraph at lines 494--495
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
 
  []
 
-[13
-
-]
-Ap\'{e}ndice A.
 [14
 
 ]
-Ap\'{e}ndice B.
+Ap\'{e}ndice A.
 [15
+
+]
+Ap\'{e}ndice B.
+[16
 
 ]
 Ap\'{e}ndice C.
 No file informe.bbl.
-[16
+[17
 
 ] (./informe.aux
 LaTeX Info: Redefining \. on input line 9.
@@ -1009,13 +1015,13 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: 5AEDB42D0FB970ECCC51E20CEAABC5B6;4887.
+(rerunfilecheck)             Checksum: 229B6BD9190671C34203C6DE3A4B990B;4808.
  ) 
 Here is how much of TeX's memory you used:
- 20603 strings out of 474222
- 341202 string characters out of 5748733
+ 20620 strings out of 474222
+ 342131 string characters out of 5748733
  1935975 words of memory out of 5000000
- 42456 multiletter control sequences out of 15000+600000
+ 42471 multiletter control sequences out of 15000+600000
  569905 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,12n,107p,433b,802s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1032,10 +1038,10 @@ nts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on informe.pdf (20 pages, 482605 bytes).
+Output written on informe.pdf (21 pages, 488694 bytes).
 PDF statistics:
- 338 PDF objects out of 1000 (max. 8388607)
- 276 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 351 PDF objects out of 1000 (max. 8388607)
+ 285 compressed objects within 3 object streams
+ 54 named destinations out of 1000 (max. 500000)
+ 242 words of extra memory for PDF output out of 10000 (max. 10000000)
 
