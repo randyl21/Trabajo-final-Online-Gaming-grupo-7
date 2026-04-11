@@ -428,6 +428,28 @@ ggplot(datos, aes(x = SessionsPerWeek, y = PlayTimeHours, color = GameGenre)) +
 
 El análisis visual de dispersión segmentado por género revela una distribución uniforme y rectangular en todos los paneles. Esta forma del gráfico indica que no existe una correlación lineal fuerte entre la cantidad de sesiones y las horas totales; es decir, en cada género encontramos de manera equitativa a todo tipo de jugadores: desde aquellos con pocas sesiones y pocas horas, hasta los que presentan una alta frecuencia y dedicación.
 
+\section{Relacion lineal entre Playtime Hours y Sessions Per Week}
+
+Para verificar si existe una relación directa entre el tiempo total de juego y la constancia semanal, se procedió a calcular el Coeficiente de Correlación de Pearson (r):
+
+```{r verificacion-correlacion, message=FALSE, warning=FALSE, fig.cap="Correlación Lineal entre Sesiones y Horas", fig.pos = 'H', out.width = '85%'}
+
+# Calculo del coeficiente de correlacion
+r_valor <- cor(datos$SessionsPerWeek, datos$PlayTimeHours)
+
+# Visualizacion para validar la relación directa
+ggplot(datos, aes(x = SessionsPerWeek, y = PlayTimeHours)) +
+  geom_jitter(alpha = 0.1, color = "#08519c", size = 0.5) +
+  geom_smooth(method = "lm", color = "red", se = TRUE) +
+  labs(title = "Verificación de Relación Directa",
+       subtitle = paste("Coeficiente de Correlación de Pearson:", round(r_valor, 4)),
+       x = "Sesiones por Semana (Constancia)",
+       y = "Horas Totales (Dedicación)") +
+  theme_minimal()
+```
+
+Para verificar si un aumento en las sesiones semanales se traduce necesariamente en una mayor cantidad de horas totales, se calculó el Coeficiente de Correlación de Pearson, obteniendo un valor de -0.0037. Desde el punto de vista estadístico, este resultado indica una correlación nula, lo que significa que la constancia semanal y la dedicación horaria operan como variables independientes.
+
 \chapter{Conclusiones y Recomendaciones}
 
 \textbf{1.-} Conclusion 1 del trabajo de investigación.\
