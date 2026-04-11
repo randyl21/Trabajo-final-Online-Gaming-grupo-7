@@ -394,9 +394,39 @@ ggplot(dataset_boxplot, aes(x = Categoria, y = PlayTimeHours, fill = Categoria))
 
 Al observar el gráfico, se nota que las categorías de Casual, Regular y Hardcore no se mezclan entre sí, lo que significa que cada tipo de jugador tiene un hábito de consumo muy marcado y diferente al resto. Mientras que los jugadores casuales son más constantes y predecibles en sus pocas horas de juego, los jugadores "Hardcore" muestran una mayor variedad, con algunos dedicando mucho más tiempo que otros dentro de su misma categoría. Esta clara "escalera" en los niveles de dedicación confirma que el mercado está segmentado por el grado de compromiso, demostrando que la intensidad con la que se juega es un factor determinante que diferencia a un perfil de otro.
 
-\section{Presentación de resultados n}
+\section{Comparación de las horas de dedicación entre frecuencia de sesiones semanales según distintos géneros de videojuegos.}
 
-Descripción\
+Para profundizar en la dinámica de uso, se presenta un análisis comparativo que cruza la frecuencia de sesiones con el tiempo total de juego, segmentado por cada género de videojuego:
+
+```{r comparativa-interaccion-azul-fuerte, message=FALSE, warning=FALSE, fig.cap="Distribución de Horas vs. Sesiones por Género", fig.pos = 'H', out.width = '100%'}
+
+# Paleta de colores
+colores_azules <- c(
+  "Action" = "#6baed6",     # Azul medio
+  "RPG" = "#4292c6",        # Azul fuerte
+  "Simulation" = "#2171b5", # Azul intenso
+  "Sports" = "#08519c",     # Azul oscuro
+  "Strategy" = "#08306b"    # Azul medianoche
+)
+
+# Grafico
+ggplot(datos, aes(x = SessionsPerWeek, y = PlayTimeHours, color = GameGenre)) +
+  geom_jitter(alpha = 0.2, size = 0.5) +
+  facet_wrap(~GameGenre) + 
+  scale_color_manual(values = colores_azules) + 
+  labs(title = "Relación Frecuencia vs. Dedicación por Género",
+       x = "Sesiones por Semana",
+       y = "Horas Totales Dedicadas") +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    strip.background = element_rect(fill = "#2171b5", color = "white"),
+    strip.text = element_text(face = "bold", color = "white"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+El análisis visual de dispersión segmentado por género revela una distribución uniforme y rectangular en todos los paneles. Esta forma del gráfico indica que no existe una correlación lineal fuerte entre la cantidad de sesiones y las horas totales; es decir, en cada género encontramos de manera equitativa a todo tipo de jugadores: desde aquellos con pocas sesiones y pocas horas, hasta los que presentan una alta frecuencia y dedicación.
 
 \chapter{Conclusiones y Recomendaciones}
 
