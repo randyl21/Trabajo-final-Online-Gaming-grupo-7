@@ -72,15 +72,15 @@ El presente trabajo realiza un análisis estadístico exhaustivo sobre el datase
 
 
 \chapter{Planteamiento del Problema}
-A pesar del enorme y constante crecimiento que ha experimentado la industria global de los videojuegos en los últimos tiempos, existe una necesidad de contar con estudios especializados. Estos análisis deben centrarse en la recopilación y examen de ciertos datos específicos que poseen la capacidad de influir de manera determinante en los patrones de uso de los jugadores.
+A pesar del enorme y constante crecimiento que ha experimentado la industria global de los videojuegos en los últimos tiempos, existe una necesidad de contar con estudios especializados. Estos análisis deben centrarse en la recopilación y examen de ciertos datos específicos que poseen la capacidad de influir de manera determinante en los patrones de uso de los jugadores. Al respecto, se considera que el conocimiento de los datos es esencial para ganar y mantener una ventaja competitiva, ya que sin la capacidad de responder a tendencias de comportamiento críticas se pierden oportunidades para atraer jugadores rentables (Vertica, 2023).\
 
-Ahora bien, dentro de estas variables críticas, destacan factores como la localización geográfica de los usuarios y el tiempo de consumo que estos dedican, siempre analizados en estrecha relación con el género de juego en cuestión. Para profundizar en este entendimiento, resulta fundamental abordar una serie de interrogantes que definen la dinámica del sector: 
+Ahora bien, dentro de estas variables críticas, destacan factores como la localización geográfica de los usuarios y el tiempo de consumo que estos dedican, siempre analizados en estrecha relación con el género de juego en cuestión. Sobre esto, investigaciones señalan que la cultura nacional explica una parte de la varianza en los estilos de juego (Tilburg University, s.f.) y que regiones como Norteamérica lideran el desempeño en ventas, especialmente en géneros como Acción (Olagunju, 2026). Para profundizar en este entendimiento, resulta fundamental abordar una serie de interrogantes que definen la dinámica del sector:\
 
-\textbf{1.} ¿Cuáles son los géneros más populares en cada región y cómo se relacionan con la intensidad y frecuencia de juego?\ 
+\textbf{1.} ¿Cuáles son los géneros más populares en cada región y cómo se relacionan con la intensidad y frecuencia de juego?\
 
-\textbf{2.}	¿Se puede establecer una relación directa entre el tiempo total invertido y la cantidad de sesiones semanales?\ 
+\textbf{2.}	¿Se puede establecer una relación directa entre el tiempo total invertido y la cantidad de sesiones semanales?\
 
-Como consecuencia, esta fragmentación en el conocimiento existente impide, por ejemplo, determinar si los patrones de consumo responden más a factores culturales debido a su región o a características intrínsecas de cada tipo de juego. Asimismo, dificulta la identificación de perfiles de usuario basados en la intensidad de uso y su relación con la frecuencia de acceso, información crucial para el diseño de experiencias personalizadas.
+Como consecuencia, esta fragmentación en el conocimiento existente impide, por ejemplo, determinar si los patrones de consumo responden más a factores culturales debido a su región o a características intrínsecas de cada tipo de juego. Asimismo, dificulta la identificación de perfiles de usuario basados en la intensidad de uso y su relación con la frecuencia de acceso, parámetros que definen a grupos de jugadores "hardcore" vs. "casuales" (Kapalo et al., 2015), información crucial para el diseño de experiencias personalizadas (ResearchGate, 2024).\
 
 Por tal motivo, la obtención de respuestas claras, detalladas y fundamentadas a estas preguntas no es un mero ejercicio estadístico; es una herramienta necesaria para alcanzar una comprensión integral del comportamiento del mercado. Solo a través de este conocimiento, es posible prever las reacciones de la audiencia y asegurar la efectividad de las estrategias aplicadas a la hora de realizar el lanzamiento de un nuevo producto.
 

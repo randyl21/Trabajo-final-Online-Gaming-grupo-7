@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.12)  12 APR 2026 17:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.12)  12 APR 2026 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -834,53 +834,78 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 
 ]
 Cap\'{\i }tulo 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--160
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--176
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--185
+
+ []
+
 [2
 
 ]
-LaTeX Info: Redefining \. on input line 247.
-LaTeX Info: Redefining \% on input line 247.
+LaTeX Info: Redefining \. on input line 233.
+LaTeX Info: Redefining \% on input line 233.
 [3]
-LaTeX Info: Redefining \. on input line 273.
-LaTeX Info: Redefining \% on input line 273.
+LaTeX Info: Redefining \. on input line 267.
+LaTeX Info: Redefining \% on input line 267.
 [4]
-LaTeX Info: Redefining \. on input line 273.
-LaTeX Info: Redefining \% on input line 273.
+LaTeX Info: Redefining \. on input line 281.
+LaTeX Info: Redefining \% on input line 281.
 [5]
 Cap\'{\i }tulo 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--286
+Underfull \hbox (badness 10000) in paragraph at lines 291--294
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--298
+Underfull \hbox (badness 10000) in paragraph at lines 295--306
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--319
+Underfull \hbox (badness 10000) in paragraph at lines 317--327
 
  []
 
 [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 325--328
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--331
+Underfull \hbox (badness 10000) in paragraph at lines 337--339
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--335
+Underfull \hbox (badness 10000) in paragraph at lines 340--343
 
  []
 
-LaTeX Info: Redefining \. on input line 346.
-LaTeX Info: Redefining \% on input line 346.
+LaTeX Info: Redefining \. on input line 354.
+LaTeX Info: Redefining \% on input line 354.
 [7]
 Cap\'{\i }tulo 3.
 [8
@@ -889,29 +914,29 @@ Cap\'{\i }tulo 3.
 <informe_files/figure-latex/grafica_frecuencias_libres-1.pdf, id=213, 861.2175pt x 641.39626pt>
 File: informe_files/figure-latex/grafica_frecuencias_libres-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/grafica_frecuencias_libres-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/grafica_frecuencias_libres-1.pdf  used on input line 402.
+Package pdftex.def Info: informe_files/figure-latex/grafica_frecuencias_libres-1.pdf  used on input line 410.
 (pdftex.def)             Requested size: 371.30594pt x 276.53882pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--406
+Underfull \hbox (badness 10000) in paragraph at lines 412--414
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--413
+Underfull \hbox (badness 10000) in paragraph at lines 415--421
 
  []
 
-LaTeX Info: Redefining \. on input line 413.
-LaTeX Info: Redefining \% on input line 413.
+LaTeX Info: Redefining \. on input line 421.
+LaTeX Info: Redefining \% on input line 421.
 [9 <./informe_files/figure-latex/grafica_frecuencias_libres-1.pdf>]
-LaTeX Info: Redefining \. on input line 432.
-LaTeX Info: Redefining \% on input line 432.
+LaTeX Info: Redefining \. on input line 440.
+LaTeX Info: Redefining \% on input line 440.
 [10]
 Cap\'{\i }tulo 4.
 <informe_files/figure-latex/grafico-popularidad-1.pdf, id=232, 457.71pt x 315.1775pt>
 File: informe_files/figure-latex/grafico-popularidad-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/grafico-popularidad-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/grafico-popularidad-1.pdf  used on input line 446.
+Package pdftex.def Info: informe_files/figure-latex/grafico-popularidad-1.pdf  used on input line 454.
 (pdftex.def)             Requested size: 330.06778pt x 177.88805pt.
 [11
 
@@ -919,52 +944,52 @@ Package pdftex.def Info: informe_files/figure-latex/grafico-popularidad-1.pdf  u
 <informe_files/figure-latex/boxplot-compromiso-final-1.pdf, id=246, 468.75125pt x 317.185pt>
 File: informe_files/figure-latex/boxplot-compromiso-final-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/boxplot-compromiso-final-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/boxplot-compromiso-final-1.pdf  used on input line 481.
+Package pdftex.def Info: informe_files/figure-latex/boxplot-compromiso-final-1.pdf  used on input line 489.
 (pdftex.def)             Requested size: 350.68272pt x 237.28801pt.
-LaTeX Info: Redefining \. on input line 498.
-LaTeX Info: Redefining \% on input line 498.
+LaTeX Info: Redefining \. on input line 506.
+LaTeX Info: Redefining \% on input line 506.
 [12 <./informe_files/figure-latex/boxplot-compromiso-final-1.pdf>]
 <informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf, id=260, 465.74pt x 316.18124pt>
 File: informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf  used on input line 507.
+Package pdftex.def Info: informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf  used on input line 515.
 (pdftex.def)             Requested size: 412.56496pt x 280.09297pt.
-LaTeX Info: Redefining \. on input line 521.
-LaTeX Info: Redefining \% on input line 521.
+LaTeX Info: Redefining \. on input line 529.
+LaTeX Info: Redefining \% on input line 529.
 [13 <./informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf>]
 <informe_files/figure-latex/verificacion-correlacion-1.pdf, id=278, 463.7325pt x 316.18124pt>
 File: informe_files/figure-latex/verificacion-correlacion-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/verificacion-correlacion-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/verificacion-correlacion-1.pdf  used on input line 530.
+Package pdftex.def Info: informe_files/figure-latex/verificacion-correlacion-1.pdf  used on input line 538.
 (pdftex.def)             Requested size: 350.68272pt x 239.10374pt.
-LaTeX Info: Redefining \. on input line 544.
-LaTeX Info: Redefining \% on input line 544.
+LaTeX Info: Redefining \. on input line 552.
+LaTeX Info: Redefining \% on input line 552.
 [14 <./informe_files/figure-latex/verificacion-correlacion-1.pdf>]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--553
+Underfull \hbox (badness 10000) in paragraph at lines 554--561
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--560
+Underfull \hbox (badness 10000) in paragraph at lines 562--568
 
  []
 
 [15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 581--590
+Underfull \hbox (badness 10000) in paragraph at lines 589--598
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--600
+Underfull \hbox (badness 10000) in paragraph at lines 599--608
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 601--610
+Underfull \hbox (badness 10000) in paragraph at lines 609--618
 
  []
 
@@ -997,14 +1022,14 @@ Package rerunfilecheck Info: File `informe.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  20572 strings out of 469321
- 346317 string characters out of 5465139
+ 346314 string characters out of 5465139
  831262 words of memory out of 5000000
  49016 multiletter control sequences out of 15000+600000
  639030 words of font info for 89 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  105i,12n,107p,763b,816s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on informe.pdf (23 pages, 4957726 bytes).
+Output written on informe.pdf (23 pages, 4958371 bytes).
 PDF statistics:
  385 PDF objects out of 1000 (max. 8388607)
  314 compressed objects within 4 object streams
