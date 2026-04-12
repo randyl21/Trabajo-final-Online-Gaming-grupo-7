@@ -164,22 +164,38 @@ Se define el Consumo Digital Situacional como el patrón de interacción de un u
 
 Esta información es necesaria para entender que el comportamiento del jugador va relacionado con las variables de estudio.
 
+\subsection{Juegos como Servicio y Economía de la Atención}
+
+El modelo de Juegos como Servicio (GaaS) transforma el videojuego en una plataforma continua que prioriza la Economía de la Atención. En este sistema, el éxito no depende de una venta única, sino de la capacidad de retener al usuario diariamente a través de actualizaciones constantes y recompensas. Para el jugador, el juego compite por su tiempo limitado, convirtiéndose en un hábito integrado en su rutina donde la frecuencia de uso es el principal indicador de valor y sostenibilidad del ecosistema digital.
+
+\subsection{Stickiness o Adherencia}
+
+La Adherencia (Stickiness) se define como la capacidad de una plataforma digital para fomentar el retorno recurrente del usuario, transformando el uso esporádico en un hábito constante. A diferencia del simple compromiso, la adherencia no mide cuánto tiempo se queda un usuario en una sola sesión, sino la frecuencia con la que decide volver al entorno virtual tras haberlo abandonado. En el ámbito de los videojuegos online, este concepto es fundamental, ya que el éxito de estos títulos depende de mantener una base de jugadores activa y estable. Se orienta específicamente a través de mecánicas de progresión, eventos temporales y vínculos sociales que incentivan al jugador a conectarse diariamente.
+
 \subsection{Análisis Exploratorio de Datos (EDA)}
 
 El Análisis Exploratorio de Datos (EDA), desarrollado por John Tukey, es un proceso iterativo fundamental para descubrir estructuras, detectar anomalías y sintetizar las propiedades de una muestra.\
 
 En esta invesgación, se aplican herramientas visuales y estadística descriptiva, ya que no contamos con mayores recursos de análisis.\
 
-Para las variables cuantitativas del estudio, como Sessions Per Week y Playtime Hours, se analizan los momentos centrales, medidas de posición y dispersión:\
+Para las variables cuantitativas del estudio, como Sesiones por semana y Horas de Juegos, se analizan los momentos centrales, medidas de posición y dispersión:\
 
-**Media Muestral ($\bar{x}$):**
+**Media Muestral ($\bar{x}$):** 
+
 $$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
+\
+
 **Varianza ($S^2$):**
+
 $$\sigma^2 = \frac{\sum_{i=1}^{N} (x_{i} - \bar{x})^2}{N}$$
+\
 
 **Coeficiente de Correlación de Pearson ($r_{xy}$):**
+
 $$r_{xy} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2 \sum_{i=1}^{n} (y_i - \bar{y})^2}}$$
-Para las variables categóricas como Game Genre y Location, se aplica un análisis de frecuencias para identificar predominancia de videojuegos online en differences locaciones.
+\
+
+Para las variables categóricas como Género de videojuego y Ubicación, se aplica un análisis de frecuencias para identificar predominancia de videojuegos online en differences locaciones.
 
 \chapter{Marco Metódico}
 En esta sección se presentan las metodologías y procedimientos algorítmicos implementados para abordar los objetivos de la investigación. Se detalla el tratamiento técnico de la fuente de datos Online Gaming.csv, cuyo procesamiento se realizó íntegramente utilizando el lenguaje de programación R bajo el entorno de desarrollo RStudio.
