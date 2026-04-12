@@ -224,7 +224,7 @@ patrones de intensidad y frecuencia de uso de los jugadores.
   \item{Identificar cuáles son los géneros de juego más populares en cada ubicación para establecer el contexto del mercado.}
   \item{Comparar las horas de dedicación y frecuencia de sesiones semanales entre distintos géneros de videojuegos.}
   \item{Evaluar la distribución de las horas totales de juego registradas por los usuarios para identificar niveles de dedicación.}
-  \item{verificar si existe una relación directa entre el tiempo total de juego y la frecuencia semanal.}
+  \item{Verificar si existe una relación directa entre el tiempo total de juego y la frecuencia semanal.}
 \end{itemize}
 
 \section {Variables de estudio}
@@ -380,18 +380,27 @@ original):
 \caption{\label{tab:tabla_cuanti_final}Resumen Estadístico de Variables Numéricas}
 \centering
 \fontsize{9}{11}\selectfont
-\begin{tabular}[t]{>{}lrrrrr}
+\begin{tabular}[t]{>{}lrrrrrrr}
 \toprule
-Variable & Media & Mediana & Desv. Est. & Mín. & Máx.\\
+Variable & Media & Mediana & Desv. Est. & Mín. & Máx. & N & Varianza\\
 \midrule
-\textbf{\cellcolor{gray!10}{Age}} & \cellcolor{gray!10}{31.99} & \cellcolor{gray!10}{32.00} & \cellcolor{gray!10}{10.04} & \cellcolor{gray!10}{15} & \cellcolor{gray!10}{49}\\
-\textbf{PlayTimeHours} & 12.02 & 12.01 & 6.91 & 0 & 24\\
-\textbf{\cellcolor{gray!10}{InGamePurchases}} & \cellcolor{gray!10}{0.20} & \cellcolor{gray!10}{0.00} & \cellcolor{gray!10}{0.40} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1}\\
-\textbf{SessionsPerWeek} & 9.47 & 9.00 & 5.76 & 0 & 19\\
-\textbf{\cellcolor{gray!10}{AvgSessionDurationMinutes}} & \cellcolor{gray!10}{94.79} & \cellcolor{gray!10}{95.00} & \cellcolor{gray!10}{49.01} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{179}\\
+\textbf{\cellcolor{gray!10}{Age}} & \cellcolor{gray!10}{31.99} & \cellcolor{gray!10}{32} & \cellcolor{gray!10}{10.04} & \cellcolor{gray!10}{15} & \cellcolor{gray!10}{49} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
+\textbf{Horas} & NA & NA & NA & NA & NA & 12.02 & NA\\
+\textbf{\cellcolor{gray!10}{Horas}} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{12.01} & \cellcolor{gray!10}{NA}\\
+\textbf{Horas} & NA & NA & NA & NA & NA & 6.91 & NA\\
+\textbf{\cellcolor{gray!10}{Horas}} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{0.00} & \cellcolor{gray!10}{NA}\\
 \addlinespace
-\textbf{PlayerLevel} & 49.66 & 49.00 & 28.59 & 1 & 99\\
-\textbf{\cellcolor{gray!10}{AchievementsUnlocked}} & \cellcolor{gray!10}{24.53} & \cellcolor{gray!10}{25.00} & \cellcolor{gray!10}{14.43} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{49}\\
+\textbf{Horas} & NA & NA & NA & NA & NA & 24.00 & NA\\
+\textbf{\cellcolor{gray!10}{InGamePurchases}} & \cellcolor{gray!10}{0.20} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{0.40} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
+\textbf{Sesiones} & NA & NA & NA & NA & NA & NA & 9.47\\
+\textbf{\cellcolor{gray!10}{Sesiones}} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{9.00}\\
+\textbf{Sesiones} & NA & NA & NA & NA & NA & NA & 5.76\\
+\addlinespace
+\textbf{\cellcolor{gray!10}{Sesiones}} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{0.00}\\
+\textbf{Sesiones} & NA & NA & NA & NA & NA & NA & 19.00\\
+\textbf{\cellcolor{gray!10}{AvgSessionDurationMinutes}} & \cellcolor{gray!10}{94.79} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{49.01} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{179} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
+\textbf{PlayerLevel} & 49.66 & 49 & 28.59 & 1 & 99 & NA & NA\\
+\textbf{\cellcolor{gray!10}{AchievementsUnlocked}} & \cellcolor{gray!10}{24.53} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{14.43} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{49} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -418,7 +427,7 @@ A continuación, se reportan los resultados del estudio, comenzando con
 una descripción estadística exhaustiva de las variables. Posteriormente,
 se añade el análisis de los resultados obtenidos.
 
-\section{Game Genre y Location}
+\section{Géneros más populares por Ubicación}
 
 A partir del primer objetivo de esta investigación (Identificar cuáles
 son los géneros de juego más populares en cada ubicación), se presenta
@@ -437,23 +446,23 @@ Al observar las barras de manera individual, es posible identificar el
 género predominante en cada ubicación (la barra de mayor altura):
 
 \begin{itemize} 
-  \item En USA, se observa un ligero liderazgo del género Sports (3,260). 
-  \item En Europe, el género con mayor frecuencia es Sports (2,431). 
-  \item En Asia, destaca levemente el género Action (1,656). 
-  \item En la categoría Other, la distribución es casi idéntica, con una mínima ventaja para Simulation (795). 
+  \item En EE.UU, se observa un ligero liderazgo del género Deportes (3,260). 
+  \item En Europa, el género con mayor frecuencia es Deportes (2,431). 
+  \item En Asia, destaca levemente el género Acción (1,656). 
+  \item En la categoría Otros, la distribución es casi idéntica, con una mínima ventaja para Simulación (795). 
 \end{itemize}
 
 El análisis de popularidad permitió cumplir el objetivo de identificar
-la moda estadística por región, determinando que en USA predominan el
-género de Sports, mientras que en Europe lidera Sports y Asia el
-liderazgo recae en los videojuegos de Action. No obstante, el hallazgo
-más relevante para el contexto del mercado es la estrecha competitividad
-entre categorías; la diferencia entre el género más popular y el menos
+la moda estadística por región, determinando que en EE.UU y Europa
+predomina el género de Sports, mientras que en Asia el liderazgo recae
+en los videojuegos de Acción. No obstante, el hallazgo más relevante
+para el contexto del mercado es la estrecha competitividad entre
+categorías; la diferencia entre el género más popular y el menos
 frecuente es mínima en todos los territorios, lo que define un mercado
 globalizado y altamente diversificado donde ningún género ejerce un
 monopolio de preferencia claro.
 
-\section{PlayTime Hours}
+\section{Horas de Juego}
 
 Para evaluar la distribución de las horas de juego, se presenta a
 continuación un diagrama de caja (boxplot) que segmenta la variable
@@ -468,7 +477,7 @@ PlayTimeHours en tres niveles de dedicación:
 \caption{Distribución de Horas por Nivel de Compromiso}\label{fig:boxplot-compromiso-final}
 \end{figure}
 
-Al observar el gráfico, se nota que las categorías de Casual, Regular y
+Al observar el gráfico, se nota que las categorías de Casual, Moderado y
 Hardcore no se mezclan entre sí, lo que significa que cada tipo de
 jugador tiene un hábito de consumo muy marcado y diferente al resto.
 Mientras que los jugadores casuales son más constantes y predecibles en
@@ -502,7 +511,7 @@ encontramos de manera equitativa a todo tipo de jugadores: desde
 aquellos con pocas sesiones y pocas horas, hasta los que presentan una
 alta frecuencia y dedicación.
 
-\section{Relacion lineal entre Playtime Hours y Sessions Per Week}
+\section{Relacion lineal entre Horas de Juego y Sesiones por Semena}
 
 Para verificar si existe una relación directa entre el tiempo total de
 juego y la constancia semanal, se procedió a calcular el Coeficiente de
@@ -529,8 +538,7 @@ dedicación horaria operan como variables independientes.
 \textbf{1.-} Conclusión 1: A través del análisis de las frecuencias de
 géneros de videojuego por locación, se concluye que el mercado de
 videojuegos es altamente homogéneo. Aunque se detectaron preferencias
-ligeras (como el gusto por la Estrategy en USA o la Action en Europe y
-Asia), la diferencia con los demás géneros es tan pequeña que no se
+ligeras, la diferencia con los demás géneros es tan pequeña que no se
 puede hablar de un dominio absoluto. Esto sugiere que los gustos de los
 jugadores se han globalizado, permitiendo que un mismo título tenga
 potencial de éxito casi idéntico en cualquier continente.\\
@@ -549,7 +557,7 @@ definidos:
 
 \begin{itemize} 
   \item Casual: Constante y de bajo consumo. 
-  \item Regular: Un punto intermedio de compromiso.
+  \item Moderado: Un punto intermedio de compromiso.
   \item Hardcore: Un grupo más diverso, donde algunos llevan la dedicación al extremo. Esto nos indica que para predecir cuánto jugará alguien, es más importante saber qué tipo de jugador es que de qué país viene.
 \end{itemize}
 
@@ -558,8 +566,8 @@ entre sí, la estrategia debe abandonar el concepto de ``jugador
 promedio'' y enfocarse en la especialización por nichos:
 
 \begin{itemize} 
-  \item Enfoque de Producto: Desarrollar mecánicas de "entrada y salida rápida" para el segmento Casual (baja dedicación/alta constancia) y sistemas de profundidad expansiva para el Hardcore (alta dedicación/alta variabilidad). 
-  \item Eficiencia en la Inversión Publicitaria: Se recomienda redirigir los presupuestos de marketing hacia canales digitales que permitan segmentar por intereses y comportamientos de uso en lugar de límites geográficos. Al ser un mercado globalizado y competitivo, es más rentable captar a un "jugador de estrategia hardcore" en cualquier parte del mundo que intentar convencer a toda la población de una región específica. 
+  \item Enfoque de Producto: Desarrollar mecánicas de entrada y salida rápida para el segmento Casual (baja dedicación/alta constancia) y sistemas de profundidad expansiva para el Hardcore (alta dedicación/alta variabilidad). 
+  \item Eficiencia en la Inversión Publicitaria: Se recomienda redirigir los presupuestos de marketing hacia canales digitales que permitan segmentar por intereses y comportamientos de uso en lugar de límites geográficos. Al ser un mercado globalizado y competitivo, es más rentable captar a un "jugador de estrategia hardcore", en cualquier parte del mundo que intentar convencer a toda la población de una región específica. 
 \end{itemize}
 
 \textbf{3.-} Conclusion 3: Se concluye que no existe una regla general
@@ -582,7 +590,7 @@ incentivos por horas de juego acumuladas o metas a largo plazo. Así, el
 producto se adapta orgánicamente a los diferentes estilos de vida de los
 jugadores.\\
 
-\textbf{3.-} Conclusion 4: .\\
+\textbf{3.-} Conclusion 4:\\
 Se concluye que la frecuencia de sesiones por semana no es un indicador
 del volumen total de tiempo invertido en el juego. El hallazgo de una
 relación lineal nula entre estas variables demuestra que la constancia

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.9)  11 APR 2026 21:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.9)  12 APR 2026 13:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -812,7 +812,7 @@ Package spanish Warning: Replacing `OT1/cmr/bx/sc' by
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 ...numberline {B}Anexo B}{18}{appendix.Alph2}
+l.28 ...numberline {B}Anexo B}{19}{appendix.Alph2}
                                                   % [1
 
 
@@ -883,93 +883,101 @@ LaTeX Info: Redefining \. on input line 346.
 LaTeX Info: Redefining \% on input line 346.
 [7]
 Cap\'{\i }tulo 3.
+
+Overfull \hbox (12.57196pt too wide) in paragraph at lines 383--406
+ [][] 
+ []
+
 [8
 
 ]
 <informe_files/figure-latex/grafica_frecuencias_libres-1.pdf, id=213, 861.2175pt x 641.39626pt>
 File: informe_files/figure-latex/grafica_frecuencias_libres-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/grafica_frecuencias_libres-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/grafica_frecuencias_libres-1.pdf  used on input line 401.
+Package pdftex.def Info: informe_files/figure-latex/grafica_frecuencias_libres-1.pdf  used on input line 410.
 (pdftex.def)             Requested size: 371.30594pt x 276.53882pt.
 LaTeX Info: Redefining \. on input line 410.
 LaTeX Info: Redefining \% on input line 410.
-[9 <./informe_files/figure-latex/grafica_frecuencias_libres-1.pdf>]
-LaTeX Info: Redefining \. on input line 415.
-LaTeX Info: Redefining \% on input line 415.
-[10]
+[9]
+LaTeX Info: Redefining \. on input line 424.
+LaTeX Info: Redefining \% on input line 424.
+[10 <./informe_files/figure-latex/grafica_frecuencias_libres-1.pdf>]
+LaTeX Info: Redefining \. on input line 424.
+LaTeX Info: Redefining \% on input line 424.
+[11]
 Cap\'{\i }tulo 4.
-<informe_files/figure-latex/grafico-popularidad-1.pdf, id=234, 457.71pt x 316.18124pt>
+<informe_files/figure-latex/grafico-popularidad-1.pdf, id=238, 457.71pt x 315.1775pt>
 File: informe_files/figure-latex/grafico-popularidad-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/grafico-popularidad-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/grafico-popularidad-1.pdf  used on input line 429.
-(pdftex.def)             Requested size: 330.06778pt x 177.8901pt.
-[11
+Package pdftex.def Info: informe_files/figure-latex/grafico-popularidad-1.pdf  used on input line 438.
+(pdftex.def)             Requested size: 330.06778pt x 177.88805pt.
+[12
 
  <./informe_files/figure-latex/grafico-popularidad-1.pdf>]
-<informe_files/figure-latex/boxplot-compromiso-final-1.pdf, id=248, 463.7325pt x 316.18124pt>
+<informe_files/figure-latex/boxplot-compromiso-final-1.pdf, id=252, 468.75125pt x 317.185pt>
 File: informe_files/figure-latex/boxplot-compromiso-final-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/boxplot-compromiso-final-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/boxplot-compromiso-final-1.pdf  used on input line 464.
-(pdftex.def)             Requested size: 350.68272pt x 239.10374pt.
-LaTeX Info: Redefining \. on input line 481.
-LaTeX Info: Redefining \% on input line 481.
-[12 <./informe_files/figure-latex/boxplot-compromiso-final-1.pdf>]
-<informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf, id=261, 465.74pt x 316.18124pt>
+Package pdftex.def Info: informe_files/figure-latex/boxplot-compromiso-final-1.pdf  used on input line 473.
+(pdftex.def)             Requested size: 350.68272pt x 237.28801pt.
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
+[13 <./informe_files/figure-latex/boxplot-compromiso-final-1.pdf>]
+<informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf, id=266, 465.74pt x 316.18124pt>
 File: informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf  used on input line 490.
+Package pdftex.def Info: informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf  used on input line 499.
 (pdftex.def)             Requested size: 412.56496pt x 280.09297pt.
-LaTeX Info: Redefining \. on input line 504.
-LaTeX Info: Redefining \% on input line 504.
-[13 <./informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf>]
-<informe_files/figure-latex/verificacion-correlacion-1.pdf, id=279, 463.7325pt x 316.18124pt>
+LaTeX Info: Redefining \. on input line 513.
+LaTeX Info: Redefining \% on input line 513.
+[14 <./informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf>]
+<informe_files/figure-latex/verificacion-correlacion-1.pdf, id=284, 463.7325pt x 316.18124pt>
 File: informe_files/figure-latex/verificacion-correlacion-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/verificacion-correlacion-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/verificacion-correlacion-1.pdf  used on input line 513.
+Package pdftex.def Info: informe_files/figure-latex/verificacion-correlacion-1.pdf  used on input line 522.
 (pdftex.def)             Requested size: 350.68272pt x 239.10374pt.
-LaTeX Info: Redefining \. on input line 527.
-LaTeX Info: Redefining \% on input line 527.
-[14 <./informe_files/figure-latex/verificacion-correlacion-1.pdf>]
+LaTeX Info: Redefining \. on input line 536.
+LaTeX Info: Redefining \% on input line 536.
+[15 <./informe_files/figure-latex/verificacion-correlacion-1.pdf>]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 529--537
+Underfull \hbox (badness 10000) in paragraph at lines 538--545
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 538--544
+Underfull \hbox (badness 10000) in paragraph at lines 546--552
 
  []
 
-[15
+[16
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 565--574
+Underfull \hbox (badness 10000) in paragraph at lines 573--582
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 575--584
+Underfull \hbox (badness 10000) in paragraph at lines 583--592
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 585--594
+Underfull \hbox (badness 10000) in paragraph at lines 593--602
 
  []
 
-[16]
+[17]
 Ap\'{e}ndice A.
-[17
+[18
 
 ]
 Ap\'{e}ndice B.
-[18
+[19
 
 ]
 Ap\'{e}ndice C.
 No file informe.bbl.
-[19
+[20
 
 ] (./informe.aux
 LaTeX Info: Redefining \. on input line 8.
@@ -983,21 +991,21 @@ L3 programming layer <2026-03-20>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: 64D81A4E21B2ACB86314B865759CD6BA;5679.
+(rerunfilecheck)             Checksum: B17F75690148BED2BB8CF8365CBAB53F;5777.
  ) 
 Here is how much of TeX's memory you used:
- 20575 strings out of 469321
- 346323 string characters out of 5465140
- 831262 words of memory out of 5000000
+ 20576 strings out of 469321
+ 346330 string characters out of 5465140
+ 838262 words of memory out of 5000000
  49015 multiletter control sequences out of 15000+600000
  639557 words of font info for 89 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  105i,12n,107p,763b,816s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on informe.pdf (23 pages, 4985324 bytes).
+Output written on informe.pdf (24 pages, 4985207 bytes).
 PDF statistics:
- 394 PDF objects out of 1000 (max. 8388607)
- 319 compressed objects within 4 object streams
- 59 named destinations out of 1000 (max. 500000)
+ 399 PDF objects out of 1000 (max. 8388607)
+ 323 compressed objects within 4 object streams
+ 60 named destinations out of 1000 (max. 500000)
  260 words of extra memory for PDF output out of 10000 (max. 10000000)
 
