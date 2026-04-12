@@ -467,7 +467,7 @@ Debido a que no existe un género que domine el mercado de forma absoluta en nin
   \item Casual: Constante y de bajo consumo. 
   \item Regular: Un punto intermedio de compromiso.
   \item Hardcore: Un grupo más diverso, donde algunos llevan la dedicación al extremo. Esto nos indica que para predecir cuánto jugará alguien, es más importante saber qué tipo de jugador es que de qué país viene.
-\end{itemize}.
+\end{itemize}
 
 \textbf{Recomendación:} 
 Al existir grupos tan definidos y sin cruces entre sí, la estrategia debe abandonar el concepto de "jugador promedio" y enfocarse en la especialización por nichos:
@@ -480,7 +480,14 @@ Al existir grupos tan definidos y sin cruces entre sí, la estrategia debe aband
 \textbf{3.-} Conclusion 3: Se concluye que no existe una regla general que vincule la cantidad de veces que un usuario ingresa al juego con el total de horas que le dedica. Los resultados reflejan que, sin importar el género del videojuego, los hábitos de consumo son muy diversos. Dentro de una misma categoría conviven de manera equilibrada jugadores que prefieren conexiones diarias muy breves y aquellos que optan por sesiones largas y esporádicas. Esto demuestra que la constancia semanal y el volumen de tiempo invertido son decisiones personales del jugador, independientes del tipo de videojuego que decida consumir.\
 
 \textbf{Recomendación: } 
-Frente a esta variedad de perfiles, se sugiere a los desarrolladores adoptar estrategias de retención más flexibles, evitando diseñar sus productos pensando en un único tipo de consumidor. Es recomendable crear sistemas de recompensas que valoren por igual los accesos frecuentes y las sesiones prolongadas. Por ejemplo, en lugar de ofrecer premios únicamente por ingresar todos los días, se deben incluir incentivos por horas de juego acumuladas o metas a largo plazo. Así, el producto se adapta orgánicamente a los diferentes estilos de vida de los jugadores.
+Frente a esta variedad de perfiles, se sugiere a los desarrolladores adoptar estrategias de retención más flexibles, evitando diseñar sus productos pensando en un único tipo de consumidor. Es recomendable crear sistemas de recompensas que valoren por igual los accesos frecuentes y las sesiones prolongadas. Por ejemplo, en lugar de ofrecer premios únicamente por ingresar todos los días, se deben incluir incentivos por horas de juego acumuladas o metas a largo plazo. Así, el producto se adapta orgánicamente a los diferentes estilos de vida de los jugadores.\
+
+\textbf{3.-} Conclusion 4: .\
+Se concluye que la frecuencia de sesiones por semana no es un indicador del volumen total de tiempo invertido en el juego. El hallazgo de una relación lineal nula entre estas variables demuestra que la constancia (qué tan seguido se juega) y la dedicación (cuánto tiempo se juega en total) son comportamientos totalmente independientes. Esto significa que un jugador que ingresa muchas veces por semana no necesariamente acumula más horas que alguien que ingresa pocas veces, pero en sesiones de larga duración.\
+
+\textbf{Recomendación: }
+Se recomienda implementar una estrategia de fidelización híbrida que reconozca la independencia entre la constancia y la duración del juego; dado que un mayor número de sesiones no garantiza un mayor tiempo total, las empresas deben diseñar incentivos diferenciados que premien por igual los accesos rápidos diarios (micro-objetivos) y las sesiones de larga duración (macro-objetivos). Este enfoque permite captar el valor de ambos perfiles de usuario de forma aislada, optimizando la retención al adaptar la oferta de contenido al estilo de vida específico de cada jugador en lugar de aplicar un modelo de métricas unificado.
+
 
 \appendix
 \renewcommand{\thechapter}{\Alph{chapter}}
