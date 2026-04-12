@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.9)  11 APR 2026 18:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.9)  11 APR 2026 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -812,7 +812,7 @@ Package spanish Warning: Replacing `OT1/cmr/bx/sc' by
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 ...numberline {B}Anexo B}{17}{appendix.Alph2}
+l.28 ...numberline {B}Anexo B}{18}{appendix.Alph2}
                                                   % [1
 
 
@@ -898,11 +898,11 @@ LaTeX Info: Redefining \. on input line 415.
 LaTeX Info: Redefining \% on input line 415.
 [10]
 Cap\'{\i }tulo 4.
-<informe_files/figure-latex/grafico-popularidad-1.pdf, id=234, 463.7325pt x 309.155pt>
+<informe_files/figure-latex/grafico-popularidad-1.pdf, id=234, 457.71pt x 316.18124pt>
 File: informe_files/figure-latex/grafico-popularidad-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/grafico-popularidad-1.pdf>
 Package pdftex.def Info: informe_files/figure-latex/grafico-popularidad-1.pdf  used on input line 429.
-(pdftex.def)             Requested size: 330.05902pt x 177.89482pt.
+(pdftex.def)             Requested size: 330.06778pt x 177.8901pt.
 [11
 
  <./informe_files/figure-latex/grafico-popularidad-1.pdf>]
@@ -941,40 +941,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 538--544
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 545--546
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 549--550
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 551--552
-
- []
-
 [15
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 567--568
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 569--570
+
+ []
+
+[16]
 Ap\'{e}ndice A.
-[16
+[17
 
 ]
 Ap\'{e}ndice B.
-[17
+[18
 
 ]
 Ap\'{e}ndice C.
 No file informe.bbl.
-[18
+[19
 
 ] (./informe.aux
 LaTeX Info: Redefining \. on input line 8.
@@ -991,18 +981,18 @@ Package rerunfilecheck Info: File `informe.out' has not changed.
 (rerunfilecheck)             Checksum: 64D81A4E21B2ACB86314B865759CD6BA;5679.
  ) 
 Here is how much of TeX's memory you used:
- 20567 strings out of 469321
- 346223 string characters out of 5465140
+ 20575 strings out of 469321
+ 346323 string characters out of 5465140
  831262 words of memory out of 5000000
- 49008 multiletter control sequences out of 15000+600000
+ 49015 multiletter control sequences out of 15000+600000
  639557 words of font info for 89 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  105i,12n,107p,763b,816s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on informe.pdf (22 pages, 4980413 bytes).
+Output written on informe.pdf (23 pages, 4983030 bytes).
 PDF statistics:
- 390 PDF objects out of 1000 (max. 8388607)
- 316 compressed objects within 4 object streams
- 58 named destinations out of 1000 (max. 500000)
+ 394 PDF objects out of 1000 (max. 8388607)
+ 319 compressed objects within 4 object streams
+ 59 named destinations out of 1000 (max. 500000)
  260 words of extra memory for PDF output out of 10000 (max. 10000000)
 
