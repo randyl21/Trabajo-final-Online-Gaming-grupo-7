@@ -379,35 +379,43 @@ original):
 \centering
 \caption{\label{tab:tabla_cuanti_final}Resumen Estadístico de Variables Numéricas}
 \centering
-\fontsize{9}{11}\selectfont
-\begin{tabular}[t]{>{}lrrrrrrr}
+\fontsize{10}{12}\selectfont
+\begin{tabular}[t]{>{}lrrrrrr}
 \toprule
-Variable & Media & Mediana & Desv. Est. & Mín. & Máx. & N & Varianza\\
+Variable & Media & Mediana & Desv. Est. & Mín. & Máx. & Varianza\\
 \midrule
-\textbf{\cellcolor{gray!10}{Age}} & \cellcolor{gray!10}{31.99} & \cellcolor{gray!10}{32} & \cellcolor{gray!10}{10.04} & \cellcolor{gray!10}{15} & \cellcolor{gray!10}{49} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
-\textbf{Horas} & NA & NA & NA & NA & NA & 12.02 & NA\\
-\textbf{\cellcolor{gray!10}{Horas}} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{12.01} & \cellcolor{gray!10}{NA}\\
-\textbf{Horas} & NA & NA & NA & NA & NA & 6.91 & NA\\
-\textbf{\cellcolor{gray!10}{Horas}} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{0.00} & \cellcolor{gray!10}{NA}\\
+\textbf{\cellcolor{gray!10}{Edad}} & \cellcolor{gray!10}{31.99} & \cellcolor{gray!10}{32.00} & \cellcolor{gray!10}{10.04} & \cellcolor{gray!10}{15} & \cellcolor{gray!10}{49} & \cellcolor{gray!10}{100.87}\\
+\textbf{Horas\_de\_juego} & 12.02 & 12.01 & 6.91 & 0 & 24 & 47.81\\
+\textbf{\cellcolor{gray!10}{Compras\_en\_el\_Juego}} & \cellcolor{gray!10}{0.20} & \cellcolor{gray!10}{0.00} & \cellcolor{gray!10}{0.40} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{0.16}\\
+\textbf{Sesiones\_por\_Semana} & 9.47 & 9.00 & 5.76 & 0 & 19 & 33.22\\
+\textbf{\cellcolor{gray!10}{Duración\_Promedio}} & \cellcolor{gray!10}{94.79} & \cellcolor{gray!10}{95.00} & \cellcolor{gray!10}{49.01} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{179} & \cellcolor{gray!10}{2402.11}\\
 \addlinespace
-\textbf{Horas} & NA & NA & NA & NA & NA & 24.00 & NA\\
-\textbf{\cellcolor{gray!10}{InGamePurchases}} & \cellcolor{gray!10}{0.20} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{0.40} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
-\textbf{Sesiones} & NA & NA & NA & NA & NA & NA & 9.47\\
-\textbf{\cellcolor{gray!10}{Sesiones}} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{9.00}\\
-\textbf{Sesiones} & NA & NA & NA & NA & NA & NA & 5.76\\
-\addlinespace
-\textbf{\cellcolor{gray!10}{Sesiones}} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{0.00}\\
-\textbf{Sesiones} & NA & NA & NA & NA & NA & NA & 19.00\\
-\textbf{\cellcolor{gray!10}{AvgSessionDurationMinutes}} & \cellcolor{gray!10}{94.79} & \cellcolor{gray!10}{95} & \cellcolor{gray!10}{49.01} & \cellcolor{gray!10}{10} & \cellcolor{gray!10}{179} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
-\textbf{PlayerLevel} & 49.66 & 49 & 28.59 & 1 & 99 & NA & NA\\
-\textbf{\cellcolor{gray!10}{AchievementsUnlocked}} & \cellcolor{gray!10}{24.53} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{14.43} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{49} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
+\textbf{Nivel\_del\_Jugador} & 49.66 & 49.00 & 28.59 & 1 & 99 & 817.30\\
+\textbf{\cellcolor{gray!10}{Logros\_Desbloqueados}} & \cellcolor{gray!10}{24.53} & \cellcolor{gray!10}{25.00} & \cellcolor{gray!10}{14.43} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{49} & \cellcolor{gray!10}{208.25}\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Para las variables cualitativas se muestra un grafico de barras:
+\textbf{Para las variables cualitativas se muestra un grafico de
+barras:}
 
 \begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/grafica_frecuencias_libres-1} \end{center}
+
+Al observar el conjunto de resultados, tanto de las variables
+cualitativas como de las cuantitativas, se puede ver que:\\
+
+La edad promedio de 31.99 años revela una comunidad de adultos jóvenes.
+En cuanto a la progresión, los jugadores se sitúan en un punto medio de
+su experiencia dentro del juego con un nivel promedio de 49.66, lo que
+indica que el sistema logra retener a los usuarios de manera efectiva,
+permitiéndoles disfrutar de aproximadamente la mitad del contenido total
+disponible antes de cualquier posible abandono.\\
+
+Por otro lado, la preferencia mayoritaria por la dificultad ``Easy'' y
+un compromiso de nivel ``Medium'' sugiere que el público objetivo busca
+principalmente una forma de entretenimiento ligero. Finalmente, el hecho
+de que el mayor volumen de datos provenga de USA y Europa evidencia una
+clara tendencia marcada por los mercados occidentales.
 
 \subsection{Limpieza de datos}
 
