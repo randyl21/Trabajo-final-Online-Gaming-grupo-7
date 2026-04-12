@@ -64,6 +64,9 @@ with st.sidebar.expander("🕒 Horas de Juego", expanded=True):
         value=(horas_min, horas_max)
     )
 
+st.sidebar.markdown("Trabajo hecho por:")
+st.sidebar.write("Aziel González y Estefani Carreño")
+
 # filtrado
 df_filtrado = df_Gente_Sin_Oficio[
     (df_Gente_Sin_Oficio["PlayTimeHours"] >= rango_horas[0]) & 
@@ -87,106 +90,82 @@ st.markdown("---")
 tab1, tab2, tab3, tab4 = st.tabs(["🌎Análisis Regional", "📈Dedicación y Frecuencia", "📊Distribución de horas", "⏱️Tiempo de juego y Frecuencia Semanal"])
 
 with tab1:
-    st.subheader("🌎Géneros más populares por Región")
+    st.subheader("🌎 Géneros más populares por Región")
 
-    # Agrupo por Ubicación y contamos la frecuencia de cada Género
-    df_que_tan_virgenes_son = df_filtrado.groupby("Location")["GameGenre"].value_counts().reset_index(name="Usuarios")
+    if not df_filtrado.empty:
+        df_counts = df_filtrado.groupby(["Location", "GameGenre"]).size().reset_index(name="Usuarios")
+        col_grafico, col_texto = st.columns([2, 1])
 
-
-    col_grafico, col_texto = st.columns([2, 1])
-
-    # Creo el gráfico de barras
-    with col_grafico:
-        with st.container(border=True):
-         if not df_que_tan_virgenes_son.empty:
-          fig_que_tan_virgenes_son = px.bar(
-          df_que_tan_virgenes_son, 
-          x="Location", 
-          y="Usuarios", 
-          color="GameGenre", 
-          barmode="relative", 
-          title="Comparativa de Géneros por Ubicación",
-          labels={"Location": "Región", "Usuarios": "Cantidad de Jugadores", "GameGenre": "Género"},
-          color_discrete_sequence=px.colors.sequential.Blues_r,
-          template="plotly_dark"
-        )
-        
-         st.plotly_chart(fig_que_tan_virgenes_son, use_container_width=True)
-
-    with col_texto:
+        with col_grafico:
             with st.container(border=True):
-                st.markdown("### 📈 Análisis")
-                st.write("Esta gráfica muestra cómo se distribuyen los géneros. En las regiones seleccionadas, observamos que:")
-                for r in df_filtrado['Location'].unique()[:5]:
-                    top = df_filtrado[df_filtrado['Location']==r]['GameGenre'].mode()[0]
-                    st.caption(f"**{r}**: Domina el género {top}")
-                   #Se filtra para el resúmen
-                regiones_populares = df_filtrado['Location'].unique()[:5]
-                cols = st.columns(len(regiones_populares))
+                fig_regional = px.bar(
+                    df_counts, 
+                    x="Location", y="Usuarios", color="GameGenre", 
+                    barmode="relative", 
+                    title="Comparativa de Géneros por Ubicación",
+                    labels={"Location": "Región", "Usuarios": "Cantidad de Jugadores", "GameGenre": "Género"},
+                    color_discrete_sequence=px.colors.sequential.Blues_r,
+                    template="plotly_dark"
+                )
+                st.plotly_chart(fig_regional, use_container_width=True)
+
+        with col_texto:
+            with st.container(border=True):
+                st.markdown("### 📊 Tops por región")
                 
-        
+                tab_top, tab_bottom = st.tabs(["🏆 Más Jugados", "⚠️ Menos Jugados"])
+                
+                regiones_ordenadas = sorted(df_filtrado['Location'].unique())
+
+                with tab_top:
+                    st.write("Más jugados:")
+                    for r in regiones_ordenadas:
+                        top_genre = df_filtrado[df_filtrado['Location'] == r]['GameGenre'].mode()[0]
+                        count_top = len(df_filtrado[(df_filtrado['Location'] == r) & (df_filtrado['GameGenre'] == top_genre)])
+                        st.caption(f"**{r}**: {top_genre} ({count_top})")
+                
+                with tab_bottom:
+                    st.write("Menos jugados:")
+                    for r in regiones_ordenadas:
+                        counts = df_filtrado[df_filtrado['Location'] == r]['GameGenre'].value_counts()
+                        bottom_genre = counts.index[-1]
+                        count_bottom = counts.values[-1]
+                        st.caption(f"**{r}**: {bottom_genre} ({count_bottom})")
+    else:
+        st.error("⚠️ Selecciona al menos una región para ver el desglose.")
+
 with tab2:
     st.subheader("📈Comparativa de Compromiso y Sesiones Semanales")
+    if not df_filtrado.empty:
+        col_grafico, col_texto = st.columns([2, 1])
+        with col_grafico:
+            with st.container(border=True):
+                fig_comp = px.box(
+                    df_filtrado, x="GameGenre", y="SessionsPerWeek", color="EngagementLevel",
+                    labels={"GameGenre": "Género de Juego", "SessionsPerWeek": "Sesiones Semanales"},
+                    title="Distribución de Sesiones por Género",
+                    category_orders={"EngagementLevel": ["Bajo", "Medio", "Alto"]},
+                    color_discrete_map={"Bajo": "#EF553B", "Medio": "#FECB52", "Alto": "#00CC96"},
+                    template="plotly_dark"
+                )
+                st.plotly_chart(fig_comp, use_container_width=True)
+        with col_texto:
+            with st.container(border=True):
+             with st.expander("📈 Análisis", expanded=True):
+                st.write("Se Observan tres secciones, cada una representa un rango de sesiones semanales, agrupados por el género del juego. Puede observarse que:")
 
-    col_grafico, col_texto = st.columns([2, 1])
-    with col_grafico:
-        with st.container(border=True):
-         if not df_filtrado.empty:
-        # se crea el Box Plot
-          fig_comp = px.box(
-            df_filtrado,
-            x="GameGenre",          
-            y="SessionsPerWeek",    
-            color="EngagementLevel",
-            labels={"GameGenre": "Género de Juego",
-                    "SessionsPerWeek": "Sesiones Semanales"},
-            title="Distribución de Sesiones por Género y Nivel de Compromiso",
-            # Ordeno las categorías de la leyenda para que tengan sentido
-            category_orders={"EngagementLevel": ["Bajo", "Medio", "Alto"]},
-            # Asigno colores
-            color_discrete_map={
-                "Bajo": "#EF553B", 
-                "Medio": "#FECB52", 
-                "Alto": "#00CC96"
-            },
-            template="plotly_dark"
-        )
-        
-        # configuración de la leyenda
-         fig_comp.update_layout(
-            showlegend=True, 
-            legend_title_text='Nivel de Compromiso', 
-            legend=dict(
-                orientation="h",    
-                yanchor="bottom",
-                y=1.02,             
-                xanchor="right",
-                x=1
-            )
-        )
-        
-         st.plotly_chart(fig_comp, use_container_width=True)
-    with col_texto:
-        with st.container(border=True):
-            st.markdown("### 📈 Análisis de Sesiones")
-            st.write("Se Observan tres secciones, cada una representa un rango de sesiones semanales, agrupados por el género del juego. Puede observarse que:")
-            st.write("Los jugadores con nivel **Alto** de compromiso mantienen una frecuencia constante, independientemente del género.")
-            st.write("Esto sugiere que la lealtad al juego no depende del tipo de contenido, sino de la mecánica de retención.")
-    
+                st.write("Los jugadores con nivel **Alto** de compromiso mantienen una frecuencia constante.")
+
+                st.write("Esto sugiere que los jugadores con un alto compromiso son aquellos que tienen más sesiones semanales, mientras que los jugadores con un bajo compromiso tienen menos.")
+    else:
+        st.error("⚠️ No hay datos para mostrar la comparativa de compromiso. Revisa los filtros.")
+
 with tab3:
-    st.subheader("📊Distribución de las horas de juego, identificando niveles de dedicación")
-
-    col_grafico, col_texto = st.columns([2, 1])
-
-with col_grafico:
-    with st.container(border=True):
-     if not df_filtrado.empty:
-       # Cálculo de Cuartiles / Q1 (25% inferior), Q2 (Mediana/50%), Q3 (75% superior)
+    st.subheader("📊Distribución de horas y niveles de dedicación")
+    if not df_filtrado.empty:
         q1 = df_filtrado['PlayTimeHours'].quantile(0.25)
-        mediana = df_filtrado['PlayTimeHours'].median()
         q3 = df_filtrado['PlayTimeHours'].quantile(0.75)
 
-        # Categorizo los valores con la función
         def evaluar_dedicacion(h):
             if h <= q1: return "Casual"
             if h <= q3: return "Moderado"
@@ -195,97 +174,82 @@ with col_grafico:
         df_eval = df_filtrado.copy()
         df_eval["Nivel"] = df_eval["PlayTimeHours"].apply(evaluar_dedicacion)
 
-        # Gráfico de Distribución con Box Plot Marginal
-        fig_eval = px.histogram(
-            df_eval,
-            x="PlayTimeHours",
-            color="Nivel",
-            marginal="box",
-            title="Distribución de Horas y Segmentos de Dedicación",
-            labels={"PlayTimeHours": "Horas Totales", "count": "Número de Jugadores"},
-            color_discrete_map={
-                "Casual": "#EF553B", 
-                "Moderado": "#FECB52", 
-                "Intenso / Hardcore": "#00CC96"
-            },
-            category_orders={"Nivel": ["Casual", "Moderado", "Intenso / Hardcore"]},
-            template="plotly_dark",
-            barmode="overlay"
-        )
-
-        st.plotly_chart(fig_eval, use_container_width=True)
-    
-   
-          # Resumen
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Punto de Corte Casual", f"{q1:.1f} hrs")
-            with col2:
-              st.metric("Punto de Corte Hardcore", f"{q3:.1f} hrs")
-            with col3:
-              st.metric("Máximo de Horas", f"{df_filtrado['PlayTimeHours'].max():.1f} hrs")
-     
-     with col_texto:
-        with st.container(border=True):
-          st.markdown("### 📈 Análisis")
-          st.write("Se observa que los jugadores que tienen más horas son 'hardcore' o intensos, mientras que los jugadores que tienen menos horas son moderados o casuales.")
-          st.write("Esto nos dice que los jugadores intensos tienen un nivel muy alto de compromiso, nivel que se va degradando a medida que retrocedemos en el gráfico.")
-            
+        col_grafico, col_texto = st.columns([2, 1])
+        with col_grafico:
+            with st.container(border=True):
+                fig_eval = px.histogram(
+                    df_eval, x="PlayTimeHours", color="Nivel", marginal="box",
+                    labels={"PlayTimeHours": "Horas de Juego"},
+                    title="Distribución de Horas y Segmentos",
+                    color_discrete_map={"Casual": "#EF553B", "Moderado": "#FECB52", "Intenso / Hardcore": "#00CC96"},
+                    template="plotly_dark", barmode="overlay"
+                )
+                st.plotly_chart(fig_eval, use_container_width=True)
+        
+        with col_texto:
+            with st.container(border=True):
+                st.metric("Corte Casual", f"{q1:.1f} hrs")
+                st.metric("Corte Hardcore", f"{q3:.1f} hrs")
+                with st.expander("📈 Análisis", expanded=True):
+                  st.write("Se observa que los jugadores que tienen más horas son 'hardcore' o intensos, mientras que los jugadores que tienen menos horas son moderados o casuales.")
+                  st.write("Esto implica que los jugadores intensos tienen un nivel muy alto de dedicación, siendo capaces de pasar incluso más de 18 horas en el juego, y este nivel de dedicación se va degradando a medida que se retrocede en el gráfico.")
+    else:
+        st.error("⚠️ Selecciona un rango de horas o ubicación válida para ver la distribución.")
+        
 with tab4:
     st.subheader("⏱️Frecuencia y Tiempo de juego (por región)")
 
     if not df_filtrado.empty:
-        # Muestra para el gráfico, total para el cálculo
-        df_muestra = df_filtrado.sample(n=min(1000, len(df_filtrado)), random_state=42)
-        
-        # Gráfico de Violín (optimizado para evitar lag)
-        fig_regional = px.violin(
-            df_muestra,
-            x="SessionsPerWeek",
-            y="PlayTimeHours",
-            color="Location",
-            labels= {"SessionsPerWeek": "Sesiones Semanales",
-                     "PlayTimeHours": "Horas de Juego"},
-            facet_col="Location",
-            box=True,
-            points="outliers", 
-            template="plotly_dark",
-            title="Distribución de Tiempo de Juego por Sesiones Semanales",
-            category_orders={"Location": ubicaciones_seleccionadas}
-        )
-        fig_regional.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
-        st.plotly_chart(fig_regional, use_container_width=True)
+        col_grafico, col_texto = st.columns([2, 1]) 
 
-           
-        st.markdown("---")
+        with col_grafico:
+            with st.container(border=True):
+                df_muestra = df_filtrado.sample(n=min(1000, len(df_filtrado)), random_state=42)
+                
+                fig_regional = px.violin(
+                    df_muestra,
+                    x="SessionsPerWeek",
+                    y="PlayTimeHours",
+                    color="Location",
+                    labels= {"SessionsPerWeek": "Sesiones Sem.",
+                             "PlayTimeHours": "Horas de Juego"},
+                    facet_col="Location",
+                    box=True,
+                    points="outliers", 
+                    template="plotly_dark",
+                    title="Distribución de Tiempo de Juego por Sesiones Semanales",
+                    category_orders={"Location": ubicaciones_seleccionadas}
+                )
 
-        # se prepara la tabla
-        st.markdown("### Resumen de Correlación")
-        # se filtra por grupos
-        df_correlaciones = df_filtrado.groupby('Location').apply(
-            lambda x: x['SessionsPerWeek'].corr(x['PlayTimeHours']),
-            include_groups=False
-        ).reset_index()
+                
+                fig_regional.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+                st.plotly_chart(fig_regional, use_container_width=True)
 
-        df_correlaciones.columns = ['Región', 'Valor_Corr'] 
-        # Se asigna etiqueta por fuerza de relación
-        df_correlaciones['Fuerza de Relación'] = df_correlaciones['Valor_Corr'].apply(
-            lambda r: "Nula / Inexistente" if abs(r) < 0.1 else ("Débil" if abs(r) < 0.3 else "Moderada")
-        )
+        with col_texto:
+            with st.container(border=True):
+                st.markdown("### Resumen de Correlación")
+                
+                df_correlaciones = df_filtrado.groupby('Location').apply(
+                    lambda x: x['SessionsPerWeek'].corr(x['PlayTimeHours']),
+                    include_groups=False
+                ).reset_index()
 
-        df_correlaciones = df_correlaciones.rename(columns={'Valor_Corr': 'Coeficiente Pearson (r)'})
-        # se muestra la tabla
-        st.table(df_correlaciones)
-        
-        st.markdown("""
-         Si los coeficientes son cercanos a 0, significa que el tiempo de juego 
-        es independiente de cuántas veces se conectan a la semana. Esto sugiere que hay jugadores 
-        que se conectan poco pero juegan sesiones larguísimas, y viceversa.
-        """)
+                df_correlaciones.columns = ['Región', 'Valor_Corr'] 
+                df_correlaciones['Fuerza de Relación'] = df_correlaciones['Valor_Corr'].apply(
+                    lambda r: "Nula / Inexistente" if abs(r) < 0.1 else ("Débil" if abs(r) < 0.3 else "Moderada")
+                )
 
+                df_correlaciones = df_correlaciones.rename(columns={'Valor_Corr': 'Coeficiente Pearson (r)'})
+                st.table(df_correlaciones)
+                
+                with st.expander("📈 Análisis", expanded=True):
+                    st.markdown("""Se presenta un gráfico de violines agrupados por continente, distribuyendo las horas de juego junto con las sesiones semanales.
+            """)
+                    st.write("""Para este análisis, se realizan cálculos de correlación. Los coeficientes son cercanos a 0; lo que implica que el tiempo de juego es independiente de cuántas veces se conectan a la semana. Esto sugiere que hay jugadores que se conectan poco pero juegan sesiones larguísimas, y viceversa.
+                                 """)
     else:
-     st.image("https://www.shutterstock.com/image-vector/dino-google-chrome-abstract-game-600nw-2533959479.jpg", width=400)
-     st.warning("Selecciona ubicaciones en la barra lateral.")
+        st.error("⚠️ No hay datos suficientes para mostrar el análisis. Ajusta los filtros en la sidebar.")
+
 
 # Métricas que cambian con selección
 st.subheader("Estadísticas de selección")
