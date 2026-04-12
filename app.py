@@ -64,8 +64,7 @@ with st.sidebar.expander("🕒 Horas de Juego", expanded=True):
         value=(horas_min, horas_max)
     )
 
-st.sidebar.markdown("Trabajo hecho por:")
-st.sidebar.write("Aziel González y Estefani Carreño")
+st.sidebar.markdown("🎮 Análisis por: Aziel González y Estefani Carreño")
 
 # filtrado
 df_filtrado = df_Gente_Sin_Oficio[
@@ -81,7 +80,7 @@ with st.container(border=True):
     c1, c2, c3 = st.columns(3)
     c1.metric("Total Base de Datos", f"{len(df_Gente_Sin_Oficio):,}")
     c2.metric("Promedio Global", f"{df_Gente_Sin_Oficio['PlayTimeHours'].mean():.1f} h")
-    c3.metric("Frecuencia Base", f"{df_Gente_Sin_Oficio['SessionsPerWeek'].mean():.0f}")
+    c3.metric("Promedio Frecuencia", f"{df_Gente_Sin_Oficio['SessionsPerWeek'].mean():.1f}")
 
 
 st.markdown("---")
@@ -94,8 +93,9 @@ with tab1:
 
     if not df_filtrado.empty:
         df_counts = df_filtrado.groupby(["Location", "GameGenre"]).size().reset_index(name="Usuarios")
+        # columnas
         col_grafico, col_texto = st.columns([2, 1])
-
+        # para el gráfico
         with col_grafico:
             with st.container(border=True):
                 fig_regional = px.bar(
@@ -108,11 +108,11 @@ with tab1:
                     template="plotly_dark"
                 )
                 st.plotly_chart(fig_regional, use_container_width=True)
-
+        # texto desplegable con análisis
         with col_texto:
             with st.container(border=True):
                 st.markdown("### 📊 Tops por región")
-                
+                # se crean tabs para mostrar los géneros más jugados y menos jugados por continente
                 tab_top, tab_bottom = st.tabs(["🏆 Más Jugados", "⚠️ Menos Jugados"])
                 
                 regiones_ordenadas = sorted(df_filtrado['Location'].unique())
@@ -142,7 +142,7 @@ with tab2:
             with st.container(border=True):
                 fig_comp = px.box(
                     df_filtrado, x="GameGenre", y="SessionsPerWeek", color="EngagementLevel",
-                    labels={"GameGenre": "Género de Juego", "SessionsPerWeek": "Sesiones Semanales"},
+                    labels={"GameGenre": "Género de Juego", "SessionsPerWeek": "Sesiones Semanales", "EngagementLevel": "Nivel de Compromiso"},
                     title="Distribución de Sesiones por Género",
                     category_orders={"EngagementLevel": ["Bajo", "Medio", "Alto"]},
                     color_discrete_map={"Bajo": "#EF553B", "Medio": "#FECB52", "Alto": "#00CC96"},
@@ -225,8 +225,6 @@ with tab4:
                 fig_regional.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
                 st.plotly_chart(fig_regional, use_container_width=True)
 
-        with col_texto:
-            with st.container(border=True):
                 st.markdown("### Resumen de Correlación")
                 
                 df_correlaciones = df_filtrado.groupby('Location').apply(
@@ -240,7 +238,10 @@ with tab4:
                 )
 
                 df_correlaciones = df_correlaciones.rename(columns={'Valor_Corr': 'Coeficiente Pearson (r)'})
-                st.table(df_correlaciones)
+                st.table(df_correlaciones)    
+
+        with col_texto:
+            with st.container(border=True):
                 
                 with st.expander("📈 Análisis", expanded=True):
                     st.markdown("""Se presenta un gráfico de violines agrupados por continente, distribuyendo las horas de juego junto con las sesiones semanales.
