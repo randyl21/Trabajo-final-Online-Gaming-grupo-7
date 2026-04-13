@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.12)  12 APR 2026 19:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.12)  13 APR 2026 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -812,7 +812,7 @@ Package spanish Warning: Replacing `OT1/cmr/bx/sc' by
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 ...numberline {A}Anexo A}{18}{appendix.Alph1}
+l.29 ...numberline {A}Anexo A}{20}{appendix.Alph1}
                                                   % [1
 
 
@@ -966,62 +966,69 @@ Package pdftex.def Info: informe_files/figure-latex/boxplot-compromiso-final-1.p
 LaTeX Info: Redefining \. on input line 536.
 LaTeX Info: Redefining \% on input line 536.
 [13 <./informe_files/figure-latex/boxplot-compromiso-final-1.pdf>]
-<informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf, id=274, 465.74pt x 316.18124pt>
-File: informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf Graphic file (type pdf)
-<use informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf  used on input line 545.
-(pdftex.def)             Requested size: 412.56496pt x 280.09297pt.
-LaTeX Info: Redefining \. on input line 559.
-LaTeX Info: Redefining \% on input line 559.
-[14 <./informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1.pdf>]
-<informe_files/figure-latex/verificacion-correlacion-1.pdf, id=293, 463.7325pt x 316.18124pt>
-File: informe_files/figure-latex/verificacion-correlacion-1.pdf Graphic file (type pdf)
-<use informe_files/figure-latex/verificacion-correlacion-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/verificacion-correlacion-1.pdf  used on input line 568.
-(pdftex.def)             Requested size: 350.68272pt x 239.10374pt.
-LaTeX Info: Redefining \. on input line 582.
-LaTeX Info: Redefining \% on input line 582.
-[15 <./informe_files/figure-latex/verificacion-correlacion-1.pdf>]
+ignored: Infinite glue shrinkage found in box being split
+LaTeX Info: Redefining \. on input line 583.
+LaTeX Info: Redefining \% on input line 583.
+[14]
+<informe_files/figure-latex/comparativa-interaccion-1.pdf, id=282, 463.7325pt x 316.18124pt>
+File: informe_files/figure-latex/comparativa-interaccion-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/comparativa-interaccion-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/comparativa-interaccion-1.pdf  used on input line 590.
+(pdftex.def)             Requested size: 412.56496pt x 281.2991pt.
+LaTeX Info: Redefining \. on input line 612.
+LaTeX Info: Redefining \% on input line 612.
+[15 <./informe_files/figure-latex/comparativa-interaccion-1.pdf>]
+<informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf, id=299, 463.7325pt x 316.18124pt>
+File: informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf Graphic file (type pdf)
+<use informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf>
+Package pdftex.def Info: informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf  used on input line 619.
+(pdftex.def)             Requested size: 371.30594pt x 253.16725pt.
+LaTeX Info: Redefining \. on input line 642.
+LaTeX Info: Redefining \% on input line 642.
+[16 <./informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf>]
+LaTeX Info: Redefining \. on input line 643.
+LaTeX Info: Redefining \% on input line 643.
+[17]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 584--591
+Underfull \hbox (badness 10000) in paragraph at lines 645--652
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 592--598
+Underfull \hbox (badness 10000) in paragraph at lines 653--659
 
  []
 
-[16
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 619--628
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 629--638
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 639--648
-
- []
-
-[17]
-Ap\'{e}ndice A.
 [18
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 680--689
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--699
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 700--709
+
+ []
+
+[19]
+Ap\'{e}ndice A.
+[20
+
+]
 Ap\'{e}ndice B.
-[19
+[21
 
 ]
 Ap\'{e}ndice C.
 No file informe.bbl.
-[20
+[22
 
 ] (./informe.aux
 LaTeX Info: Redefining \. on input line 8.
@@ -1038,18 +1045,18 @@ Package rerunfilecheck Info: File `informe.out' has not changed.
 (rerunfilecheck)             Checksum: 8D70A2E90A287A58E701B55045568D03;6343.
  ) 
 Here is how much of TeX's memory you used:
- 20577 strings out of 469321
- 346389 string characters out of 5465139
- 832262 words of memory out of 5000000
- 49018 multiletter control sequences out of 15000+600000
- 639030 words of font info for 89 fonts, out of 8000000 for 9000
+ 20595 strings out of 469321
+ 346557 string characters out of 5465139
+ 843262 words of memory out of 5000000
+ 49029 multiletter control sequences out of 15000+600000
+ 640328 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  105i,12n,107p,763b,816s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on informe.pdf (24 pages, 4961474 bytes).
+</home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on informe.pdf (26 pages, 536369 bytes).
 PDF statistics:
- 400 PDF objects out of 1000 (max. 8388607)
- 328 compressed objects within 4 object streams
- 62 named destinations out of 1000 (max. 500000)
+ 421 PDF objects out of 1000 (max. 8388607)
+ 339 compressed objects within 4 object streams
+ 65 named destinations out of 1000 (max. 500000)
  276 words of extra memory for PDF output out of 10000 (max. 10000000)
 

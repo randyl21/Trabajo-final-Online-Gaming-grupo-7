@@ -32,7 +32,7 @@ output:
 
 # --- Resumen (Abstract) ---
 abstract: |
-  En el presente trabajo se realiza un análisis estadístico sobre el comportamiento de los jugadores de videojuegos a nivel global. Se examina la influencia de la ubicación geográfica y el género del juego en los patrones de consumo, evaluando específicamente la intensidad de uso (horas totales) y la frecuencia de sesiones semanales. El estudio aplica técnicas estadísticas descriptivas y visualización de datos con R.
+  En el presente trabajo se realiza un análisis estadístico sobre el comportamiento de los jugadores de videojuegos. Se examina la influencia de la ubicación geográfica y el género del juego en los patrones de consumo, evaluando específicamente la intensidad de uso (horas totales) y la frecuencia de sesiones semanales. El estudio aplica técnicas estadísticas descriptivas y visualización de datos con R.
 ---
 
 ```{r setup, include=FALSE}
@@ -449,63 +449,139 @@ Al observar el gráfico, se nota que las categorías de Casual, Moderado y Hardc
 
 Para profundizar en la dinámica de uso, se presenta un análisis comparativo que cruza la frecuencia de sesiones con el tiempo total de juego, segmentado por cada género de videojuego:
 
-```{r comparativa-interaccion-azul-fuerte, message=FALSE, warning=FALSE, fig.cap="Distribución de Horas vs. Sesiones por Género", fig.pos = 'H', out.width = '100%'}
+```{r tabla-con-correlacion, message=FALSE, warning=FALSE}
 
-# Paleta de colores
-colores_azules <- c(
-  "Accion" = "#6baed6",     # Azul medio
-  "RPG" = "#4292c6",        # Azul fuerte
-  "Simulación" = "#2171b5", # Azul intenso
-  "Deportes" = "#08519c",     # Azul oscuro
-  "Estrategia" = "#08306b"    # Azul medianoche
-)
-# Cambio de los datos ingles a espanol
-datos %>%
-  mutate(Genero_Juego = recode(Genero_Juego, 
-                               "Action"     = "Acción",
-                               "RPG"        = "RPG",
+# Calculamos la correlación por genero primero
+correlaciones <- datos %>%
+  group_by(Genero_Juego) %>%
+  summarise(
+    Pearson_r = cor(Sesiones_por_Semana, Horas_de_juego, method = "pearson", use = "complete.obs"),
+    .groups = 'drop'
+  )
+
+# Tabla
+datos_tabla <- datos %>%
+  mutate(
+    Genero_Juego = recode(Genero_Juego, "Action"="Acción", "Sports"="Deportes", 
+                          "Strategy"="Estrategia", "Simulation"="Simulación", "RPG"="RPG"),
+    Sesiones_Rango = cut(Sesiones_por_Semana, 
+                         breaks = c(-1, 5, 10, 15, 20), 
+                         labels = c("0-5", "6-10", "11-15", "16-20"))
+  ) %>%
+  group_by(Genero_Juego, Sesiones_Rango) %>%
+  summarise(across(Horas_de_juego, list(Media = mean, Mediana = median, sd = sd), na.rm = TRUE), .groups = 'drop') %>%
+  left_join(correlaciones %>% mutate(Genero_Juego = recode(Genero_Juego, "Action"="Acción", "Sports"="Deportes", "Strategy"="Estrategia", "Simulation"="Simulación", "RPG"="RPG")), 
+            by = "Genero_Juego")
+
+# Limpieza de nombres y de la columna Pearson
+datos_tabla_limpia <- datos_tabla %>%
+  mutate(
+    Pearson_r = as.character(round(Pearson_r, 3)),
+    Genero_Juego = as.character(Genero_Juego),
+    Pearson_r = ifelse(duplicated(Genero_Juego), "", Pearson_r),
+    Genero_Juego = ifelse(duplicated(Genero_Juego), "", Genero_Juego)
+  )
+
+# Renderizado final
+datos_tabla_limpia %>%
+  kable(
+    format = "latex",
+    booktabs = TRUE,
+    longtable = TRUE,
+    digits = 2,
+    col.names = c("Género", "Rango Sesiones", "Media", "Mediana", "Desv. Est.", "Corr. Pearson (r)"),
+    caption = "Estadísticos de Dedicación y Coeficiente de Correlación por Género"
+  ) %>%
+  kable_styling(latex_options = c("striped", "repeat_header"), full_width = F, font_size = 9) %>%
+  column_spec(1, bold = TRUE, width = "2.5cm") %>%
+  column_spec(6, italic = TRUE, color = "blue")
+```
+
+**Gráfico**
+
+```{r comparativa-interaccion, message=FALSE, warning=FALSE, fig.cap="Distribución de Horas vs. Sesiones por Género", fig.pos = 'H', out.width = '100%'}
+
+# Traduccion los generos en el dataset
+datos <- datos %>%
+  mutate(Genero_Juego = recode(Genero_Juego,
+                               "Action" = "Acción",
+                               "Sports" = "Deportes",
+                               "Strategy" = "Estrategia",
                                "Simulation" = "Simulación",
-                               "Sports"     = "Deportes",
-                               "Strategy"   = "Estrategia")) %>%
-  ggplot(aes(x = Sesiones_por_Semana, y = Horas_de_juego, color = Genero_Juego)) +
-  geom_jitter(alpha = 0.2, size = 0.5) +
-  facet_wrap(~Genero_Juego) +
-  scale_color_manual(values = colores_azules) +
-  labs(title = "Relación Frecuencia vs. Dedicación por Género",
-       x = "Sesiones por Semana",
-       y = "Horas Totales Dedicadas") +
-  theme_minimal() +
-  theme(
+                               "RPG" = "RPG")) # RPG se queda igual
+
+# Creacion de los rangos
+datos$Sesiones_Rango <- cut(datos$Sesiones_por_Semana, 
+                            breaks = c(-1, 5, 10, 15, 20), 
+                            labels = c("0-5", "6-10", "11-15", "16-20"))
+
+# Grafico
+ggplot(datos, aes(x = Sesiones_Rango, y = Horas_de_juego, fill = Genero_Juego)) +
+  geom_boxplot(width = 0.6, outlier.alpha = 0.2, outlier.size = 0.4) +
+  facet_wrap(~Genero_Juego, scales = "free_x") + 
+  scale_fill_brewer(palette = "Blues") +
+  labs(
+    title = "Análisis Descriptivo: Dedicación por Rangos de Sesiones Semanales",
+    x = "Intervalos de Sesiones Semanales",
+    y = "Horas Totales"
+)+
+theme(
     legend.position = "none",
-    strip.background = element_rect(fill = "#2171b5", color = "white"),
-    strip.text = element_text(face = "bold", color = "white"),
-    panel.grid.minor = element_blank()
+    strip.text = element_text(face = "bold", size = 11, color = "#2c3e50"), 
+    strip.background = element_rect(fill = "white", color = "gray80"), 
+    panel.spacing = unit(1.2, "lines")
   )
 ```
 
-El análisis visual de dispersión segmentado por género revela una distribución uniforme y rectangular en todos los paneles. Esta forma del gráfico indica que no existe una correlación lineal fuerte entre la cantidad de sesiones y las horas totales; es decir, en cada género encontramos de manera equitativa a todo tipo de jugadores: desde aquellos con pocas sesiones y pocas horas, hasta los que presentan una alta frecuencia y dedicación.
+El análisis comparativo entre las horas totales de juego y la frecuencia de sesiones semanales permite identificar el comportamiento de consumo del usuario según el género del videojuego. Al observar la estabilidad de las medianas y la distribución de los boxplots en todos los rangos se puede ver el tiempo total de juego semanal
+se mantiene constante en un promedio de 12 horas, independientemente de qué tan frecuente sea el acceso del usuario o el género del videojuego. Los coeficientes de correlación de Pearson obtenidos (aproximadamente 0) confirman la ausencia de una relación lineal entre estas variables, lo que demuestra que una mayor frecuencia de sesiones no se traduce en una mayor dedicación horaria. Este fenómeno sugiere un comportamiento de compensación, donde los jugadores ajustan la duración de sus partidas según su disponibilidad: quienes entran pocas veces realizan sesiones largas, mientras que los jugadores recurrentes optan por sesiones breves.
 
 \section{Relacion lineal entre Horas de Juego y Sesiones por Semena}
 
 Para verificar si existe una relación directa entre el tiempo total de juego y la constancia semanal, se procedió a calcular el Coeficiente de Correlación de Pearson (r):
 
-```{r verificacion-correlacion, message=FALSE, warning=FALSE, fig.cap="Correlación Lineal entre Sesiones y Horas", fig.pos = 'H', out.width = '85%'}
+```{r analisis-correlacion-definitivo, message=FALSE, warning=FALSE}
 
-# Calculo del coeficiente de correlacion
-r_valor <- cor(datos$Sesiones_por_Semana, datos$Horas_de_juego)
+# 1. Cálculo del valor numérico
+r_numeric <- cor(datos$Sesiones_por_Semana, datos$Horas_de_juego)
 
-# Visualizacion
-ggplot(datos, aes(x = Sesiones_por_Semana, y = Horas_de_juego)) +
-  geom_jitter(alpha = 0.1, color = "#08519c", size = 0.5) +
-  geom_smooth(method = "lm", color = "red", se = TRUE) +
-  labs(title = "Verificación de Relación Directa",
-       subtitle = paste("Coeficiente de Correlación de Pearson:", round(r_valor, 4)),
-       x = "Sesiones por Semana (Constancia)",
-       y = "Horas Totales (Dedicación)") +
+# 2. SOLUCIÓN DEFINITIVA: 
+# Extraemos el valor absoluto y le pegamos un guion normal de teclado (-)
+# Esto engaña a LaTeX y evita el error de Unicode.
+r_absoluto <- abs(round(r_numeric, 4))
+r_formateado <- format(r_absoluto, nsmall = 4)
+r_final_texto <- paste0("-", r_formateado) 
+
+# 3. Resumen para el gráfico
+datos_prep <- datos %>%
+  group_by(Sesiones_por_Semana) %>%
+  summarise(Media_Horas = mean(Horas_de_juego), .groups = 'drop')
+
+# 4. Gráfico Lollipop
+ggplot(datos_prep, aes(x = Sesiones_por_Semana, y = Media_Horas)) +
+  geom_segment(aes(x = Sesiones_por_Semana, xend = Sesiones_por_Semana, 
+                   y = 0, yend = Media_Horas), color = "gray70") +
+  geom_point(size = 3, color = "darkblue") +
+  geom_hline(yintercept = mean(datos$Horas_de_juego), linetype = "dashed", color = "red") +
+  labs(
+    title = "Análisis Descriptivo: Relación entre Sesiones y Horas",
+    subtitle = paste("Coeficiente de correlación de Pearson r =", r_final_texto),
+    x = "Sesiones por Semana",
+    y = "Media de Horas Totales"
+  ) +
+  scale_y_continuous(limits = c(0, 15)) +
   theme_minimal()
-```
 
-Para verificar si un aumento en las sesiones semanales se traduce necesariamente en una mayor cantidad de horas totales, se calculó el Coeficiente de Correlación de Pearson, obteniendo un valor de -0.0037. Desde el punto de vista estadístico, este resultado indica una correlación nula, lo que significa que la constancia semanal y la dedicación horaria operan como variables independientes.
+# 5. Tabla para el informe
+data.frame(
+  Metrica = "Coeficiente de Pearson (r)",
+  Valor = r_final_texto,
+  Relacion = "Nula / Independiente"
+) %>%
+  kable(caption = "Resumen Estadístico de la Asociación Lineal") %>%
+  kable_styling(full_width = F)
+```
+Visualmente, se observa que los promedios de horas totales se mantienen estables en todos los niveles de sesiones por semana. La trayectoria de los puntos no presenta una dirección ascendente ni descendente, situándose de forma persistente alrededor de las 12 horas. Aunque existen ligeras variaciones donde algunos puntos se posicionan levemente por encima o por debajo de la media general, estas oscilaciones son marginales y no siguen un patrón de crecimiento. Esto describe una homogeneidad en el consumo de tiempo, independientemente de la constancia del usuario. Como medida resumen de la asociación lineal, se obtuvo un valor de Correlacion (aproximadamente 0). Al ser un valor prácticamente nulo, actúa como evidencia descriptiva de que no existe una relación lineal entre las variables analizadas.
 
 \chapter{Conclusiones y Recomendaciones}
 
@@ -539,7 +615,7 @@ Frente a esta variedad de perfiles, se sugiere a los desarrolladores adoptar est
 Se concluye que la frecuencia de sesiones por semana no es un indicador del volumen total de tiempo invertido en el juego. El hallazgo de una relación lineal nula entre estas variables demuestra que la constancia (qué tan seguido se juega) y la dedicación (cuánto tiempo se juega en total) son comportamientos totalmente independientes. Esto significa que un jugador que ingresa muchas veces por semana no necesariamente acumula más horas que alguien que ingresa pocas veces, pero en sesiones de larga duración.\
 
 \textbf{Recomendación: }
-Se recomienda implementar una estrategia de fidelización híbrida que reconozca la independencia entre la constancia y la duración del juego; dado que un mayor número de sesiones no garantiza un mayor tiempo total, las empresas deben diseñar incentivos diferenciados que premien por igual los accesos rápidos diarios (micro-objetivos) y las sesiones de larga duración (macro-objetivos). Este enfoque permite captar el valor de ambos perfiles de usuario de forma aislada, optimizando la retención al adaptar la oferta de contenido al estilo de vida específico de cada jugador en lugar de aplicar un modelo de métricas unificado.
+Se recomienda implementar una estrategia de fidelización híbrida que reconozca la independencia entre la constancia y la duración del juego; dado que un mayor número de sesiones no garantiza un mayor tiempo total, los desarrolladores deben diseñar incentivos diferenciados que premien por igual los accesos rápidos diarios (micro-objetivos) y las sesiones de larga duración (macro-objetivos). Este enfoque permite captar el valor de ambos perfiles de usuario de forma aislada, optimizando la retención al adaptar la oferta de contenido al estilo de vida específico de cada jugador en lugar de aplicar un modelo de métricas unificado.
 
 
 \appendix

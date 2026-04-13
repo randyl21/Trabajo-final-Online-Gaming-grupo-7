@@ -100,11 +100,11 @@ Estadistica y Ciencias Actuariales}
   \addcontentsline{toc}{chapter}{Resumen} % (Opcional) Lo añade al índice
   
   En el presente trabajo se realiza un análisis estadístico sobre el
-comportamiento de los jugadores de videojuegos a nivel global. Se
-examina la influencia de la ubicación geográfica y el género del juego
-en los patrones de consumo, evaluando específicamente la intensidad de
-uso (horas totales) y la frecuencia de sesiones semanales. El estudio
-aplica técnicas estadísticas descriptivas y visualización de datos con
+comportamiento de los jugadores de videojuegos. Se examina la influencia
+de la ubicación geográfica y el género del juego en los patrones de
+consumo, evaluando específicamente la intensidad de uso (horas totales)
+y la frecuencia de sesiones semanales. El estudio aplica técnicas
+estadísticas descriptivas y visualización de datos con
 R.             % Aquí se pega el texto que escribiste en el YAML
   
   \cleardoublepage
@@ -540,22 +540,75 @@ Para profundizar en la dinámica de uso, se presenta un análisis
 comparativo que cruza la frecuencia de sesiones con el tiempo total de
 juego, segmentado por cada género de videojuego:
 
+\begingroup\fontsize{9}{11}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{2.5cm}lrrr>{}l}
+\caption{\label{tab:tabla-con-correlacion}Estadísticos de Dedicación y Coeficiente de Correlación por Género}\\
+\toprule
+Género & Rango Sesiones & Media & Mediana & Desv. Est. & Corr. Pearson (r)\\
+\midrule
+\endfirsthead
+\caption[]{Estadísticos de Dedicación y Coeficiente de Correlación por Género \textit{(continued)}}\\
+\toprule
+Género & Rango Sesiones & Media & Mediana & Desv. Est. & Corr. Pearson (r)\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{\cellcolor{gray!10}{Acción}} & \cellcolor{gray!10}{0-5} & \cellcolor{gray!10}{12.26} & \cellcolor{gray!10}{12.42} & \cellcolor{gray!10}{6.83} & \textcolor{blue}{\em{\cellcolor{gray!10}{-0.011}}}\\
+\textbf{} & 6-10 & 12.11 & 12.25 & 6.82 & \textcolor{blue}{\em{}}\\
+\textbf{\cellcolor{gray!10}{}} & \cellcolor{gray!10}{11-15} & \cellcolor{gray!10}{12.17} & \cellcolor{gray!10}{12.30} & \cellcolor{gray!10}{6.97} & \textcolor{blue}{\em{\cellcolor{gray!10}{}}}\\
+\textbf{} & 16-20 & 12.08 & 11.98 & 6.92 & \textcolor{blue}{\em{}}\\
+\textbf{\cellcolor{gray!10}{Deportes}} & \cellcolor{gray!10}{0-5} & \cellcolor{gray!10}{12.00} & \cellcolor{gray!10}{11.94} & \cellcolor{gray!10}{6.90} & \textcolor{blue}{\em{\cellcolor{gray!10}{-0.005}}}\\
+\addlinespace
+\textbf{} & 6-10 & 11.98 & 12.14 & 6.94 & \textcolor{blue}{\em{}}\\
+\textbf{\cellcolor{gray!10}{}} & \cellcolor{gray!10}{11-15} & \cellcolor{gray!10}{11.98} & \cellcolor{gray!10}{12.03} & \cellcolor{gray!10}{7.01} & \textcolor{blue}{\em{\cellcolor{gray!10}{}}}\\
+\textbf{} & 16-20 & 11.88 & 11.49 & 6.93 & \textcolor{blue}{\em{}}\\
+\textbf{\cellcolor{gray!10}{Estrategia}} & \cellcolor{gray!10}{0-5} & \cellcolor{gray!10}{11.73} & \cellcolor{gray!10}{11.45} & \cellcolor{gray!10}{6.93} & \textcolor{blue}{\em{\cellcolor{gray!10}{0.03}}}\\
+\textbf{} & 6-10 & 12.20 & 12.54 & 6.98 & \textcolor{blue}{\em{}}\\
+\addlinespace
+\textbf{\cellcolor{gray!10}{}} & \cellcolor{gray!10}{11-15} & \cellcolor{gray!10}{12.17} & \cellcolor{gray!10}{12.26} & \cellcolor{gray!10}{6.90} & \textcolor{blue}{\em{\cellcolor{gray!10}{}}}\\
+\textbf{} & 16-20 & 12.35 & 12.39 & 6.94 & \textcolor{blue}{\em{}}\\
+\textbf{\cellcolor{gray!10}{RPG}} & \cellcolor{gray!10}{0-5} & \cellcolor{gray!10}{12.13} & \cellcolor{gray!10}{12.34} & \cellcolor{gray!10}{6.96} & \textcolor{blue}{\em{\cellcolor{gray!10}{-0.015}}}\\
+\textbf{} & 6-10 & 11.98 & 11.79 & 6.87 & \textcolor{blue}{\em{}}\\
+\textbf{\cellcolor{gray!10}{}} & \cellcolor{gray!10}{11-15} & \cellcolor{gray!10}{12.04} & \cellcolor{gray!10}{11.98} & \cellcolor{gray!10}{6.91} & \textcolor{blue}{\em{\cellcolor{gray!10}{}}}\\
+\addlinespace
+\textbf{} & 16-20 & 11.81 & 11.61 & 6.92 & \textcolor{blue}{\em{}}\\
+\textbf{\cellcolor{gray!10}{Simulación}} & \cellcolor{gray!10}{0-5} & \cellcolor{gray!10}{12.12} & \cellcolor{gray!10}{12.12} & \cellcolor{gray!10}{6.78} & \textcolor{blue}{\em{\cellcolor{gray!10}{-0.017}}}\\
+\textbf{} & 6-10 & 11.85 & 11.82 & 7.09 & \textcolor{blue}{\em{}}\\
+\textbf{\cellcolor{gray!10}{}} & \cellcolor{gray!10}{11-15} & \cellcolor{gray!10}{11.66} & \cellcolor{gray!10}{11.46} & \cellcolor{gray!10}{6.82} & \textcolor{blue}{\em{\cellcolor{gray!10}{}}}\\
+\textbf{} & 16-20 & 11.90 & 11.88 & 6.89 & \textcolor{blue}{\em{}}\\*
+\end{longtable}
+\endgroup{}
+
+\textbf{Gráfico}
+
 \begin{figure}[H]
 
-{\centering \includegraphics[width=1\linewidth,]{informe_files/figure-latex/comparativa-interaccion-azul-fuerte-1} 
+{\centering \includegraphics[width=1\linewidth,]{informe_files/figure-latex/comparativa-interaccion-1} 
 
 }
 
-\caption{Distribución de Horas vs. Sesiones por Género}\label{fig:comparativa-interaccion-azul-fuerte}
+\caption{Distribución de Horas vs. Sesiones por Género}\label{fig:comparativa-interaccion}
 \end{figure}
 
-El análisis visual de dispersión segmentado por género revela una
-distribución uniforme y rectangular en todos los paneles. Esta forma del
-gráfico indica que no existe una correlación lineal fuerte entre la
-cantidad de sesiones y las horas totales; es decir, en cada género
-encontramos de manera equitativa a todo tipo de jugadores: desde
-aquellos con pocas sesiones y pocas horas, hasta los que presentan una
-alta frecuencia y dedicación.
+El análisis comparativo entre las horas totales de juego y la frecuencia
+de sesiones semanales permite identificar el comportamiento de consumo
+del usuario según el género del videojuego. Al observar la estabilidad
+de las medianas y la distribución de los boxplots en todos los rangos se
+puede ver el tiempo total de juego semanal se mantiene constante en un
+promedio de 12 horas, independientemente de qué tan frecuente sea el
+acceso del usuario o el género del videojuego. Los coeficientes de
+correlación de Pearson obtenidos (aproximadamente 0) confirman la
+ausencia de una relación lineal entre estas variables, lo que demuestra
+que una mayor frecuencia de sesiones no se traduce en una mayor
+dedicación horaria. Este fenómeno sugiere un comportamiento de
+compensación, donde los jugadores ajustan la duración de sus partidas
+según su disponibilidad: quienes entran pocas veces realizan sesiones
+largas, mientras que los jugadores recurrentes optan por sesiones
+breves.
 
 \section{Relacion lineal entre Horas de Juego y Sesiones por Semena}
 
@@ -563,21 +616,29 @@ Para verificar si existe una relación directa entre el tiempo total de
 juego y la constancia semanal, se procedió a calcular el Coeficiente de
 Correlación de Pearson (r):
 
-\begin{figure}[H]
+\begin{center}\includegraphics[width=0.9\linewidth,]{informe_files/figure-latex/analisis-correlacion-definitivo-1} \end{center}
 
-{\centering \includegraphics[width=0.85\linewidth,]{informe_files/figure-latex/verificacion-correlacion-1} 
+\begin{longtable}[t]{lll}
+\caption{\label{tab:analisis-correlacion-definitivo}Resumen Estadístico de la Asociación Lineal}\\
+\toprule
+Metrica & Valor & Relacion\\
+\midrule
+Coeficiente de Pearson (r) & -0.0037 & Nula / Independiente\\
+\bottomrule
+\end{longtable}
 
-}
-
-\caption{Correlación Lineal entre Sesiones y Horas}\label{fig:verificacion-correlacion}
-\end{figure}
-
-Para verificar si un aumento en las sesiones semanales se traduce
-necesariamente en una mayor cantidad de horas totales, se calculó el
-Coeficiente de Correlación de Pearson, obteniendo un valor de -0.0037.
-Desde el punto de vista estadístico, este resultado indica una
-correlación nula, lo que significa que la constancia semanal y la
-dedicación horaria operan como variables independientes.
+Visualmente, se observa que los promedios de horas totales se mantienen
+estables en todos los niveles de sesiones por semana. La trayectoria de
+los puntos no presenta una dirección ascendente ni descendente,
+situándose de forma persistente alrededor de las 12 horas. Aunque
+existen ligeras variaciones donde algunos puntos se posicionan levemente
+por encima o por debajo de la media general, estas oscilaciones son
+marginales y no siguen un patrón de crecimiento. Esto describe una
+homogeneidad en el consumo de tiempo, independientemente de la
+constancia del usuario. Como medida resumen de la asociación lineal, se
+obtuvo un valor de Correlacion (aproximadamente 0). Al ser un valor
+prácticamente nulo, actúa como evidencia descriptiva de que no existe
+una relación lineal entre las variables analizadas.
 
 \chapter{Conclusiones y Recomendaciones}
 
@@ -649,13 +710,13 @@ duración.\\
 \textbf{Recomendación: } Se recomienda implementar una estrategia de
 fidelización híbrida que reconozca la independencia entre la constancia
 y la duración del juego; dado que un mayor número de sesiones no
-garantiza un mayor tiempo total, las empresas deben diseñar incentivos
-diferenciados que premien por igual los accesos rápidos diarios
-(micro-objetivos) y las sesiones de larga duración (macro-objetivos).
-Este enfoque permite captar el valor de ambos perfiles de usuario de
-forma aislada, optimizando la retención al adaptar la oferta de
-contenido al estilo de vida específico de cada jugador en lugar de
-aplicar un modelo de métricas unificado.
+garantiza un mayor tiempo total, los desarrolladores deben diseñar
+incentivos diferenciados que premien por igual los accesos rápidos
+diarios (micro-objetivos) y las sesiones de larga duración
+(macro-objetivos). Este enfoque permite captar el valor de ambos
+perfiles de usuario de forma aislada, optimizando la retención al
+adaptar la oferta de contenido al estilo de vida específico de cada
+jugador en lugar de aplicar un modelo de métricas unificado.
 
 \appendix
 \renewcommand{\thechapter}{\Alph{chapter}}
