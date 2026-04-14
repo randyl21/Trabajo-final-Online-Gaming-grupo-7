@@ -29,7 +29,7 @@ df_Gente_Sin_Oficio = cargar_datos()
 
 # Título y Descripción
 st.title("🎮 Análisis de Juego en línea")
-st.markdown("Con este Dashboard, lograrás indagar, analizar y comprender el comportamiento de los miles de usuarios que juegan diversos tipos de juegos en línea en varios continentes del mundo, explorando el tiempo invertido en ellos, la dedicación, y el género más popular por cada región.")
+st.markdown("En este Dashboard, lograrás indagar, analizar y comprender el comportamiento de miles de usuarios que juegan en línea diversos tipos de juego en algunos continentes del mundo, explorando el tiempo, la dedicación invertida en ellos, así como también el género más popular por cada región.")
 
 # sidebar
 st.sidebar.title("🎮 Análisis de Juego en línea")
@@ -79,7 +79,7 @@ st.subheader("Referencia Global")
 with st.container(border=True):
     c1, c2, c3 = st.columns(3)
     c1.metric("Total Base de Datos", f"{len(df_Gente_Sin_Oficio):,}")
-    c2.metric("Promedio Global", f"{df_Gente_Sin_Oficio['PlayTimeHours'].mean():.1f} h")
+    c2.metric("Promedio Global de Horas", f"{df_Gente_Sin_Oficio['PlayTimeHours'].mean():.1f} h")
     c3.metric("Promedio Frecuencia", f"{df_Gente_Sin_Oficio['SessionsPerWeek'].mean():.1f}")
 
 
@@ -112,7 +112,7 @@ with tab1:
         with col_texto:
             with st.container(border=True):
                 st.markdown("### 📊 Tops por región")
-                # se crean tabs para mostrar los géneros más jugados y menos jugados por continente
+                # se crean tabs para mostrar los géneros más jugados y menos jugados por ubicación
                 tab_top, tab_bottom = st.tabs(["🏆 Más Jugados", "⚠️ Menos Jugados"])
                 
                 regiones_ordenadas = sorted(df_filtrado['Location'].unique())
@@ -151,12 +151,9 @@ with tab2:
                 st.plotly_chart(fig_comp, use_container_width=True)
         with col_texto:
             with st.container(border=True):
-             with st.expander("📈 Análisis", expanded=True):
-                st.write("Se Observan tres secciones, cada una representa un rango de sesiones semanales, agrupados por el género del juego. Puede observarse que:")
+             with st.expander("📈 Información", expanded=True):
+                st.write("Se Observan tres secciones, cada una representa un rango de sesiones semanales, agrupados por el género del juego.")
 
-                st.write("Los jugadores con nivel **Alto** de compromiso mantienen una frecuencia constante.")
-
-                st.write("Esto sugiere que los jugadores con un alto compromiso son aquellos que tienen más sesiones semanales, mientras que los jugadores con un bajo compromiso tienen menos.")
     else:
         st.error("⚠️ No hay datos para mostrar la comparativa de compromiso. Revisa los filtros.")
 
@@ -190,9 +187,9 @@ with tab3:
             with st.container(border=True):
                 st.metric("Corte Casual", f"{q1:.1f} hrs")
                 st.metric("Corte Hardcore", f"{q3:.1f} hrs")
-                with st.expander("📈 Análisis", expanded=True):
+                with st.expander("📈 Información", expanded=True):
                   st.write("Se observa que los jugadores que tienen más horas son 'hardcore' o intensos, mientras que los jugadores que tienen menos horas son moderados o casuales.")
-                  st.write("Esto implica que los jugadores intensos tienen un nivel muy alto de dedicación, siendo capaces de pasar incluso más de 18 horas en el juego, y este nivel de dedicación se va degradando a medida que se retrocede en el gráfico.")
+
     else:
         st.error("⚠️ Selecciona un rango de horas o ubicación válida para ver la distribución.")
         
@@ -205,14 +202,15 @@ with tab4:
         with col_grafico:
             with st.container(border=True):
                 df_muestra = df_filtrado.sample(n=min(1000, len(df_filtrado)), random_state=42)
-                
+                # Se genera gráfico de violines ordenado por ubicación
                 fig_regional = px.violin(
                     df_muestra,
                     x="SessionsPerWeek",
                     y="PlayTimeHours",
                     color="Location",
                     labels= {"SessionsPerWeek": "Sesiones Sem.",
-                             "PlayTimeHours": "Horas de Juego"},
+                             "PlayTimeHours": "Horas de Juego",
+                             "Location": "Ubicación" },
                     facet_col="Location",
                     box=True,
                     points="outliers", 
@@ -226,7 +224,7 @@ with tab4:
                 st.plotly_chart(fig_regional, use_container_width=True)
 
                 st.markdown("### Resumen de Correlación")
-                
+                # Para una mejor comprensión del resultado.
                 df_correlaciones = df_filtrado.groupby('Location').apply(
                     lambda x: x['SessionsPerWeek'].corr(x['PlayTimeHours']),
                     include_groups=False
@@ -243,10 +241,10 @@ with tab4:
         with col_texto:
             with st.container(border=True):
                 
-                with st.expander("📈 Análisis", expanded=True):
+                with st.expander("📈 Información", expanded=True):
                     st.markdown("""Se presenta un gráfico de violines agrupados por continente, distribuyendo las horas de juego junto con las sesiones semanales.
             """)
-                    st.write("""Para este análisis, se realizan cálculos de correlación. Los coeficientes son cercanos a 0; lo que implica que el tiempo de juego es independiente de cuántas veces se conectan a la semana. Esto sugiere que hay jugadores que se conectan poco pero juegan sesiones larguísimas, y viceversa.
+                    st.write("""Para este análisis, se realizan cálculos de correlación.
                                  """)
     else:
         st.error("⚠️ No hay datos suficientes para mostrar el análisis. Ajusta los filtros en la sidebar.")
@@ -266,14 +264,14 @@ with st.container(border=True):
     if not df_filtrado.empty:
         col1, col2, col3 = st.columns(3)
         
-        col1.metric("Jugadores", f"{len(df_filtrado):,}", 
+        col1.metric("Jugadores seleccionados", f"{len(df_filtrado):,}", 
                   help="Número de personas que cumplen con tus filtros")
         
         avg_playtime = df_filtrado['PlayTimeHours'].mean()
-        col2.metric("Horas", f"{avg_playtime:.1f} h")
+        col2.metric("Horas seleccionadas", f"{avg_playtime:.1f} h")
         
         avg_freq = df_filtrado['SessionsPerWeek'].mean()
-        col3.metric("Frecuencia", f"{avg_freq:.1f}")
+        col3.metric("Frecuencia de sesiones", f"{avg_freq:.1f}")
     else:
         st.warning("No hay coincidencias para los filtros actuales.")
 
