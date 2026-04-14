@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.13)  13 APR 2026 20:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.4.13)  13 APR 2026 21:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -931,29 +931,29 @@ Cap\'{\i }tulo 3.
 <informe_files/figure-latex/grafica_frecuencias_libres-1.pdf, id=228, 861.2175pt x 641.39626pt>
 File: informe_files/figure-latex/grafica_frecuencias_libres-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/grafica_frecuencias_libres-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/grafica_frecuencias_libres-1.pdf  used on input line 440.
+Package pdftex.def Info: informe_files/figure-latex/grafica_frecuencias_libres-1.pdf  used on input line 441.
 (pdftex.def)             Requested size: 371.30594pt x 276.53882pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--444
+Underfull \hbox (badness 10000) in paragraph at lines 443--445
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--451
+Underfull \hbox (badness 10000) in paragraph at lines 446--452
 
  []
 
-LaTeX Info: Redefining \. on input line 451.
-LaTeX Info: Redefining \% on input line 451.
+LaTeX Info: Redefining \. on input line 452.
+LaTeX Info: Redefining \% on input line 452.
 [10 <./informe_files/figure-latex/grafica_frecuencias_libres-1.pdf>]
-LaTeX Info: Redefining \. on input line 470.
-LaTeX Info: Redefining \% on input line 470.
+LaTeX Info: Redefining \. on input line 471.
+LaTeX Info: Redefining \% on input line 471.
 [11]
 Cap\'{\i }tulo 4.
 <informe_files/figure-latex/grafico-popularidad-1.pdf, id=246, 457.71pt x 315.1775pt>
 File: informe_files/figure-latex/grafico-popularidad-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/grafico-popularidad-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/grafico-popularidad-1.pdf  used on input line 484.
+Package pdftex.def Info: informe_files/figure-latex/grafico-popularidad-1.pdf  used on input line 485.
 (pdftex.def)             Requested size: 330.06778pt x 177.88805pt.
 [12
 
@@ -961,59 +961,59 @@ Package pdftex.def Info: informe_files/figure-latex/grafico-popularidad-1.pdf  u
 <informe_files/figure-latex/boxplot-compromiso-final-1.pdf, id=260, 468.75125pt x 317.185pt>
 File: informe_files/figure-latex/boxplot-compromiso-final-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/boxplot-compromiso-final-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/boxplot-compromiso-final-1.pdf  used on input line 519.
+Package pdftex.def Info: informe_files/figure-latex/boxplot-compromiso-final-1.pdf  used on input line 520.
 (pdftex.def)             Requested size: 350.68272pt x 237.28801pt.
-LaTeX Info: Redefining \. on input line 536.
-LaTeX Info: Redefining \% on input line 536.
+LaTeX Info: Redefining \. on input line 537.
+LaTeX Info: Redefining \% on input line 537.
 [13 <./informe_files/figure-latex/boxplot-compromiso-final-1.pdf>]
 ignored: Infinite glue shrinkage found in box being split
-LaTeX Info: Redefining \. on input line 583.
-LaTeX Info: Redefining \% on input line 583.
+LaTeX Info: Redefining \. on input line 584.
+LaTeX Info: Redefining \% on input line 584.
 [14]
 <informe_files/figure-latex/comparativa-interaccion-1.pdf, id=282, 463.7325pt x 316.18124pt>
 File: informe_files/figure-latex/comparativa-interaccion-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/comparativa-interaccion-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/comparativa-interaccion-1.pdf  used on input line 590.
+Package pdftex.def Info: informe_files/figure-latex/comparativa-interaccion-1.pdf  used on input line 591.
 (pdftex.def)             Requested size: 412.56496pt x 281.2991pt.
-LaTeX Info: Redefining \. on input line 612.
-LaTeX Info: Redefining \% on input line 612.
+LaTeX Info: Redefining \. on input line 613.
+LaTeX Info: Redefining \% on input line 613.
 [15 <./informe_files/figure-latex/comparativa-interaccion-1.pdf>]
 <informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf, id=299, 463.7325pt x 316.18124pt>
 File: informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf  used on input line 619.
+Package pdftex.def Info: informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf  used on input line 620.
 (pdftex.def)             Requested size: 371.30594pt x 253.16725pt.
-LaTeX Info: Redefining \. on input line 642.
-LaTeX Info: Redefining \% on input line 642.
-[16 <./informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf>]
 LaTeX Info: Redefining \. on input line 643.
 LaTeX Info: Redefining \% on input line 643.
+[16 <./informe_files/figure-latex/analisis-correlacion-definitivo-1.pdf>]
+LaTeX Info: Redefining \. on input line 644.
+LaTeX Info: Redefining \% on input line 644.
 [17]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 645--652
+Underfull \hbox (badness 10000) in paragraph at lines 646--653
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--659
+Underfull \hbox (badness 10000) in paragraph at lines 654--660
 
  []
 
 [18
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 680--689
+Underfull \hbox (badness 10000) in paragraph at lines 681--690
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--699
+Underfull \hbox (badness 10000) in paragraph at lines 691--700
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 700--709
+Underfull \hbox (badness 10000) in paragraph at lines 701--710
 
  []
 
@@ -1022,14 +1022,14 @@ Ap\'{e}ndice A.
 <informe_files/figure-latex/anexo-frecuencia-compras-1.pdf, id=324, 463.7325pt x 316.18124pt>
 File: informe_files/figure-latex/anexo-frecuencia-compras-1.pdf Graphic file (type pdf)
 <use informe_files/figure-latex/anexo-frecuencia-compras-1.pdf>
-Package pdftex.def Info: informe_files/figure-latex/anexo-frecuencia-compras-1.pdf  used on input line 726.
+Package pdftex.def Info: informe_files/figure-latex/anexo-frecuencia-compras-1.pdf  used on input line 727.
 (pdftex.def)             Requested size: 371.30594pt x 253.16725pt.
 [20
 
  <./informe_files/figure-latex/anexo-frecuencia-compras-1.pdf>]
 Ap\'{e}ndice B.
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--740
+Underfull \hbox (badness 10000) in paragraph at lines 740--741
 
  []
 
@@ -1038,59 +1038,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 739--740
 ]
 Ap\'{e}ndice C.
 
-Underfull \hbox (badness 10000) in paragraph at lines 753--756
+Underfull \hbox (badness 10000) in paragraph at lines 754--757
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 757--761
+Underfull \hbox (badness 10000) in paragraph at lines 758--762
 
  []
 
 
-Overfull \hbox (7.85904pt too wide) in paragraph at lines 762--764
+Overfull \hbox (7.85904pt too wide) in paragraph at lines 763--765
 []\OT1/cmr/m/n/10.95 Newzoo. (2025). \OT1/cmr/m/it/10.95 Glo-bal Ga-mes Mar-ket Re-port 2025\OT1/cmr/m/n/10.95 . Re-cu-pe-ra-do de [][]$\OT1/cmtt/m/n/10.95 https : / / newzoo .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 762--764
+Underfull \hbox (badness 10000) in paragraph at lines 763--765
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 765--767
+Underfull \hbox (badness 10000) in paragraph at lines 766--768
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 768--770
+Underfull \hbox (badness 10000) in paragraph at lines 769--771
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 771--773
+Underfull \hbox (badness 10000) in paragraph at lines 772--774
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--776
+Underfull \hbox (badness 10000) in paragraph at lines 775--777
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 777--779
+Underfull \hbox (badness 10000) in paragraph at lines 778--780
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 780--782
+Underfull \hbox (badness 10000) in paragraph at lines 781--783
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 784--786
+
+ []
+
+[22
+
+]
+Overfull \hbox (138.98228pt too wide) in paragraph at lines 787--790
+\OT1/cmr/m/n/10.95 tos]. Kag-gle. [][]$\OT1/cmtt/m/n/10.95 https : / / www . kaggle . com / datasets / rabieelkharoua / predict-[]online-[]gaming-[]behavior-[]dataset$[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 787--790
 
  []
 
 No file informe.bbl.
-[22
-
-] [23] (./informe.aux
+[23] (./informe.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -1113,10 +1128,10 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  105i,12n,107p,763b,816s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></home/joseaguirre/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on informe.pdf (27 pages, 565024 bytes).
+Output written on informe.pdf (27 pages, 567001 bytes).
 PDF statistics:
- 441 PDF objects out of 1000 (max. 8388607)
- 353 compressed objects within 4 object streams
+ 442 PDF objects out of 1000 (max. 8388607)
+ 354 compressed objects within 4 object streams
  66 named destinations out of 1000 (max. 500000)
  281 words of extra memory for PDF output out of 10000 (max. 10000000)
 
