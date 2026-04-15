@@ -30,6 +30,7 @@ El trabajo se desarrolla utilizando R y Python, junto con sus respectivas librer
 ---
 
 Dashboard interactivo con Streamlit: https://dashboard-de-analisis-de-juego-en-linea.onrender.com/
+
 Informe dinámico en Rmarkdown:
 
 **📝 Programas utilizados**
