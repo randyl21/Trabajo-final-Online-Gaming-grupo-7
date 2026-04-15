@@ -1,36 +1,37 @@
 ---
-# --- Metadatos Básicos ---
-title: "Análisis del comportamiento de los jugadores en función de la ubicación geográfica y el género del videojuego: horas de uso y frecuencia de sesiones"
+title: "Análisis del comportamiento de los jugadores en línea en función de la ubicación geográfica y el género del videojuego, horas de uso y frecuencia de sesiones"
 author:
-   - Estefani Carreño
-   - Aziel González
+  - "Estefani Carreño"
+  - "Aziel González"
 date: "Abril 2026"
-
-# --- Metadatos Específicos de Plantilla ---
 degree: "Computación I"
-director: 
-  - Jesús Ochoa 
-  - Oliver Triveño
+director:
+  - "Jesús Ochoa"
+  - "Oliver Triveño"
 lugar: "Caracas"
-facultad: 
-  - Facultad de Ciencias Económicas y Sociales
-  - Escuela de Estadistica y Ciencias Actuariales
-# Ruta al escudo (relativa al archivo .Rmd)
+facultad:
+  - "Facultad de Ciencias Económicas y Sociales"
+  - "Escuela de Estadistica y Ciencias Actuariales"
 escudo: "Latex/Classes/Escudos/faces"
+bibliography: "bibliografia.bib"
 
-# --- Bibliografía ---
-bibliography: bibliografia.bib
+# --- SOLUCIÓN DE BAJO NIVEL PARA LOS WARNINGS, Que al final no funciono ---
+header-includes:
+  - \usepackage[T1]{fontenc}
+  - \usepackage{lmodern}
+  - \makeatletter \@twosidetrue \makeatother
+  - \usepackage{silence}
+  - \WarningFilter{xcolor}{Package option `usenames' is obsolete}
+  - \WarningFilter{spanish}{Replacing `OT1/cmr/bx/sc'}
 
-# --- Configuración de Salida ---
-output: 
+output:
   pdf_document:
-    template: template.tex  # Llamamos al archivo de plantilla
-    keep_tex: true                 # Útil para ver errores si ocurren
-    toc: true                      # Generar índice
+    template: "template.tex"
+    keep_tex: true
+    toc: true
     number_sections: true
-    citation_package: natbib       # Importante: forzar natbib porque tu plantilla lo usa
+    citation_package: "natbib"
 
-# --- Resumen (Abstract) ---
 abstract: |
   En el presente trabajo se realiza un análisis estadístico sobre el comportamiento de los jugadores de videojuegos. Se examina la influencia de la ubicación geográfica y el género del juego en los patrones de consumo, evaluando específicamente la intensidad de uso (horas totales) y la frecuencia de sesiones semanales. El estudio aplica técnicas estadísticas descriptivas y visualización de datos con R.
 ---
@@ -213,6 +214,7 @@ Se ha delimitado el análisis al nivel descriptivo y correlacional atendiendo a 
 El dataset objeto de estudio, denominado "17 Online Gaming.csv", extraido de la página Kaggle (El Kharoua, 2024) y a la vez sumunistrado por la unidad curricular, está compuesto originalmente por un total de 40.034 filas y 13 columnas. Cada registro representa el perfil de actividad de un jugador único. Para las variables cuantitativas calculamos estadisticas descriptivas (dataset original):
 
 ```{r tabla_cuanti_final, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
 
 # Carga de datos y cambio de variables de ingles a espanol
 datos <- read.csv("17. Online Gaming.csv") %>%
