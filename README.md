@@ -26,9 +26,13 @@ El trabajo se desarrolla utilizando R y Python, con el objetivo de visualizar, t
 
 - La frecuencia en la que se juega y el tiempo de juego son comportamientos independientes.
 
-**🖥️ Información Completa e Interactiva**
+**🖥️ Información Interactiva**
 ---
 
-- *aquí va el link del pdf*
+Dashboard interactivo con Streamlit: https://dashboard-de-analisis-de-juego-en-linea.onrender.com/
 
-- *aquí va el link del dashboard*
+**Autores**
+---
+
+- Aziel González
+- Estefani Carreño
