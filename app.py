@@ -29,13 +29,14 @@ df_Gente_Sin_Oficio = cargar_datos()
 
 # Título y Descripción
 st.title("🎮 Análisis de Juego en línea")
-st.markdown("En este Dashboard, lograrás indagar, analizar y comprender el comportamiento de miles de usuarios que juegan en línea diversos tipos de juego en algunos continentes del mundo, explorando el tiempo, la dedicación invertida en ellos, así como también el género más popular por cada región.")
+st.markdown("¡Bienvenido a nuestro Dashboard!")
+st.markdown("Aquí, lograrás indagar, analizar y comprender el comportamiento de miles de usuarios que juegan en línea diversos géneros de juego en algunos continentes del mundo, explorando el tiempo, la dedicación invertida en ellos, así como también el género más popular por cada región.")
 
 # sidebar
-st.sidebar.title("🎮 Análisis de Juego en línea")
+st.sidebar.title("🎮 Análisis de Juego en Línea")
 st.sidebar.markdown("🔴 Panel de Filtros")
 
-# Locación
+# Desplegable interactivo para la locación
 with st.sidebar.expander("📍 Locación Geográfica", expanded=True):
     ubicaciones_disponibles = df_Gente_Sin_Oficio['Location'].unique()
     ubicaciones_seleccionadas = st.multiselect(
@@ -44,7 +45,7 @@ with st.sidebar.expander("📍 Locación Geográfica", expanded=True):
         default=ubicaciones_disponibles[:4]
     )
 
-# Género de juego
+# Desplegable interactivo para el Género de juego
 with st.sidebar.expander("🎮 Género de Juego", expanded=True):
     generos_disponibles = df_Gente_Sin_Oficio['GameGenre'].unique()
     generos_seleccionados = st.multiselect(
@@ -53,7 +54,7 @@ with st.sidebar.expander("🎮 Género de Juego", expanded=True):
         default=generos_disponibles.tolist()
     )
 
-# Horas
+# Slider para el rango de horas de juego
 with st.sidebar.expander("🕒 Horas de Juego", expanded=True):
     horas_min = float(df_Gente_Sin_Oficio["PlayTimeHours"].min())
     horas_max = float(df_Gente_Sin_Oficio["PlayTimeHours"].max())
@@ -63,10 +64,10 @@ with st.sidebar.expander("🕒 Horas de Juego", expanded=True):
         max_value=horas_max,
         value=(horas_min, horas_max)
     )
-
+ # Se agregan autores del trabajo
 st.sidebar.markdown("🎮 Análisis por: Aziel González y Estefani Carreño")
 
-# filtrado
+# filtrado importante
 df_filtrado = df_Gente_Sin_Oficio[
     (df_Gente_Sin_Oficio["PlayTimeHours"] >= rango_horas[0]) & 
     (df_Gente_Sin_Oficio["PlayTimeHours"] <= rango_horas[1]) & 
@@ -74,26 +75,29 @@ df_filtrado = df_Gente_Sin_Oficio[
     (df_Gente_Sin_Oficio["GameGenre"].isin(generos_seleccionados))
 ]
 
-# Métricas estáticas
+# generación de las Métricas estáticas con los datos globales
 st.subheader("Referencia Global")
 with st.container(border=True):
     c1, c2, c3 = st.columns(3)
-    c1.metric("Total Base de Datos", f"{len(df_Gente_Sin_Oficio):,}")
+    # Total de jugadores (en general)
+    c1.metric("Total de Jugadores", f"{len(df_Gente_Sin_Oficio):,}")
+    # Horas en promedio
     c2.metric("Promedio Global de Horas", f"{df_Gente_Sin_Oficio['PlayTimeHours'].mean():.1f} h")
-    c3.metric("Promedio Frecuencia", f"{df_Gente_Sin_Oficio['SessionsPerWeek'].mean():.1f}")
+    # Promedio de las sesiones semanales
+    c3.metric("Promedio Frecuencia (sesiones semanales)", f"{df_Gente_Sin_Oficio['SessionsPerWeek'].mean():.1f}")
 
 
 st.markdown("---")
 
 # se agregan tabs para mostrar diferentes análisis de los objetivos
 tab1, tab2, tab3, tab4 = st.tabs(["🌎Análisis Regional", "📈Dedicación y Frecuencia", "📊Distribución de horas", "⏱️Tiempo de juego y Frecuencia Semanal"])
-
+ # Objetivo 1: Identificar los géneros más populares por región
 with tab1:
     st.subheader("🌎 Géneros más populares por Región")
 
     if not df_filtrado.empty:
         df_counts = df_filtrado.groupby(["Location", "GameGenre"]).size().reset_index(name="Usuarios")
-        # columnas
+        # columnas para organizar
         col_grafico, col_texto = st.columns([2, 1])
         # para el gráfico
         with col_grafico:
@@ -133,10 +137,11 @@ with tab1:
                         st.caption(f"**{r}**: {bottom_genre} ({count_bottom})")
     else:
         st.error("⚠️ Selecciona al menos una región para ver el desglose.")
-
+    #Objetivo 2: Comparar las horas de dedicación y frecuencia de sesiones semanales entre distintos géneros de videojuegos.
 with tab2:
     st.subheader("📈Comparativa de Compromiso y Sesiones Semanales")
     if not df_filtrado.empty:
+         # columnas para organizar x2
         col_grafico, col_texto = st.columns([2, 1])
         with col_grafico:
             with st.container(border=True):
@@ -170,7 +175,7 @@ with tab3:
 
         df_eval = df_filtrado.copy()
         df_eval["Nivel"] = df_eval["PlayTimeHours"].apply(evaluar_dedicacion)
-
+        # columnas para organizar x3
         col_grafico, col_texto = st.columns([2, 1])
         with col_grafico:
             with st.container(border=True):
@@ -195,7 +200,7 @@ with tab3:
         
 with tab4:
     st.subheader("⏱️Frecuencia y Tiempo de juego (por región)")
-
+     # columnas para organizar
     if not df_filtrado.empty:
         col_grafico, col_texto = st.columns([2, 1]) 
 
