@@ -200,31 +200,34 @@ with tab3:
         
 with tab4:
     st.subheader("⏱️Frecuencia y Tiempo de juego (por región)")
-     # columnas para organizar
+    
+    # columnas para organizar x4
     if not df_filtrado.empty:
         col_grafico, col_texto = st.columns([2, 1]) 
 
         with col_grafico:
             with st.container(border=True):
                 df_muestra = df_filtrado.sample(n=min(1000, len(df_filtrado)), random_state=42)
-                # Se genera gráfico de violines ordenado por ubicación
-                fig_regional = px.violin(
+                
+                # Se genera gráfico de dispersión ordenado por ubicación
+                fig_regional = px.scatter(
                     df_muestra,
                     x="SessionsPerWeek",
                     y="PlayTimeHours",
                     color="Location",
-                    labels= {"SessionsPerWeek": "Sesiones Sem.",
-                             "PlayTimeHours": "Horas de Juego",
-                             "Location": "Ubicación" },
                     facet_col="Location",
-                    box=True,
-                    points="outliers", 
+                    labels={
+                        "SessionsPerWeek": "Sesiones Sem.",
+                        "PlayTimeHours": "Horas de Juego",
+                        "Location": "Ubicación"
+                    },
+                    opacity=0.6,
                     template="plotly_dark",
-                    title="Distribución de Tiempo de Juego por Sesiones Semanales",
+                    title="Relación entre Sesiones Semanales y Horas de Juego",
                     category_orders={"Location": ubicaciones_seleccionadas}
                 )
 
-                
+                # Ajuste de títulos de las facetas y visualización
                 fig_regional.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
                 st.plotly_chart(fig_regional, use_container_width=True)
 
@@ -247,9 +250,9 @@ with tab4:
             with st.container(border=True):
                 
                 with st.expander("📈 Información", expanded=True):
-                    st.markdown("""Se presenta un gráfico de violines agrupados por continente, distribuyendo las horas de juego junto con las sesiones semanales.
+                    st.markdown("""Se presenta un gráfico de dispersión agrupado por región, que muestra la relación individual de cada usuario entre sus sesiones semanales y horas de juego.
             """)
-                    st.write("""Para este análisis, se realizan cálculos de correlación.
+                    st.write("""Para este análisis, se realizan cálculos de correlación de Pearson para cuantificar la fuerza de dicha relación.
                                  """)
     else:
         st.error("⚠️ No hay datos suficientes para mostrar el análisis. Ajusta los filtros en la sidebar.")
