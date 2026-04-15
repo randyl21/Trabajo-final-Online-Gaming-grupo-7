@@ -10,6 +10,17 @@ st.set_page_config(page_title="Análisis de Juego en Línea", page_icon="https:/
 @   st.cache_data
 def cargar_datos():
     df_Gente_Sin_Oficio = pd.read_csv("17. Online Gaming.csv")
+    # limpieza por valores específicos por columna
+    valores_limpios = {
+        'PlayTimeHours': 0,
+        'SessionsPerWeek': 0,
+        'Location': 'Otro',
+        'GameGenre': 'Sin Especificar',
+        'EngagementLevel': 'Bajo'
+         }
+
+    df_Gente_Sin_Oficio = df_Gente_Sin_Oficio.fillna(value=valores_limpios)
+
     #reemplazo nombres de la columna "Location" para que estén en español
     df_Gente_Sin_Oficio["Location"] = df_Gente_Sin_Oficio["Location"].replace("Other", "Otro")
     df_Gente_Sin_Oficio["Location"] = df_Gente_Sin_Oficio["Location"].replace("USA", "EE.UU")
@@ -161,7 +172,7 @@ with tab2:
 
     else:
         st.error("⚠️ No hay datos para mostrar la comparativa de compromiso. Revisa los filtros.")
-
+     # Objetivo 3: Evaluar la distribución de las horas totales de juego registradas por los usuarios para identificar niveles de dedicación.
 with tab3:
     st.subheader("📊Distribución de horas y niveles de dedicación")
     if not df_filtrado.empty:
@@ -197,7 +208,7 @@ with tab3:
 
     else:
         st.error("⚠️ Selecciona un rango de horas o ubicación válida para ver la distribución.")
-        
+    # Objetivo 4: Verificar si existe una relación directa entre el tiempo total de juego y la frecuencia semanal.
 with tab4:
     st.subheader("⏱️Frecuencia y Tiempo de juego (por región)")
     
